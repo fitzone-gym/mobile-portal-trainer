@@ -10,7 +10,7 @@ export default function Home() {
         <SafeAreaView>
             <Stack.Screen
                 options={{
-                    title: 'Trainer',
+                    title: 'Trainer-dashboard',
                 }}
             />
             
@@ -20,7 +20,7 @@ export default function Home() {
                 >
                     <Text
                         style={styles.heading}
-                    >Trainer</Text>
+                    >Trainer dashboard</Text>
                     <Image
                     source={{
                         uri: 'https://stylioo.blob.core.windows.net/images/logo.png'
