@@ -15,12 +15,8 @@ export default function Home() {
             />
             
             <ScrollView>
-                <View
-                style={styles.container}
-                >
-                    <Text
-                        style={styles.heading}
-                    >Home</Text>
+                <View style={styles.container}>
+                    <Text style={styles.heading}>Home</Text>
                     <TouchableOpacity
                         style={styles.btn}
                         onPress={() => {
