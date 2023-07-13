@@ -4,16 +4,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  content:{
-    paddingLeft:20,
-    paddingBottom:20,
-    paddingTop:20,
-    paddingRight:20
+  back: {
+    backgroundColor: "black",
+    paddingBottom: 50,
+  },
+  content: {
+    paddingLeft: 20,
+    paddingBottom: 20,
+    paddingTop: 20,
+    paddingRight: 20,
   },
   image: {
     flex: 1,
     justifyContent: "center",
-    height: "75%" /* You must set a specified height */,
+    height: "50%" /* You must set a specified height */,
     backgroundPosition: "center" /* Center the image */,
     backgroundRepeat: "no-repeat" /* Do not repeat the image */,
     backgroundSize: "cover",
@@ -42,7 +46,7 @@ const styles = StyleSheet.create({
   },
   trainerDetails: {
     backgroundColor: "#000000c0",
-    marginBottom: "10rem",
+    // marginBottom: "1rem",
     paddingTop: 25,
     paddingBottom: 25,
     paddingLeft: 15,
@@ -62,6 +66,49 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingLeft: 40,
     fontWeight: 600,
+  },
+  trainerPackage:{
+    marginBottom:18
+  },
+  packages: {
+    backgroundColor: "#222222",
+    marginBottom: "1rem",
+    paddingTop: 15,
+    paddingBottom: 15,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 10,
+    marginLeft: 20,
+    marginRight: 20,
+  },
+  packageHeading: {
+    color: "white",
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  detail: {
+    fontSize: 12,
+    border: "1px solid gray",
+    borderRadius: 15,
+    padding: 5,
+    margin: 4,
+    lineHeight: 30,
+    color: "white",
+  },
+  packagePrice: {
+    color: "#E54646",
+    marginLeft: 30,
+  },
+
+  hireBtn: {
+    backgroundColor: "#E54646",
+    width: "89%",
+    height: 40,
+    borderRadius: 10,
+    marginLeft:20,
+    marginRight:20,
+    color:"white",
+    fontWeight:"bold"
   },
 });
 
