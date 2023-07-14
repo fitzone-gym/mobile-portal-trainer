@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     marginBottom: "1rem",
-    border: "2px solid #E54646",
+    borderWidth: 2,
+    borderColor: "#E54646",
     justifyContent: "center",
   },
   trainerDetails: {
@@ -102,13 +103,14 @@ const styles = StyleSheet.create({
 
   hireBtn: {
     backgroundColor: "#E54646",
-    width: "89%",
     height: 40,
     borderRadius: 10,
     marginLeft:20,
     marginRight:20,
     color:"white",
-    fontWeight:"bold"
+    fontWeight:"bold",
+    textTransform:"none",
+    fontSize:15
   },
 });
 
