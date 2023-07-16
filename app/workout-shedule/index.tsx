@@ -1,3 +1,5 @@
+import * as React from "react";
+import {useState} from 'react';
 import {
   ImageBackground,
   StyleSheet,
@@ -20,9 +22,56 @@ import AssignmentTurnedInRoundedIcon from "@mui/icons-material/AssignmentTurnedI
 /*import footer */
 import Footer from "../footer_statusbar/index.tsx";
 
+/*for popup */
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Paper, { PaperProps } from "@mui/material/Paper";
+import Draggable from "react-draggable";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Container from '@mui/material';
+
+
+
+function PaperComponent(props: PaperProps) {
+  return (
+    <Draggable
+      handle="#draggable-dialog-title"
+      cancel={'[class*="MuiDialogContent-root"]'}
+    >
+      <Paper {...props} />
+    </Draggable>
+  );
+}
 
 export default function WorkoutShedule() {
+  /*for routing*/
   const router = useRouter();
+
+  /*popup dialog */
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  /*for edit form */
+  const[exerciseName, setExerciseName] = useState("");
+  const [sets, setSets] = useState("");
+  const[reps, setReps] = useState("");
+
+  function handleSubmit(event){
+    event.preventDefault();
+  }
+
+  /*css */
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -142,8 +191,25 @@ export default function WorkoutShedule() {
       padding: 10,
       borderRadius: 10,
       paddingLeft: 18,
-      marginTop:10,
-      marginBottom:10
+      marginTop: 10,
+      marginBottom: 10,
+    },
+    fillBlueBtn: {
+      backgroundColor: "blue",
+      color: "white",
+      fontWeight: "bold",
+      textTransform: "none",
+      paddingTop: 10,
+      paddingRight: 20,
+      paddingLeft: 20,
+      paddingBottom: 7,
+      borderRadius: 5,
+    },
+    editFormBtn: {
+      alignItems: "left",
+      justifyContent: "center",
+      marginTop: 0,
+      marginBottom: 50,
     },
   });
   return (
@@ -198,10 +264,9 @@ export default function WorkoutShedule() {
             </View>
           </View>
         </ImageBackground>
-
         <View style={styles.content}>
           <View style={styles.workoutShedule}>
-            {(["1", "2", "3", "4","5"] as const).map((anchor) => (
+            {(["1", "2", "3", "4", "5"] as const).map((anchor) => (
               <View style={styles.individualWork}>
                 <View style={styles.individualWorkContent}>
                   <MuiStack spacing={9} direction="row">
@@ -217,6 +282,7 @@ export default function WorkoutShedule() {
                       <MuiStack spacing={1} direction="column">
                         <EditCalendarRoundedIcon
                           style={styles.individualOptionIconEdit}
+                          onClick={handleClickOpen}
                         />
                         <DeleteForeverRoundedIcon
                           style={styles.individualOptionIconDelete}
@@ -239,6 +305,138 @@ export default function WorkoutShedule() {
           <View style={styles.footerSection}>
             <Footer />
           </View>
+        </View>
+
+        {/* dialog popup */}
+        <View>
+          <Dialog
+            open={open}
+            PaperComponent={(props) => (
+              <Paper
+                sx={{
+                  backgroundColor: "black",
+                  paddingLeft: 4,
+                  paddingRight: 4,
+                }}
+                {...props}
+              />
+            )}
+            aria-labelledby="draggable-dialog-title"
+          >
+            {/* <React.Fragment> */}
+            <h2 style={{ color: "white" }}>Edit exercise</h2>
+            <form onSubmit={handleSubmit}>
+              <TextField
+                size="small"
+                type="text"
+                variant="outlined"
+                label="exerciseName"
+                onChange={(e) => setExerciseName(e.target.value)}
+                value={exerciseName}
+                fullWidth
+                required
+                sx={{
+                  mb: 4,
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "white", // Change the border color here
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "blue", // Change the border color on hover here
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "blue", // Change the border color when focused here
+                    },
+                  },
+                  "& .MuiFormLabel-root": {
+                    color: "blue", // Change the label color here
+                  },
+                }}
+              />
+
+              <MuiStack spacing={2} direction="row" sx={{ marginBottom: 4 }}>
+                <TextField
+                  size="small"
+                  type="text"
+                  variant="outlined"
+                  label="sets"
+                  onChange={(e) => setSets(e.target.value)}
+                  value={sets}
+                  fullWidth
+                  required
+                  sx={{
+                    mb: 4,
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        borderColor: "white", // Change the border color here
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "blue", // Change the border color on hover here
+                      },
+                      "&.Mui-focused fieldset": {
+                        borderColor: "blue", // Change the border color when focused here
+                      },
+                    },
+                    "& .MuiFormLabel-root": {
+                      color: "blue", // Change the label color here
+                    },
+                  }}
+                />
+                <TextField
+                  size="small"
+                  type="text"
+                  variant="outlined"
+                  label="reps"
+                  onChange={(e) => setReps(e.target.value)}
+                  value={reps}
+                  fullWidth
+                  required
+                  sx={{
+                    mb: 4,
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        borderColor: "white", // Change the border color here
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "blue", // Change the border color on hover here
+                      },
+                      "&.Mui-focused fieldset": {
+                        borderColor: "blue", // Change the border color when focused here
+                      },
+                    },
+                    "& .MuiFormLabel-root": {
+                      color: "blue", // Change the label color here
+                    },
+                  }}
+                />
+              </MuiStack>
+
+              <View style={styles.editFormBtn}>
+                <MuiStack spacing={2} direction="row">
+                  <TouchableOpacity
+                    variant="contained"
+                    style={styles.fillBlueBtn}
+                    onPress={handleClose}
+                  >
+                    <MuiStack spacing={1} direction="row">
+                      <Text style={styles.btnText}>Accept</Text>
+                    </MuiStack>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    variant="outlined"
+                    style={styles.fillRedBtn}
+                    onPress={handleClose}
+                  >
+                    <MuiStack spacing={1} direction="row">
+                      <Text style={styles.btnText}>Cansel</Text>
+                    </MuiStack>
+                  </TouchableOpacity>
+                </MuiStack>
+              </View>
+            </form>
+            {/* </React>  */}
+          </Dialog>
         </View>
       </ScrollView>
     </SafeAreaView>
