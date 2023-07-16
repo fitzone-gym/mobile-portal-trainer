@@ -31,26 +31,28 @@ const styles = StyleSheet.create({
     color: "#E54646",
     marginBottom: "1rem",
   },
-  trainerDetailsSection: {
+  memberDetailsSection: {
     backgroundColor: "#000000c0",
     paddingTop: 25,
     paddingBottom: 25,
     paddingRight: 15,
     borderRadius: 25,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  trainerImage: {
+  memberImage: {
     width: 75,
     height: 75,
     borderRadius: 50,
     borderWidth: 2,
     borderColor: "#E54646",
   },
-  trainerDetails: {
+  memberDetails: {
     flexDirection: "row",
     gap: 10,
   },
   detailsList: {
-    lineHeight: 30,
+    lineHeight: 50,
   },
   detailsKey: {
     color: "#E54646",
@@ -73,6 +75,11 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     textTransform: "none",
+    paddingTop: 10,
+    paddingRight: 20,
+    paddingLeft: 20,
+    paddingBottom: 10,
+    borderRadius: 5,
   },
   fillWhiteBtn: {
     backgroundColor: "white",
@@ -80,14 +87,62 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "none",
     borderColor: "white",
+    paddingTop: 10,
+    paddingRight: 20,
+    paddingLeft: 20,
+    paddingBottom: 10,
+    borderRadius: 5,
   },
   workoutProgressTopic: {
     color: "white",
     fontSize: 17,
     fontWeight: "bold",
+    marginTop: 20,
   },
-  workoutProgressArea:{
-    
-  }
+  workoutProgressArea: {
+    marginTop: 20,
+    backgroundColor: "#000000c0",
+    paddingTop: 25,
+    paddingBottom: 25,
+    paddingRight: 15,
+    borderRadius: 25,
+    alignItems: "center",
+    justifyContent: "center",
+    height: 200 /*extra */,
+    marginBottom: 30,
+  },
+  healthDetail: {
+    flexDirection: "row",
+    spacing: 2,
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    marginTop: 20,
+  },
+  individualHealthDetail: {
+    backgroundColor: "#000000c0",
+    paddingTop: 5,
+    paddingBottom: 10,
+    paddingRight: 5,
+    borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    // borderColor: "red",
+    borderWidth: 2,
+    width: 85,
+    spacing: 4,
+  },
+  healthTopic: {
+    color: "white",
+    fontWeight: "500",
+    marginBottom: 10,
+    fontSize: 12,
+  },
+  healthLevel: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 30,
+  },
 });
 export default styles;

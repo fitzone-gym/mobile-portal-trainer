@@ -20,7 +20,7 @@ export default function Home() {
                     <TouchableOpacity
                         style={styles.btn}
                         onPress={() => {
-                            router.push('/sidebar')
+                            router.push('/member-profile-detailed')
                         }}
                     >
                         <Text>Click</Text>
