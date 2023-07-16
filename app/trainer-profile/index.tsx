@@ -15,7 +15,6 @@ import Chip from "@mui/material/Chip";
 import DoneIcon from "@mui/icons-material/Done";
 import Button from '@mui/material/Button';
 
-
 const TrainerProfile = () => (
   <SafeAreaView style={styles.container}>
     <Stack.Screen
