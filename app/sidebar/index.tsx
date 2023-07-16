@@ -15,9 +15,9 @@ import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded";
 import BookOnlineRoundedIcon from "@mui/icons-material/BookOnlineRounded";
 import FactCheckRoundedIcon from "@mui/icons-material/FactCheckRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
-import PaymentRoundedIcon from '@mui/icons-material/PaymentRounded';
-import ThreePOutlinedIcon from '@mui/icons-material/ThreePOutlined';
-import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import PaymentRoundedIcon from "@mui/icons-material/PaymentRounded";
+import ThreePOutlinedIcon from "@mui/icons-material/ThreePOutlined";
+import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import ArrowCircleLeftRoundedIcon from "@mui/icons-material/ArrowCircleLeftRounded";
 import WidgetsIcon from "@mui/icons-material/Widgets";
@@ -33,17 +33,19 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-  const iconMap = {
-    Home: <AddHomeRoundedIcon />,
-    Members: <PeopleAltRoundedIcon />,
-    Appointment: <BookOnlineRoundedIcon />,
-    Unknown: <FactCheckRoundedIcon />,
-    Dietplan: <FavoriteRoundedIcon />,
-    Payment: <PaymentRoundedIcon />,
-    Complaint: <ThreePOutlinedIcon />,
-    Myprofile: <AccountCircleRoundedIcon />,
-    Logout: <ExitToAppIcon />,
-  };
+const iconMap = {
+  Home: <AddHomeRoundedIcon />,
+  Members: <PeopleAltRoundedIcon />,
+  Appointment: <BookOnlineRoundedIcon />,
+  Unknown: <FactCheckRoundedIcon />,
+  Dietplan: <FavoriteRoundedIcon />,
+  Payment: <PaymentRoundedIcon />,
+  Complaint: <ThreePOutlinedIcon />,
+  Myprofile: <AccountCircleRoundedIcon />,
+  Logout: <ExitToAppIcon />,
+};
+
+type Anchor = "top";
 
 export default function SwipeableTemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -80,6 +82,8 @@ export default function SwipeableTemporaryDrawer() {
           backgroundColor: "#E54646",
           height: "100%",
           paddingTop: 5,
+          borderTopRightRadius: 30,
+          borderBottomRightRadius: 30,
         }}
         role="presentation"
         onClick={toggleDrawer(anchor, false)}
@@ -103,25 +107,6 @@ export default function SwipeableTemporaryDrawer() {
         <List>
           {["Home", "Members", "Appointment", "Unknown"].map((text, index) => (
             <TouchableOpacity>
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon style={{ color: "white", fontWeight: "bold" }}>
-                  {iconMap[text]}
-                </ListItemIcon>
-                <ListItemText
-                  primary={text}
-                  style={{ color: "white", fontWeight: "bold" }}
-                />
-              </ListItemButton>
-            </ListItem>
-            </TouchableOpacity>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["Dietplan", "Payment", "Complaint", "Myprofile"].map(
-            (text, index) => (
-              <TouchableOpacity>
               <ListItem key={text} disablePadding>
                 <ListItemButton>
                   <ListItemIcon style={{ color: "white", fontWeight: "bold" }}>
@@ -133,6 +118,27 @@ export default function SwipeableTemporaryDrawer() {
                   />
                 </ListItemButton>
               </ListItem>
+            </TouchableOpacity>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          {["Dietplan", "Payment", "Complaint", "Myprofile"].map(
+            (text, index) => (
+              <TouchableOpacity>
+                <ListItem key={text} disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon
+                      style={{ color: "white", fontWeight: "bold" }}
+                    >
+                      {iconMap[text]}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={text}
+                      style={{ color: "white", fontWeight: "bold" }}
+                    />
+                  </ListItemButton>
+                </ListItem>
               </TouchableOpacity>
             )
           )}
@@ -159,49 +165,52 @@ export default function SwipeableTemporaryDrawer() {
     </View>
   );
 
-    const styles = StyleSheet.create({
-      backBtn: {
-        color: "white",
-        marginLeft: "78%",
-      },
-      logUserDetail: {
-        flexDirection: "row",
-        flexWrap: "wrap",
-        spacing: 10,
-        backgroundColor: "#000000c0",
-        marginLeft: 10,
-        marginRight: 20,
-        marginTop: 10,
-        paddingTop: 5,
-        paddingBottom: 5,
-        paddingLeft: 10,
-        borderRadius: 30,
-      },
-      logUserImage: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-        borderWidth: 2,
-        borderColor: "#E54646",
-      },
-      logUserName: {
-        marginLeft: 20,
-        justifyContent: "center",
-      },
-      nameText: {
-        color: "white",
-        fontWeight: "bold",
-      },
-      listItemName: {
-        color: "white",
-      },
-      logout:{
-        marginTop:"100%"
-      }
-    });
+  const styles = StyleSheet.create({
+    backBtn: {
+      color: "white",
+      marginLeft: "78%",
+    },
+    logUserDetail: {
+      flexDirection: "row",
+      flexWrap: "wrap",
+      spacing: 10,
+      backgroundColor: "#000000c0",
+      marginLeft: 10,
+      marginRight: 20,
+      marginTop: 10,
+      paddingTop: 5,
+      paddingBottom: 5,
+      paddingLeft: 10,
+      borderRadius: 30,
+    },
+    logUserImage: {
+      width: 50,
+      height: 50,
+      borderRadius: 25,
+      borderWidth: 2,
+      borderColor: "#E54646",
+    },
+    logUserName: {
+      marginLeft: 20,
+      justifyContent: "center",
+    },
+    nameText: {
+      color: "white",
+      fontWeight: "bold",
+    },
+    listItemName: {
+      color: "white",
+    },
+    logout: {
+      marginTop: "100%",
+    },
+    container:{
+      backgroundColor:"black"
+    }
+  });
 
   return (
-    <View>
+    <View style={styles.container}>
       {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
@@ -210,7 +219,7 @@ export default function SwipeableTemporaryDrawer() {
                 color: "#E54646",
                 padding: 10,
                 backgroundColor: "#000000c0",
-                borderRadius:25
+                borderRadius: 25,
               }}
             />
           </Button>
@@ -227,5 +236,3 @@ export default function SwipeableTemporaryDrawer() {
     </View>
   );
 }
-
-

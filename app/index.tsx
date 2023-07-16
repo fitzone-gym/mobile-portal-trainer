@@ -1,6 +1,6 @@
 import styles from '../styles/home.style';
 
-import { View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 
 
@@ -20,7 +20,7 @@ export default function Home() {
                     <TouchableOpacity
                         style={styles.btn}
                         onPress={() => {
-                            router.push('/trainer-profile')
+                            router.push('/sidebar')
                         }}
                     >
                         <Text>Click</Text>
