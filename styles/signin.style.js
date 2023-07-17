@@ -3,37 +3,36 @@ import {StyleSheet} from 'react-native'
 const styles = StyleSheet.create({
     
     container: {
-        flex: 1,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        minHeight: '100%',
+        minHeight: '200%'
     }, 
 
     backgroundImage:{
         flex: 1,
         justifyContent: 'center',
-        height: '100%',
-    },
-
-    top: {
-        flex: 1,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginTop: 10
+        justifyContent:'space-between'
     },
     logo:{
         width:115,
         height:100,
     },
+
+    top: {
+        // flex: 1,
+        // justifyContent: 'space-between',
+        // alignItems: 'center',
+        marginTop: 10
+    },
+    
     bottom:{
         flex: 1,
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#222222',
         opacity: 0.7,
-        margin:1,
+        margin:20,
         padding:20,
         borderRadius:17,
+        maxWidth: '44%',
     },
 
     heading: {

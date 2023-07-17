@@ -1,4 +1,5 @@
 import styles from '../../styles/home.style';
+import Footer_nav from '../../components/navigation/footer_statusbar'
 // import Tabs from "../../components/navigation/tabs.js";
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground,TouchableOpacity } from 'react-native';
 
@@ -17,6 +18,7 @@ export default function Home() {
                 <ImageBackground source={require('../../assets/images/home.png')} resizeMode='cover' style={styles.backgroundImage}>
                     <ScrollView>                        
                         <Text style={styles.heading}>Home</Text> 
+                        <Footer_nav/>
                     </ScrollView>
                 </ImageBackground>
             </View>
