@@ -1,39 +1,25 @@
 import styles from '../../styles/home.style';
+// import Tabs from "../../components/navigation/tabs.js";
+import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground,TouchableOpacity } from 'react-native';
 
-import { View, Text, Image, SafeAreaView, ScrollView } from 'react-native';
-
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 
 export default function Home() {
-
+    const router = useRouter()
     return (
         <SafeAreaView>
             <Stack.Screen
                 options={{
-                    title: 'Trainer-dashboard',
+                    title: '',
                 }}
             />
-            
-            <ScrollView>
-                <View
-                style={styles.container}
-                >
-                    <Text
-                        style={styles.heading}
-                    >Trainer dashboard</Text>
-                    <Image
-                    source={{
-                        uri: 'https://stylioo.blob.core.windows.net/images/logo.png'
-                    }}
-                    // resizeMode='contain'
-                    style={{
-                        width: '100%',
-                        height: 300,
-                    }}
-                />              
-                </View>
-            </ScrollView>
-            
+            <View style={styles.container}>
+                <ImageBackground source={require('../../assets/images/home.png')} resizeMode='cover' style={styles.backgroundImage}>
+                    <ScrollView>                        
+                        <Text style={styles.heading}>Home</Text> 
+                    </ScrollView>
+                </ImageBackground>
+            </View>
         </SafeAreaView>
     )
 }

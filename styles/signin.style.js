@@ -1,17 +1,7 @@
 import {StyleSheet} from 'react-native'
 
 const styles = StyleSheet.create({
-    backgroundImage:{
-        flex: 1,
-        justifyContent: 'center',
-        height: '100%',
-    },
-
-    logo:{
-        width:115,
-        height:100,
-    },
-
+    
     container: {
         flex: 1,
         justifyContent: 'space-between',
@@ -19,20 +9,29 @@ const styles = StyleSheet.create({
         minHeight: '100%',
     }, 
 
+    backgroundImage:{
+        flex: 1,
+        justifyContent: 'center',
+        height: '100%',
+    },
+
     top: {
         flex: 1,
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: 10
     },
-
+    logo:{
+        width:115,
+        height:100,
+    },
     bottom:{
         flex: 1,
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#222222',
         opacity: 0.7,
-        margin:20,
+        margin:1,
         padding:20,
         borderRadius:17,
     },

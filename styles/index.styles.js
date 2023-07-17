@@ -1,9 +1,15 @@
 import {StyleSheet} from 'react-native'
 
 const styles = StyleSheet.create({
+    container: {
+        minHeight: '200%',
+        // backgroundColor:'blue'
+    }, 
+
     backgroundImage:{
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'space-between',
+        alignItems:'center'
     },
 
     logo:{
@@ -11,18 +17,7 @@ const styles = StyleSheet.create({
         height:100,
     },
 
-    container: {
-        flex: 1,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        minHeight: '100%',
-        backgroundColor:'blue'
-    }, 
-
     top: {
-        flex: 1,
-        justifyContent: 'space-between',
-        alignItems: 'center',
         marginTop: 10
     },
 
@@ -35,6 +30,7 @@ const styles = StyleSheet.create({
         margin:20,
         padding:20,
         borderRadius:17,
+        maxHeight:'44%'
     },
 
     heading: {

@@ -15,7 +15,7 @@ export default function Home() {
                 <View style={styles.container}>
                     <ImageBackground source= {require('../assets/images/index.png')}resizeMode='cover' style={styles.backgroundImage}>
                         <View style={styles.top}>
-                            <Image source={require('../assets/images/f.png')} style={styles.logo}/>
+                            <Image source={require('../assets/images/logo.png')} style={styles.logo}/>
                         </View>
                         <View style={styles.bottom}>
                             <Text style={styles.heading}>
@@ -33,7 +33,7 @@ export default function Home() {
                             >
                                 <Text style={styles.btnTxt}>Get Started</Text>
                             </TouchableOpacity>
-                            <Text style={styles.txt}>Already have an account?-Sign in-</Text>
+                            <Text style={styles.txt}>Don't you have an account? Signup</Text>
                         </View>
                     </ImageBackground>
                 </View>

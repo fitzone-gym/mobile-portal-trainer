@@ -15,7 +15,7 @@ export default function Home() {
                 <View style={styles.container}>
                     <ImageBackground source= {require('../../assets/images/signin.png')}resizeMode='cover' style={styles.backgroundImage}>
                         <View style={styles.top}>
-                            <Image source={require('../../assets/images/f.png')} style={styles.logo}/>
+                            <Image source={require('../../assets/images/logo.png')} style={styles.logo}/>
                         </View>
                         <View style={styles.bottom}>
                             <Text style={styles.heading}>
@@ -30,7 +30,7 @@ export default function Home() {
                             <TouchableOpacity
                                 style={styles.btn}
                                 onPress={() => {
-                                    router.push('/trainer-dashboard')
+                                    router.push('../trainner-dashboard')
                                 }}
                             >
                                 <Text style={styles.btnTxt}>Sign In</Text>
