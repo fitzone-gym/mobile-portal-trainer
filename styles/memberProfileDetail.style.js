@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    justifyContent: "center",
+    // justifyContent: "center",
     height: "100%" /* You must set a specified height */,
     backgroundPosition: "center" /* Center the image */,
     backgroundRepeat: "no-repeat" /* Do not repeat the image */,
@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "white",
     textAlign: "center",
-    paddingLeft: 40,
     fontWeight: 600,
   },
   profileDetailsButton: {

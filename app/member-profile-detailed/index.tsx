@@ -49,33 +49,51 @@ export default function memberProfileDetailed() {
 
                 <View>
                   <Unorderedlist style={styles.detailsList}>
-                    <Text>
-                      <Text style={styles.detailsKey}>Name</Text>
-                      <Text style={styles.detailsValue}>Anne Karona</Text>
-                    </Text>
-                    <Text>
-                      <Text style={styles.detailsKey}>Age</Text>
-                      <Text style={styles.detailsValue}>25</Text>
-                    </Text>
-                    <Text>
-                      <Text style={styles.detailsKey}>Gender</Text>
-                      <Text style={styles.detailsValue}>Male</Text>
-                    </Text>
-                    <Text>
-                      <Text style={styles.detailsKey}>Mobile Number</Text>
-                      <Text style={styles.detailsValue}>071-4554455</Text>
-                    </Text>
-                    <Text>
-                      <Text style={styles.detailsKey}>Email</Text>
-                      <Text style={styles.detailsValue}>Ann@gmail.com</Text>
-                    </Text>
+                    <MuiStack spacing={2} direction="row">
+                      <View>
+                        <Text>
+                          <Text style={styles.detailsKey}>Name</Text>
+                        </Text>
+                        <Text>
+                          <Text style={styles.detailsKey}>Age</Text>
+                        </Text>
+                        <Text>
+                          <Text style={styles.detailsKey}>Gender</Text>
+                        </Text>
+                        <Text>
+                          <Text style={styles.detailsKey}>Mobile Number</Text>
+                        </Text>
+                        <Text>
+                          <Text style={styles.detailsKey}>Email</Text>
+                        </Text>
+                      </View>
+
+                      <View>
+                        <Text>
+                          <Text style={styles.detailsValue}>Anne Karona</Text>
+                        </Text>
+                        <Text>
+                          <Text style={styles.detailsValue}>25</Text>
+                        </Text>
+                        <Text>
+                          <Text style={styles.detailsValue}>Male</Text>
+                        </Text>
+                        <Text>
+                          <Text style={styles.detailsValue}>071-4554455</Text>
+                        </Text>
+                        <Text>
+                          <Text style={styles.detailsValue}>Ann@gmail.com</Text>
+                        </Text>
+                      </View>
+
+
+                    </MuiStack>
                   </Unorderedlist>
                 </View>
               </View>
 
               <View style={styles.profileDetailsButton}>
                 <MuiStack spacing={2} direction="row">
-                  
                   <TouchableOpacity
                     variant="contained"
                     style={styles.fillRedBtn}
@@ -87,7 +105,7 @@ export default function memberProfileDetailed() {
                       Workout Shedule
                     </Text>
                   </TouchableOpacity>
-                
+
                   <TouchableOpacity
                     variant="outlined"
                     style={styles.fillWhiteBtn}
@@ -95,7 +113,6 @@ export default function memberProfileDetailed() {
                     <Text style={{ color: "#E54646", fontWeight: "bold" }}>
                       Diet Plan
                     </Text>
-                  
                   </TouchableOpacity>
                 </MuiStack>
               </View>
