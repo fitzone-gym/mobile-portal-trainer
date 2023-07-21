@@ -16,10 +16,9 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    // justifyContent: "center",
-    height: "100%" /* You must set a specified height */,
-    backgroundPosition: "center" /* Center the image */,
-    backgroundRepeat: "no-repeat" /* Do not repeat the image */,
+    height: "100%",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     width: "100%",
     borderLeftBottom: 25,
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     color: "#E54646",
-    marginBottom: "1rem",
+    marginBottom: 16,
   },
   memberDetailsSection: {
     backgroundColor: "#000000c0",
@@ -54,6 +53,13 @@ const styles = StyleSheet.create({
   detailsList: {
     lineHeight: 50,
   },
+  profileDetail: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 20,
+    lineHeight: 50,
+    marginBottom: 40,
+  },
   detailsKey: {
     color: "#E54646",
     fontWeight: "600",
@@ -65,9 +71,14 @@ const styles = StyleSheet.create({
     fontWeight: 600,
   },
   profileDetailsButton: {
-    alignItems: "center",
+    alignItems: "flex-start", // Left-align the child components
     justifyContent: "center",
-    marginTop: 50,
+    marginTop: 20,
+    marginBottom: 50,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: 10,
   },
   fillRedBtn: {
     backgroundColor: "#E54646",
@@ -91,12 +102,14 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingBottom: 10,
     borderRadius: 5,
+    marginLeft: 10,
   },
   workoutProgressTopic: {
     color: "white",
     fontSize: 17,
     fontWeight: "bold",
     marginTop: 20,
+    marginBottom:20
   },
   workoutProgressArea: {
     marginTop: 20,
@@ -110,26 +123,36 @@ const styles = StyleSheet.create({
     height: 200 /*extra */,
     marginBottom: 30,
   },
-  healthDetail: {
+  individualHealthDetails: {
+    display: "flex",
     flexDirection: "row",
-    spacing: 2,
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center",
-    marginTop: 20,
+    justifyContent: "space-between",
+    gap: 10,
+  },
+  healthDetail: {
+    // flexDirection: "row",
+    // spacing: 2,
+    // alignItems: "center",
+    // justifyContent: "center",
+    // textAlign: "center",
+    // marginTop: 20,
+    // width: 50,
+    // height: 50,
+    // backgroundColor: "blue",
+    // marginHorizontal: 2,
   },
   individualHealthDetail: {
     backgroundColor: "#000000c0",
-    paddingTop: 5,
-    paddingBottom: 10,
-    paddingRight: 5,
-    borderRadius: 5,
+    paddingTop: 15,
+    paddingBottom: 15,
+    paddingRight: 10,
+    borderRadius: 10,
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
     // borderColor: "red",
     borderWidth: 2,
-    width: 85,
+
     spacing: 4,
   },
   healthTopic: {

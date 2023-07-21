@@ -1,238 +1,208 @@
-// import styles from "../styles/sidebar.style";
-
-import * as React from "react";
-import Box from "@mui/material/Box";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import AddHomeRoundedIcon from "@mui/icons-material/AddHomeRounded";
-import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded";
-import BookOnlineRoundedIcon from "@mui/icons-material/BookOnlineRounded";
-import FactCheckRoundedIcon from "@mui/icons-material/FactCheckRounded";
-import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
-import PaymentRoundedIcon from "@mui/icons-material/PaymentRounded";
-import ThreePOutlinedIcon from "@mui/icons-material/ThreePOutlined";
-import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import ArrowCircleLeftRoundedIcon from "@mui/icons-material/ArrowCircleLeftRounded";
-import WidgetsIcon from "@mui/icons-material/Widgets";
-
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import {
+  useTheme,
+  Avatar,
+  Title,
+  Caption,
+  Paragraph,
+  Drawer,
+  Text,
+  TouchableRipple,
+  Switch,
+} from "react-native-paper";
 import {
   ImageBackground,
-  Text,
-  View,
   SafeAreaView,
   Image,
   ScrollView,
-  StyleSheet,
   TouchableOpacity,
 } from "react-native";
+import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 
-const iconMap = {
-  Home: <AddHomeRoundedIcon />,
-  Members: <PeopleAltRoundedIcon />,
-  Appointment: <BookOnlineRoundedIcon />,
-  Unknown: <FactCheckRoundedIcon />,
-  Dietplan: <FavoriteRoundedIcon />,
-  Payment: <PaymentRoundedIcon />,
-  Complaint: <ThreePOutlinedIcon />,
-  Myprofile: <AccountCircleRoundedIcon />,
-  Logout: <ExitToAppIcon />,
-};
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-type Anchor = "top";
+// import { AuthContext } from "../components/context";
 
-export default function SwipeableTemporaryDrawer() {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+export function DrawerContent(props) {
+  // const paperTheme = useTheme();
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event &&
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
+  // const { signOut, toggleTheme } = React.useContext(AuthContext);
 
-    setState({ ...state, [anchor]: open });
-  };
+  
+const styles = StyleSheet.create({
+  drawerContent: {
+    flex: 1,
+    
+  },
+  container:{
+    borderBottomWidth: 0, 
+    borderBottomColor: "transparent",
+  },
+  logUserImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    borderWidth: 2,
+    borderColor: "#E54646",
+  },
+  userInfoSection: {
+    paddingLeft: 20,
+    paddingBottom: 7,
+    backgroundColor: "#000000c0",
+    marginTop: 10,
+    marginLeft: 10,
+    marginRight: 200,
+    borderRadius: 50,
+  },
+  title: {
+    fontSize: 16,
+    marginTop: 3,
+    fontWeight: "bold",
+    color: "white",
+  },
+  caption: {
+    fontSize: 14,
+    lineHeight: 14,
+    color: "#e8e3e3",
+  },
+  row: {
+    marginTop: 20,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  section: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginRight: 15,
+  },
+  paragraph: {
+    fontWeight: "bold",
+    marginRight: 3,
+  },
+  drawerSection: {
+    marginTop: 15,
+  },
+  bottomDrawerSection: {
+    marginBottom: 15,
+    borderTopColor: "#f4f4f4",
+    borderTopWidth: 1,
+  },
+  preference: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+  },
+});
 
-  const list = (anchor) => (
-    <View
-      style={{
-        backgroundColor: "balck",
-        height: "100%",
-        borderTopRightRadius: 30,
-        borderBottomRightRadius: 30,
-      }}
-    >
-      <Box
-        sx={{
-          width: anchor === "top" || anchor === "bottom" ? "auto" : 200,
-          backgroundColor: "#E54646",
-          height: "100%",
-          paddingTop: 5,
-          borderTopRightRadius: 30,
-          borderBottomRightRadius: 30,
-        }}
-        role="presentation"
-        onClick={toggleDrawer(anchor, false)}
-        onKeyDown={toggleDrawer(anchor, false)}
-      >
-        <View style={styles.backBtn}>
-          <ArrowCircleLeftRoundedIcon />
-        </View>
-        <View style={styles.logUserDetail}>
-          <View>
-            <Image
-              source={require("../../assets/images/trainer-1.jpg")}
-              style={styles.logUserImage}
-            />
-          </View>
-          <View style={styles.logUserName}>
-            <Text style={styles.nameText}>Kamal</Text>
-            <Text style={styles.nameText}>Suraweera</Text>
-          </View>
-        </View>
-        <List>
-          {["Home", "Members", "Appointment", "Unknown"].map((text, index) => (
-            <TouchableOpacity>
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon style={{ color: "white", fontWeight: "bold" }}>
-                    {iconMap[text]}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text}
-                    style={{ color: "white", fontWeight: "bold" }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </TouchableOpacity>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["Dietplan", "Payment", "Complaint", "Myprofile"].map(
-            (text, index) => (
-              <TouchableOpacity>
-                <ListItem key={text} disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon
-                      style={{ color: "white", fontWeight: "bold" }}
-                    >
-                      {iconMap[text]}
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={text}
-                      style={{ color: "white", fontWeight: "bold" }}
-                    />
-                  </ListItemButton>
-                </ListItem>
-              </TouchableOpacity>
-            )
-          )}
-        </List>
-
-        <List style={styles.logout}>
-          {["Logout"].map((text, index) => (
-            <TouchableOpacity>
-              <ListItem key={text} disablePadding style={styles.listItem}>
-                <ListItemButton>
-                  <ListItemIcon style={{ color: "white", fontWeight: "bold" }}>
-                    {iconMap[text]}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={text}
-                    style={{ color: "white", fontWeight: "bold" }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </TouchableOpacity>
-          ))}
-        </List>
-      </Box>
-    </View>
-  );
-
-  const styles = StyleSheet.create({
-    backBtn: {
-      color: "white",
-      marginLeft: "78%",
-    },
-    logUserDetail: {
-      flexDirection: "row",
-      flexWrap: "wrap",
-      spacing: 10,
-      backgroundColor: "#000000c0",
-      marginLeft: 10,
-      marginRight: 20,
-      marginTop: 10,
-      paddingTop: 5,
-      paddingBottom: 5,
-      paddingLeft: 10,
-      borderRadius: 30,
-    },
-    logUserImage: {
-      width: 50,
-      height: 50,
-      borderRadius: 25,
-      borderWidth: 2,
-      borderColor: "#E54646",
-    },
-    logUserName: {
-      marginLeft: 20,
-      justifyContent: "center",
-    },
-    nameText: {
-      color: "white",
-      fontWeight: "bold",
-    },
-    listItemName: {
-      color: "white",
-    },
-    logout: {
-      marginTop: "100%",
-    },
-    container:{
-      backgroundColor:"black"
-    }
-  });
 
   return (
-    <View style={styles.container}>
-      {["left"].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>
-            <WidgetsIcon
-              style={{
-                color: "#E54646",
-                padding: 10,
-                backgroundColor: "#000000c0",
-                borderRadius: 25,
+    <View style={{ flex: 1, backgroundColor: "#E54646", borderRightTopRadius:15 }}>
+      <DrawerContentScrollView {...props}>
+        <View style={styles.drawerContent}>
+          <View style={styles.userInfoSection}>
+            <View style={{ flexDirection: "row", marginTop: 10}}>
+              <Image
+                source={require("../../assets/images/trainer-1.jpg")}
+                style={styles.logUserImage}
+              />
+              <View style={{ marginLeft: 15, flexDirection: "column" }}>
+                <Title style={styles.title}>John Doe</Title>
+                <Caption style={styles.caption}>@j_doe</Caption>
+              </View>
+            </View>
+          </View>
+
+          <View style={styles.drawerSection}>
+            <DrawerItem
+              icon={({ color, size }) => (
+                <Icon name="home-outline" color={color} size={size} />
+              )}
+              label="Home"
+              onPress={() => {
+                props.navigation.navigate("Home");
               }}
             />
-          </Button>
-          <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
-          >
-            {list(anchor)}
-          </SwipeableDrawer>
-        </React.Fragment>
-      ))}
+            <DrawerItem
+              icon={({ color, size }) => (
+                <Icon name="account-outline" color={color} size={size} />
+              )}
+              label="Members"
+              onPress={() => {
+                props.navigation.navigate("Profile");
+              }}
+            />
+            <DrawerItem
+              icon={({ color, size }) => (
+                <Icon name="bookmark-outline" color={color} size={size} />
+              )}
+              label="Appoinments"
+              onPress={() => {
+                props.navigation.navigate("BookmarkScreen");
+              }}
+            />
+            <DrawerItem
+              icon={({ color, size }) => (
+                <Icon name="file-document-outline" color={color} size={size} />
+              )}
+              label="Requests"
+              onPress={() => {
+                props.navigation.navigate("SettingsScreen");
+              }}
+            />
+            <DrawerItem
+              icon={({ color, size }) => (
+                <Icon name="account-check-outline" color={color} size={size} />
+              )}
+              label="Complaints"
+              onPress={() => {
+                props.navigation.navigate("SupportScreen");
+              }}
+            />
+            <DrawerItem
+              icon={({ color, size }) => (
+                <Icon name="account-circle-outline" color={color} size={size} />
+              )}
+              label="My profile"
+              onPress={() => {
+                props.navigation.navigate("SupportScreen");
+              }}
+            />
+            {/* </Drawer.Section> */}
+          </View>
+
+          {/* <Drawer.Section title="Preferences">
+            <TouchableRipple
+              onPress={() => {
+                toggleTheme();
+              }}
+            >
+              <View style={styles.preference}>
+                <Text>Dark Theme</Text>
+                <View pointerEvents="none">
+                  <Switch value={paperTheme.dark} />
+                </View>
+              </View>
+            </TouchableRipple>
+          </Drawer.Section> */}
+        </View>
+      </DrawerContentScrollView>
+      {/* <Drawer.Section style={styles.bottomDrawerSection}> */}
+      <View style={styles.bottomDrawerSection}>
+        <DrawerItem
+          icon={({ color, size }) => (
+            <Icon name="exit-to-app" color={color} size={size} />
+          )}
+          label="Sign Out"
+          // onPress={() => {
+          //   signOut();
+          // }}
+        />
+        {/* </Drawer.Section> */}
+      </View>
     </View>
   );
 }
+
+export default DrawerContent;

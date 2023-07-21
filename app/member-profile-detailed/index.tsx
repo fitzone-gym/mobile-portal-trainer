@@ -11,8 +11,8 @@ import {
 } from "react-native";
 import styles from "../../styles/memberProfileDetail.style";
 import Unorderedlist from "react-native-unordered-list";
-import { Stack as MuiStack } from "@mui/material";
-import Button from "@mui/material/Button";
+// import { Stack as MuiStack } from "@mui/material";
+// import Button from "@mui/material/Button";
 import { Stack, useRouter } from "expo-router";
 import Footer from "../footer_statusbar/index.tsx"
 
@@ -48,8 +48,8 @@ export default function memberProfileDetailed() {
                 </View>
 
                 <View>
-                  <Unorderedlist style={styles.detailsList}>
-                    <MuiStack spacing={2} direction="row">
+                  {/* <Unorderedlist style={styles.detailsList}> */}
+                    <View style={styles.profileDetail}>
                       <View>
                         <Text>
                           <Text style={styles.detailsKey}>Name</Text>
@@ -85,15 +85,13 @@ export default function memberProfileDetailed() {
                           <Text style={styles.detailsValue}>Ann@gmail.com</Text>
                         </Text>
                       </View>
-
-
-                    </MuiStack>
-                  </Unorderedlist>
+                    </View>
+                  {/* </Unorderedlist> */}
                 </View>
               </View>
 
-              <View style={styles.profileDetailsButton}>
-                <MuiStack spacing={2} direction="row">
+              <View >
+                <View style={styles.profileDetailsButton}>
                   <TouchableOpacity
                     variant="contained"
                     style={styles.fillRedBtn}
@@ -114,7 +112,7 @@ export default function memberProfileDetailed() {
                       Diet Plan
                     </Text>
                   </TouchableOpacity>
-                </MuiStack>
+                </View>
               </View>
             </View>
 
@@ -135,7 +133,7 @@ export default function memberProfileDetailed() {
             <View>
               <Text style={styles.workoutProgressTopic}>Health & Injuries</Text>
               <View style={styles.healthDetail}>
-                <MuiStack spacing={2} direction="row">
+                <View style={styles.individualHealthDetails}>
                   <View style={styles.individualHealthDetail}>
                     <Text style={styles.healthTopic}> Sugar level</Text>
                     <Text style={styles.healthLevel}> 220</Text>
@@ -150,7 +148,7 @@ export default function memberProfileDetailed() {
                     <Text style={styles.healthTopic}> Blood preasure</Text>
                     <Text style={styles.healthLevel}> 220</Text>
                   </View>
-                </MuiStack>
+                </View>
               </View>
 
               <View>
