@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: 60,
+    gap: 50,
   },
   footer: {
     marginTop: 30,

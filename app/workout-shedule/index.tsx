@@ -21,6 +21,7 @@ import { Stack, useRouter } from "expo-router";
 
 /*import footer */
 import Footer from "../footer_statusbar/index.tsx";
+import styles from "../../styles/workoutShedule.style";
 
 import Icon from "react-native-vector-icons/MaterialIcons";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
@@ -76,7 +77,7 @@ export default function WorkoutShedule() {
   // };
 
   /*new */
-  const [visible, setVisible] = React.useState(true);
+  const [visible, setVisible] = React.useState(false);
 
   const showDialog = () => setVisible(true);
 
@@ -90,180 +91,6 @@ export default function WorkoutShedule() {
   function handleSubmit(event){
     event.preventDefault();
   }
-
-  /*css */
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "black",
-    },
-    back: {
-      paddingBottom: 50,
-    },
-    content: {
-      paddingLeft: 20,
-      paddingBottom: 20,
-      paddingTop: 20,
-      paddingRight: 20,
-      // minHeight: "100%",
-      // backgroundColor: "black",
-    },
-    image: {
-      flex: 1,
-      justifyContent: "center",
-      height: "25%" /* You must set a specified height */,
-      backgroundPosition: "center" /* Center the image */,
-      backgroundRepeat: "no-repeat" /* Do not repeat the image */,
-      backgroundSize: "cover",
-      width: "100%",
-      borderLeftBottom: 25,
-      borderRightBottom: 25,
-      borderBottomLeftRadius: 40,
-      borderBottomRightRadius: 40,
-    },
-    sheulePageHeading: {
-      fontSize: 24,
-      fontWeight: "bold",
-      color: "white",
-      marginBottom: 20,
-    },
-    sheduleOptionsButton: {
-      // alignItems: "left",
-      // justifyContent: "center",
-      
-
-      marginTop: 20,
-      marginBottom: 50,
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center",
-      alignItems: "flex-start",
-    },
-    fillRedBtn: {
-      backgroundColor: "#E54646",
-      color: "white",
-      fontWeight: "bold",
-      textTransform: "none",
-      paddingTop: 10,
-      paddingRight: 20,
-      paddingLeft: 20,
-      paddingBottom: 7,
-      borderRadius: 5,
-    },
-    fillWhiteBtn: {
-      backgroundColor: "white",
-      color: "#E54646",
-      fontWeight: "bold",
-      textTransform: "none",
-      borderColor: "white",
-      paddingTop: 10,
-      paddingRight: 20,
-      paddingLeft: 20,
-      paddingBottom: 7,
-      borderRadius: 5,
-      marginLeft: 20,
-    },
-    btnText: {
-      color: "white",
-      fontWeight: "bold",
-      fontSize: 14,
-    },
-    btnIcon: {
-      color: "white",
-    },
-    btnText1: {
-      color: "#E54646",
-      fontWeight: "bold",
-      fontSize: 14,
-    },
-    btnIcon1: {
-      color: "#E54646",
-    },
-    sheduleActivity: {
-      fontWeight: "bold",
-      color: "#dcdfe2",
-      fontSize: 23,
-    },
-    sheduleActivityType: {
-      fontWeight: "bold",
-      color: "#E54646",
-      fontSize: 20,
-    },
-    sheduleActivityQty: {
-      fontWeight: "bold",
-      color: "#dcdfe2",
-      fontSize: 20,
-      marginLeft: 20,
-    },
-    addNoteBtn: {
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "space-between",
-    },
-    editDeleteIcon: {
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-      gap: 10,
-    },
-    individualOptionIconEdit: {
-      color: "#dcdfe2",
-      fontSize: 22,
-      cursor: "pointer",
-    },
-    individualOptionIconDelete: {
-      color: "#dcdfe2",
-      fontSize: 25,
-      cursor: "pointer",
-    },
-    individualOptionIconDate: {
-      backgroundColor: "#E54646",
-      color: "#dcdfe2",
-      padding: 5,
-      borderRadius: 25,
-      alignItems: "center",
-      justifyContent: "center",
-      marginTop: 10,
-      cursor: "pointer",
-    },
-    individualWork: {
-      backgroundColor: "rgba(34, 34, 34, 0.88)",
-      padding: 10,
-      borderRadius: 10,
-      paddingLeft: 18,
-      marginTop: 10,
-      marginBottom: 10,
-    },
-    fillBlueBtn: {
-      backgroundColor: "blue",
-      color: "white",
-      fontWeight: "bold",
-      textTransform: "none",
-      paddingTop: 10,
-      paddingRight: 20,
-      paddingLeft: 20,
-      paddingBottom: 7,
-      borderRadius: 5,
-    },
-    editFormBtn: {
-      alignItems: "flex-start", // Left-align the child components
-      justifyContent: "center",
-      marginTop: 0,
-      marginBottom: 20,
-    },
-    setsReps: {
-      display: "flex",
-      flexDirection: "row",
-      gap: 10,
-      marginBottom: 20,
-    },
-    acceptCanselBtn: {
-      display: "flex",
-      flexDirection: "row",
-      gap: 20,
-      // justifyContent: "space-between",
-    },
-  });
   return (
     <SafeAreaView>
       <Stack.Screen
@@ -330,7 +157,7 @@ export default function WorkoutShedule() {
                           <Text style={styles.sheduleActivity}>Scot</Text>
                           <Text>
                             <Text style={styles.sheduleActivityType}>
-                              set 1
+                              set 1&nbsp;&nbsp;
                             </Text>
                             <Text style={styles.sheduleActivityQty}>
                               12 reps
@@ -342,9 +169,9 @@ export default function WorkoutShedule() {
                           {/* /*change direction */}
                           <View style={styles.editDeleteIcon}>
                             <Icon
-                              name="calendar-edit"
+                              name="clipboard-edit"
                               style={styles.individualOptionIconEdit}
-                              onClick={showDialog}
+                              onPress={showDialog}
                             />
                             <Icon
                               name="delete-forever"
@@ -373,7 +200,7 @@ export default function WorkoutShedule() {
             </View>
 
             {/* dialog popup */}
-            {/* <PaperProvider style={{ backgroundColor: "black" }}>
+            <PaperProvider style={{ backgroundColor: "black" }}>
               <View
                 stye={{
                   paddingTop: 50,
@@ -395,10 +222,11 @@ export default function WorkoutShedule() {
                   <Dialog
                     visible={visible}
                     onDismiss={handleClose}
+
                     style={{
                       backgroundColor: "black",
-                      opacity: "1",
-                      borderRadius: "none",
+                      opacity: 1,
+                      // borderRadius: "none",
                     }}
                   >
                     <Dialog.Content>
@@ -496,7 +324,7 @@ export default function WorkoutShedule() {
                   </Dialog>
                 </Portal>
               </View>
-            </PaperProvider> */}
+            </PaperProvider>
           </ImageBackground>
         </View>
       </ScrollView>

@@ -51,23 +51,33 @@ const TrainerProfile = () => (
             <View style={styles.trainerDetails}>
               {/* <Unorderedlist style={styles.detailsList}> */}
               <Text style={styles.individualDetailSet}>
-                <Text style={styles.detailsKey}>Name</Text>
+                <Text style={styles.detailsKey}>
+                  Name&nbsp;&nbsp;&nbsp;&nbsp;
+                </Text>
                 <Text style={styles.detailsValue}>Anne Karona</Text>
               </Text>
               <Text style={styles.individualDetailSet}>
-                <Text style={styles.detailsKey}>Age</Text>
+                <Text style={styles.detailsKey}>
+                  Age&nbsp;&nbsp;&nbsp;&nbsp;
+                </Text>
                 <Text style={styles.detailsValue}>25</Text>
               </Text>
               <Text style={styles.individualDetailSet}>
-                <Text style={styles.detailsKey}>Gender</Text>
+                <Text style={styles.detailsKey}>
+                  Gender&nbsp;&nbsp;&nbsp;&nbsp;
+                </Text>
                 <Text style={styles.detailsValue}>Male</Text>
               </Text>
               <Text style={styles.individualDetailSet}>
-                <Text style={styles.detailsKey}>Mobile Number</Text>
+                <Text style={styles.detailsKey}>
+                  Mobile Number&nbsp;&nbsp;&nbsp;&nbsp;
+                </Text>
                 <Text style={styles.detailsValue}>071-4554455</Text>
               </Text>
               <Text style={styles.individualDetailSet}>
-                <Text style={styles.detailsKey}>Email</Text>
+                <Text style={styles.detailsKey}>
+                  Email&nbsp;&nbsp;&nbsp;&nbsp;
+                </Text>
                 <Text style={styles.detailsValue}>Ann@gmail.com</Text>
               </Text>
               {/* </Unorderedlist> */}

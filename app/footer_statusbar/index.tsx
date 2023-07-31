@@ -20,6 +20,9 @@ export default function Footer() {
             <Icon name="home" size={23} />
           </Text>
           <Text style={styles.footericon}>
+            <Icon name="note" size={22} style={{ paddingTop: 10 }} />
+          </Text>
+          <Text style={styles.footericon}>
             <Icon name="message" size={22} style={{ paddingTop: 10 }} />
           </Text>
           <Text style={styles.footericon}>

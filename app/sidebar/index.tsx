@@ -24,85 +24,84 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 // import { AuthContext } from "../components/context";
 
-export function DrawerContent(props) {
+const Sidebar = ({ navigation }) => {
   // const paperTheme = useTheme();
 
   // const { signOut, toggleTheme } = React.useContext(AuthContext);
 
-  
-const styles = StyleSheet.create({
-  drawerContent: {
-    flex: 1,
-    
-  },
-  container:{
-    borderBottomWidth: 0, 
-    borderBottomColor: "transparent",
-  },
-  logUserImage: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    borderWidth: 2,
-    borderColor: "#E54646",
-  },
-  userInfoSection: {
-    paddingLeft: 20,
-    paddingBottom: 7,
-    backgroundColor: "#000000c0",
-    marginTop: 10,
-    marginLeft: 10,
-    marginRight: 200,
-    borderRadius: 50,
-  },
-  title: {
-    fontSize: 16,
-    marginTop: 3,
-    fontWeight: "bold",
-    color: "white",
-  },
-  caption: {
-    fontSize: 14,
-    lineHeight: 14,
-    color: "#e8e3e3",
-  },
-  row: {
-    marginTop: 20,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  section: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginRight: 15,
-  },
-  paragraph: {
-    fontWeight: "bold",
-    marginRight: 3,
-  },
-  drawerSection: {
-    marginTop: 15,
-  },
-  bottomDrawerSection: {
-    marginBottom: 15,
-    borderTopColor: "#f4f4f4",
-    borderTopWidth: 1,
-  },
-  preference: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-  },
-});
-
+  const styles = StyleSheet.create({
+    drawerContent: {
+      flex: 1,
+    },
+    container: {
+      borderBottomWidth: 0,
+      borderBottomColor: "transparent",
+    },
+    logUserImage: {
+      width: 50,
+      height: 50,
+      borderRadius: 25,
+      borderWidth: 2,
+      borderColor: "#E54646",
+    },
+    userInfoSection: {
+      paddingLeft: 20,
+      paddingBottom: 7,
+      backgroundColor: "#000000c0",
+      marginTop: 10,
+      marginLeft: 10,
+      marginRight: 200,
+      borderRadius: 50,
+    },
+    title: {
+      fontSize: 16,
+      marginTop: 3,
+      fontWeight: "bold",
+      color: "white",
+    },
+    caption: {
+      fontSize: 14,
+      lineHeight: 14,
+      color: "#e8e3e3",
+    },
+    row: {
+      marginTop: 20,
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    section: {
+      flexDirection: "row",
+      alignItems: "center",
+      marginRight: 15,
+    },
+    paragraph: {
+      fontWeight: "bold",
+      marginRight: 3,
+    },
+    drawerSection: {
+      marginTop: 15,
+    },
+    bottomDrawerSection: {
+      marginBottom: 15,
+      borderTopColor: "#f4f4f4",
+      borderTopWidth: 1,
+    },
+    preference: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      paddingVertical: 12,
+      paddingHorizontal: 16,
+    },
+  });
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#E54646", borderRightTopRadius:15 }}>
+    <View
+      style={{ flex: 1, backgroundColor: "#E54646", borderRightTopRadius: 15 }}
+    >
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerContent}>
           <View style={styles.userInfoSection}>
-            <View style={{ flexDirection: "row", marginTop: 10}}>
+            <View style={{ flexDirection: "row", marginTop: 10 }}>
               <Image
                 source={require("../../assets/images/trainer-1.jpg")}
                 style={styles.logUserImage}
@@ -120,54 +119,53 @@ const styles = StyleSheet.create({
                 <Icon name="home-outline" color={color} size={size} />
               )}
               label="Home"
-              onPress={() => {
-                props.navigation.navigate("Home");
-              }}
+              // onPress={() => {
+              //   props.navigation.navigate("Home");
+              // }}
             />
             <DrawerItem
               icon={({ color, size }) => (
                 <Icon name="account-outline" color={color} size={size} />
               )}
               label="Members"
-              onPress={() => {
-                props.navigation.navigate("Profile");
-              }}
+              // onPress={() => {
+              //   props.navigation.navigate("Profile");
+              // }}
             />
             <DrawerItem
               icon={({ color, size }) => (
                 <Icon name="bookmark-outline" color={color} size={size} />
               )}
               label="Appoinments"
-              onPress={() => {
-                props.navigation.navigate("BookmarkScreen");
-              }}
+              // onPress={() => {
+              //   props.navigation.navigate("BookmarkScreen");
+              // }}
             />
             <DrawerItem
               icon={({ color, size }) => (
                 <Icon name="file-document-outline" color={color} size={size} />
               )}
               label="Requests"
-              onPress={() => {
-                props.navigation.navigate("SettingsScreen");
-              }}
+              // onPress={() => {
+              //   props.navigation.navigate("SettingsScreen");
+              // }}
             />
             <DrawerItem
               icon={({ color, size }) => (
                 <Icon name="account-check-outline" color={color} size={size} />
               )}
               label="Complaints"
-              onPress={() => {
-                props.navigation.navigate("SupportScreen");
-              }}
+              // onPress={() => {
+              //   props.navigation.navigate("SupportScreen");
+              // }}
             />
             <DrawerItem
               icon={({ color, size }) => (
                 <Icon name="account-circle-outline" color={color} size={size} />
               )}
               label="My profile"
-              onPress={() => {
-                props.navigation.navigate("SupportScreen");
-              }}
+              // 
+              
             />
             {/* </Drawer.Section> */}
           </View>
@@ -203,6 +201,6 @@ const styles = StyleSheet.create({
       </View>
     </View>
   );
-}
+};
 
-export default DrawerContent;
+// export default DrawerContent;

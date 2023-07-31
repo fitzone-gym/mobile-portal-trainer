@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "white",
     fontWeight: "600",
-    marginLeft: 15,
   },
   trainerPackage: {
     marginBottom: 18,

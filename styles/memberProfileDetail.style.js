@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   memberImage: {
+    marginTop:10,
     width: 75,
     height: 75,
     borderRadius: 50,
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
   },
   memberDetails: {
     flexDirection: "row",
-    gap: 10,
+    gap: 15,
   },
   detailsList: {
     lineHeight: 50,
