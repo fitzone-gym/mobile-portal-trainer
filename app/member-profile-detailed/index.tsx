@@ -11,8 +11,6 @@ import {
 } from "react-native";
 import styles from "../../styles/memberProfileDetail.style";
 import Unorderedlist from "react-native-unordered-list";
-// import { Stack as MuiStack } from "@mui/material";
-// import Button from "@mui/material/Button";
 import { Stack, useRouter } from "expo-router";
 import Footer from "../footer_statusbar/index.tsx"
 

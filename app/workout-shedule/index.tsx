@@ -11,13 +11,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Stack, useRouter } from "expo-router";
-// import { Stack as MuiStack } from "@mui/material";
-// import Button from "@mui/material/Button";
-// import LibraryAddRoundedIcon from "@mui/icons-material/LibraryAddRounded";
-// import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
-// import EditCalendarRoundedIcon from "@mui/icons-material/EditCalendarRounded";
-// import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
-// import AssignmentTurnedInRoundedIcon from "@mui/icons-material/AssignmentTurnedInRounded";
+
 
 /*import footer */
 import Footer from "../footer_statusbar/index.tsx";
