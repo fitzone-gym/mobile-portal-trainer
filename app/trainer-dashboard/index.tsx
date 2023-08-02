@@ -1,5 +1,5 @@
 import styles from '../../styles/home.style';
-import Footer_nav from '../../components/navigation/footer_statusbar'
+import Footer_nav from '../../components/footer_statusbar'
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground,TouchableOpacity } from 'react-native';
 
 import { Stack, useRouter } from 'expo-router';
@@ -20,7 +20,7 @@ export default function Home() {
                             <Text>top nav icon</Text> 
                         </View>                     
                         <Text style={styles.heading}>Home</Text> 
-                        {/* <Footer_nav/> */}
+                        <Footer_nav/>
                     </ScrollView>
                 </ImageBackground>
             </View>

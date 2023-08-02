@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 
     scrollView:{
         width: '100%',
-        backgroundColor:'red'
+        // backgroundColor:'red'
     }
 
 })
