@@ -1,4 +1,4 @@
-import styles from '../../styles/signin.style.js';
+import styles from '../../styles/signin.style';
 import { View, Text,TextInput, Image, SafeAreaView,ImageBackground,TouchableOpacity} from 'react-native';
 import { Stack , useRouter} from 'expo-router';
 
@@ -33,12 +33,18 @@ export default function Home() {
                                 <TextInput style={styles.txtInput}  />
                                 <Text style={styles.subContent}>Password</Text>
                                 <TextInput style={styles.txtInput}  secureTextEntry={true} />
-                                <Text style={styles.pwtxt}>Forget Password ?</Text>
+                                <TouchableOpacity
+                                    onPress={()=>{
+                                        router.push('../trainer-forgetPW')
+                                    }}
+                                >
+                                    <Text style={styles.pwtxt}>Forget Password ?</Text>
+                                </TouchableOpacity>
                             </View>                            
                             <TouchableOpacity
                                 style={styles.btn}
                                 onPress={() => {
-                                    router.push('../trainner-dashboard')
+                                    router.push('../trainer-dashboard')
                                 }}
                             >
                                 <Text style={styles.btnTxt}>Sign in</Text>
