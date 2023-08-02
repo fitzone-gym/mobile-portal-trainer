@@ -44,7 +44,7 @@ export default function Home() {
                                         router.push('/trainer-signup');
                                     }}
                                 >
-                                    <Text>Sign up</Text>
+                                    <Text  style={{ color: '#E54646' }}>Sign up</Text>
                                 </TouchableOpacity>
                             </View>
 

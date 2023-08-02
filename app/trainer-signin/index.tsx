@@ -14,18 +14,25 @@ export default function Home() {
             />
                 <View style={styles.container}>
                     <ImageBackground source= {require('../../assets/images/signin.png')}resizeMode='cover' style={styles.backgroundImage}>
-                        <View style={styles.top}>
-                            <Image source={require('../../assets/images/logo.png')} style={styles.logo}/>
+                        <View style={styles.upper}>
+                            <View style={styles.top}>
+                                <Image source={require('../../assets/images/logo.png')}/>
+                            </View>
+                            <View style={styles.upperdiv}>
+                                    <Text style={styles.upperTxt}>
+                                        Exercise smartly and be physically active
+                                    </Text>
+                            </View>
                         </View>
                         <View style={styles.bottom}>
                             <Text style={styles.heading}>
                                 Sign In
                             </Text>
-                            <View>
+                            <View style={styles.signinTxt}>
                                 <Text style={styles.subContent}>User Name</Text>
-                                <TextInput style={styles.txtInput} placeholder="Enter username" />
+                                <TextInput style={styles.txtInput}  />
                                 <Text style={styles.subContent}>Password</Text>
-                                <TextInput style={styles.txtInput} placeholder="Enter password" secureTextEntry={true} />
+                                <TextInput style={styles.txtInput}  secureTextEntry={true} />
                                 <Text style={styles.pwtxt}>Forget Password ?</Text>
                             </View>                            
                             <TouchableOpacity
@@ -34,7 +41,7 @@ export default function Home() {
                                     router.push('../trainner-dashboard')
                                 }}
                             >
-                                <Text style={styles.btnTxt}>Sign In</Text>
+                                <Text style={styles.btnTxt}>Sign in</Text>
                             </TouchableOpacity>
                         </View>
                     </ImageBackground>

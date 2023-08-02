@@ -49,9 +49,8 @@ const styles = StyleSheet.create({
     btn: {
         width: 315, 
         height: 56,
-        marginTop: 10,
-        backgroundColor: '#E54646',        
-        
+        marginTop: 40,
+        backgroundColor: '#E54646',  
         borderRadius: 30,
         display:'flex',
         alignItems:'center',
@@ -60,7 +59,6 @@ const styles = StyleSheet.create({
     btnTxt:{
         fontSize: 23,
         color: 'white',
-
     },
 
     underTxt:{
@@ -71,7 +69,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        // backgroundColor:'red',
     },
 
     txt:{
