@@ -3,13 +3,17 @@ import {StyleSheet} from 'react-native'
 const styles = StyleSheet.create({
     
     container: {
-        minHeight: '200%'
+        minHeight: '100%',
+        // flex: 1,
+        // alignItems: 'center',        
     }, 
 
     backgroundImage:{
         flex: 1,
-        justifyContent: 'center',
-        justifyContent:'space-between'
+        justifyContent:'space-between',
+        alignItems: 'center',
+        height: '100%',
+        width: '100%',
     },
     logo:{
         width:115,
@@ -17,13 +21,23 @@ const styles = StyleSheet.create({
     },
 
     top: {
-        // flex: 1,
-        // justifyContent: 'space-between',
-        // alignItems: 'center',
-        marginTop: 10
+        flex: 1,
+        alignItems: 'center',
+        marginTop: 10,
     },
     
     bottom:{
+        // flex: 1,
+        // justifyContent: 'space-between',
+        // alignItems: 'center',
+        // backgroundColor: '#222222',
+        // opacity: 0.7,
+        // margin:20,
+        // padding:20,
+        // borderRadius:17,
+        // maxWidth: '80%',
+        // maxHeight:'80%',
+        // backgroundColor:'red',
         flex: 1,
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -32,7 +46,7 @@ const styles = StyleSheet.create({
         margin:20,
         padding:20,
         borderRadius:17,
-        maxWidth: '44%',
+        maxHeight:'44%'
     },
 
     heading: {
@@ -47,18 +61,31 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     txtInput:{
-
+        fontSize: 14,
+        color: 'white',
+        opacity: 0.4,
+        padding:8,
+        borderColor: 'white',
+        borderStyle:'solid',
+        borderRadius:0.8
     },
+    pwtxt:{
+        flex: 1,
+        color: '#E54646',
+        fontSize: 14,
+        textAlign: 'right',
+    },
+
     btn: {
-        width: 315, 
-        height: 56,
-        marginTop: 10,
-        backgroundColor: '#E54646',        
-        
+        width: 250, 
+        height: 50,
+        marginTop: 8,
+        backgroundColor: '#E54646',    
         borderRadius: 30,
         display:'flex',
         alignItems:'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor:'red',
     },
     btnTxt:{
         fontSize: 23,

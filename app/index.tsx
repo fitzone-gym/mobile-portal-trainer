@@ -18,13 +18,16 @@ export default function Home() {
                             <Image source={require('../assets/images/logo.png')} style={styles.logo}/>
                         </View>
                         <View style={styles.bottom}>
+
                             <Text style={styles.heading}>
                             Increase your target to be healthier to continue exercising
                             </Text>
+
                             <Text style={styles.subHeading}>
                                 This application can improve yourself to have exercise 
                                 smartly and be physically active
                             </Text>
+
                             <TouchableOpacity
                                 style={styles.btn}
                                 onPress={() => {
@@ -33,7 +36,18 @@ export default function Home() {
                             >
                                 <Text style={styles.btnTxt}>Get Started</Text>
                             </TouchableOpacity>
-                            <Text style={styles.txt}>Don't you have an account? Signup</Text>
+
+                            <View style={styles.underTxt}>
+                                <Text style={styles.txt}>Don't you have an account?</Text>
+                                <TouchableOpacity
+                                    onPress={()=>{
+                                        router.push('/trainer-signup');
+                                    }}
+                                >
+                                    <Text>Sign up</Text>
+                                </TouchableOpacity>
+                            </View>
+
                         </View>
                     </ImageBackground>
                 </View>

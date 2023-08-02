@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native'
 
 const styles = StyleSheet.create({
     container: {
-        minHeight: '200%',
+        minHeight: '100%',
         // backgroundColor:'blue'
     }, 
 
@@ -61,6 +61,17 @@ const styles = StyleSheet.create({
         fontSize: 23,
         color: 'white',
 
+    },
+
+    underTxt:{
+        width: "75%",
+        height: "20%",
+        marginTop:25,
+        marginBottom:0,
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        // backgroundColor:'red',
     },
 
     txt:{

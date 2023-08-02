@@ -26,6 +26,7 @@ export default function Home() {
                                 <TextInput style={styles.txtInput} placeholder="Enter username" />
                                 <Text style={styles.subContent}>Password</Text>
                                 <TextInput style={styles.txtInput} placeholder="Enter password" secureTextEntry={true} />
+                                <Text style={styles.pwtxt}>Forget Password ?</Text>
                             </View>                            
                             <TouchableOpacity
                                 style={styles.btn}
