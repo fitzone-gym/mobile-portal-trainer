@@ -98,7 +98,7 @@ const Sidebar = ({ navigation }) => {
     <View
       style={{ flex: 1, backgroundColor: "#E54646", borderRightTopRadius: 15 }}
     >
-      <DrawerContentScrollView {...props}>
+      <DrawerContentScrollView>
         <View style={styles.drawerContent}>
           <View style={styles.userInfoSection}>
             <View style={{ flexDirection: "row", marginTop: 10 }}>
@@ -204,3 +204,4 @@ const Sidebar = ({ navigation }) => {
 };
 
 // export default DrawerContent;
+export default Sidebar;
