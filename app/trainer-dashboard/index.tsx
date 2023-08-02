@@ -10,17 +10,20 @@ export default function Home() {
         <SafeAreaView>
             <Stack.Screen
                 options={{
-                    title: 'Home',
+                    title: '',
                 }}
             />
-            {/* <View style={styles.container}>
+            <View style={styles.container}>
                 <ImageBackground source={require('../../assets/images/home.png')} resizeMode='cover' style={styles.backgroundImage}>
-                    <ScrollView>                        
+                    <ScrollView style={styles.scrollView}>   
+                        <View>
+                            <Text>top nav icon</Text> 
+                        </View>                     
                         <Text style={styles.heading}>Home</Text> 
-                        <Footer_nav/>
+                        {/* <Footer_nav/> */}
                     </ScrollView>
                 </ImageBackground>
-            </View> */}
+            </View>
         </SafeAreaView>
     )
 }
