@@ -32,7 +32,7 @@ export default function Home() {
                                 <Text style={styles.subContent}>User Name</Text>
                                 <TextInput style={styles.txtInput}  />
                                 <Text style={styles.subContent}>Password</Text>
-                                <TextInput style={styles.txtInput}  secureTextEntry={true} />
+                                <TextInput style={styles.txtInput} autoCorrect={false} secureTextEntry={true} />
                                 <TouchableOpacity
                                     onPress={()=>{
                                         router.push('../TrainerForgetPW')

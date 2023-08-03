@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     btnTxt:{
-        fontSize: 23,
+        fontSize: 20,
         color: 'white',
 
     },

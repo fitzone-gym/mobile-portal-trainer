@@ -16,9 +16,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#222222',
         opacity: 0.9,
-        margin:30,
+        margin:17,
         padding:0,
         borderRadius:17,
+        height:"96%",
     },
 
     heading: {
@@ -45,26 +46,43 @@ const styles = StyleSheet.create({
         borderColor: '#E54646',
         marginBottom:30
     },
+    terms:{
+        marginBottom:20,
+    },
+    underTxt:{
+        flexDirection: 'row',
+        width:"61%",
+        alignItems:'center',
+        justifyContent: 'space-between',
+    },
+
     pwtxt:{
         color: '#E54646',
         fontSize: 16,
         textAlign: 'right',
     },
 
-    btn: {
-        width: 250, 
-        height: 50,
-        marginBottom: 30,
-        backgroundColor: '#E54646',   
-        borderRadius: 30,
-        alignItems:'center',
-        justifyContent: 'center',
+    checkboxContainer: {
+    backgroundColor: 'transparent', 
+    borderWidth: 0, 
     },
-    btnTxt:{
-        fontSize: 23,
-        color: 'white',
 
+    checkboxText: {
+    fontWeight: 'normal', 
     },
+
+    buttonStyle: {
+    width: 250, 
+    height: 50,
+    marginBottom: 20,
+    backgroundColor: '#E54646',   
+    borderRadius: 30,
+    },
+
+    titleStyle:{
+        fontSize: 20,
+        color: 'white',
+    }
 })
 
 export default styles;
