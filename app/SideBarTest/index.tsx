@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import {NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { Sidebar } from "../sidebar/index.tsx";
+import { Sidebar } from "../Sidebar/index.tsx";
 
 const Drawer = createDrawerNavigator();
 

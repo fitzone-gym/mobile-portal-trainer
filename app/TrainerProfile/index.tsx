@@ -12,7 +12,7 @@ import {
 import { Stack } from "expo-router";
 import Unorderedlist from "react-native-unordered-list";
 import styles from "../../styles/trainerProfile.style";
-import Footer from "../footer_statusbar/index.tsx";
+import Footer from "../FooterStatusbar/index.tsx";
 
 const details = [
   { key: "Name", value: "Anne Karona" },

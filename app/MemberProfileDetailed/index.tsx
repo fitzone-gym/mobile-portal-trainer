@@ -12,7 +12,7 @@ import {
 import styles from "../../styles/memberProfileDetail.style";
 import Unorderedlist from "react-native-unordered-list";
 import { Stack, useRouter } from "expo-router";
-import Footer from "../footer_statusbar/index.tsx"
+import Footer from "../FooterStatusbar/index.tsx"
 
 export default function memberProfileDetailed() {
   const router = useRouter();
@@ -94,7 +94,7 @@ export default function memberProfileDetailed() {
                     variant="contained"
                     style={styles.fillRedBtn}
                     onPress={() => {
-                      router.push("/workout-shedule");
+                      router.push("/WorkoutShedule");
                     }}
                   >
                     <Text style={{ color: "white", fontWeight: "bold" }}>

@@ -23,7 +23,7 @@ export default function Home() {
             <TouchableOpacity
               style={styles.btn}
               onPress={() => {
-                router.push("/trainer-profile");
+                router.push("/TrainerProfile");
               }}
             >
               <Text>trainer profile</Text>
@@ -32,7 +32,7 @@ export default function Home() {
             <TouchableOpacity
               style={styles.btn}
               onPress={() => {
-                router.push("/member-profile-detailed");
+                router.push("/MemberProfileDetailed");
               }}
             >
               <Text>member profile</Text>
@@ -41,7 +41,7 @@ export default function Home() {
             <TouchableOpacity
               style={styles.btn}
               onPress={() => {
-                router.push("/trainer-appointments");
+                router.push("/TrainerAppointments");
               }}
             >
               <Text>appointments</Text>
@@ -50,7 +50,7 @@ export default function Home() {
             <TouchableOpacity
               style={styles.btn}
               onPress={() => {
-                router.push("/sidebar");
+                router.push("/Sidebar");
               }}
             >
               <Text>sidebar</Text>
@@ -59,7 +59,7 @@ export default function Home() {
             <TouchableOpacity
               style={styles.btn}
               onPress={() => {
-                router.push("/side-bar-test");
+                router.push("/SideBarTest");
               }}
             >
               <Text>Test</Text>
