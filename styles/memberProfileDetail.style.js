@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   memberImage: {
-    marginTop:10,
+    marginTop: 10,
     width: 75,
     height: 75,
     borderRadius: 50,
@@ -91,6 +91,9 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingBottom: 10,
     borderRadius: 5,
+    textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
   fillWhiteBtn: {
     backgroundColor: "white",
@@ -104,13 +107,16 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     borderRadius: 5,
     marginLeft: 10,
+    textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
   workoutProgressTopic: {
     color: "white",
     fontSize: 17,
     fontWeight: "bold",
     marginTop: 20,
-    marginBottom:20
+    marginBottom: 20,
   },
   workoutProgressArea: {
     marginTop: 20,

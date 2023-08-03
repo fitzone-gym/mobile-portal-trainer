@@ -64,6 +64,15 @@ export default function Home() {
             >
               <Text>Test</Text>
             </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.btn}
+              onPress={() => {
+                router.push("/TrainerAppointmentDates");
+              }}
+            >
+              <Text>Trainer appointment date</Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </SafeAreaView>

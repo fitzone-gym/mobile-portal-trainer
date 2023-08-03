@@ -14,8 +14,7 @@ import { StyleSheet } from "react-native";
       paddingBottom: 20,
       paddingTop: 20,
       paddingRight: 20,
-      // minHeight: "100%",
-      // backgroundColor: "black",
+
     },
     image: {
       flex: 1,
