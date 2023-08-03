@@ -31,7 +31,7 @@ export default function Home() {
                             <TouchableOpacity
                                 style={styles.btn}
                                 onPress={() => {
-                                    router.push('/trainer-signin')
+                                    router.push('/TrainerSignin')
                                 }}
                             >
                                 <Text style={styles.btnTxt}>Get Started</Text>
@@ -41,7 +41,7 @@ export default function Home() {
                                 <Text style={styles.txt}>Don't you have an account?</Text>
                                 <TouchableOpacity
                                     onPress={()=>{
-                                        router.push('/trainer-signup');
+                                        router.push('/TrainerSignup');
                                     }}
                                 >
                                     <Text  style={{ color: '#E54646' }}>Sign up</Text>

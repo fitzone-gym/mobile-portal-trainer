@@ -35,7 +35,7 @@ export default function Home() {
                                 <TextInput style={styles.txtInput}  secureTextEntry={true} />
                                 <TouchableOpacity
                                     onPress={()=>{
-                                        router.push('../trainer-forgetPW')
+                                        router.push('../TrainerForgetPW')
                                     }}
                                 >
                                     <Text style={styles.pwtxt}>Forget Password ?</Text>
@@ -44,7 +44,7 @@ export default function Home() {
                             <TouchableOpacity
                                 style={styles.btn}
                                 onPress={() => {
-                                    router.push('../trainer-dashboard')
+                                    router.push('../TrainerDashboard')
                                 }}
                             >
                                 <Text style={styles.btnTxt}>Sign in</Text>
