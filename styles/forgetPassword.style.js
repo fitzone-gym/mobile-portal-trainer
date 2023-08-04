@@ -101,33 +101,30 @@ const styles = StyleSheet.create({
 
     },
     otpBox:{
-        top:'21%',
-        marginLeft: 30,
-        marginRight: 30,
+        width:'80%',
     },
 
     otpDoneButton:{
-        top:'28%',
-        width:'83%',
-        height:45,
-        left:'9%',
+        marginTop: "30%",
+        width:'70%',
+        height:45,      
         backgroundColor: '#E54646',
         padding: 10,
-        borderRadius:10,
+        borderRadius:40,
     },
 
-        doneButtonText:{
-            color:'#ffffff',
+    doneButtonText:{
+        color:'#ffffff',
 
-            fontSize:20,
-            paddingLeft:'36%',
-            paddingRight:'25%',
+        fontSize:20,
+        paddingLeft:'36%',
+        paddingRight:'25%',
 
-        },
+    },
 
-        otp:{
-            color:'#ffffff',
-        },
+    otp:{
+        color:'#ffffff',
+    },
 })
 
 export default styles
