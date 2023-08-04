@@ -32,25 +32,21 @@ return(
                 <View style={styles.forgetPasswordText}>
                     <Text style={styles.forgetPasswordHeading}>Set New Password</Text>
                 </View>
-
                 <View style={styles.forgetPasswordSubText}>
                     <Text style={styles.forgetPasswordSubheading}>Password must be at least 8 characters with numbers and symbols</Text>
                 </View>
-
-                <View style={styles.emailEnterBox}>
-                    <Text style={styles.emailHeading}>Password :</Text>
+                <View style={styles.passwordBox}>
+                    <Text style={styles.Heading}>Password :</Text>
                     <TextInput
                                 style={styles.input}
                                 onChangeText={onChangePassword}
                                 value={password}
                                 placeholder="Enter Your Password"
                                 placeholderTextColor={'#838383'}
-
                     />
                 </View>
-
-                <View style={styles.emailEnterBox2}>
-                    <Text style={styles.emailHeading}>Confirm Password :</Text>
+                <View style={styles.passwordBox2}>
+                    <Text style={styles.Heading}>Confirm Password :</Text>
                     <TextInput
                                 style={styles.input}
                                 onChangeText={onChangeForgetPassword}
@@ -59,9 +55,8 @@ return(
                                 placeholderTextColor={'#838383'}
                     />
                 </View>
-
-                <TouchableOpacity style={styles.ContinueButton1} onPress={()=>{router.push('/sign-up')}}>
-                    <Text style={styles.forgetPasswordButtonText}>Reset Password</Text>
+                <TouchableOpacity style={styles.resetButton} onPress={()=>{router.push('/TrainerSignin')}}>
+                    <Text style={styles.resetPasswordButtonText}>Reset</Text>
                 </TouchableOpacity>
             </View>
             </ImageBackground>

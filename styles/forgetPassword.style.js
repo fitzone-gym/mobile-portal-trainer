@@ -58,21 +58,27 @@ const styles = StyleSheet.create({
     },
 
     emailEnterBox:{
-        flexDirection: 'column',
-        width:'90%',
-        height:'10%',
-        marginLeft: 70,
+        marginLeft:47,
+        padding:20,
+        width:"90%",
+    },
+    passwordBox:{
+        marginLeft:47,
+        padding:20,
+        width:"90%"
     },
 
-    emailEnterBox2:{
-        marginBottom:'7%',
+    passwordBox2:{
+        marginLeft:47,
+        padding:20,
+        width:"90%",
     },
 
-    emailHeading:{
+    Heading:{
         color:'#ffffff',
         alignItems: 'center',
     },
-
+    
     input: {
         height: 40,
         borderColor:'#ffffff',
@@ -115,16 +121,31 @@ const styles = StyleSheet.create({
 
     doneButtonText:{
         color:'#ffffff',
-
         fontSize:20,
         paddingLeft:'36%',
         paddingRight:'25%',
-
     },
 
     otp:{
         color:'#ffffff',
     },
+
+    resetButton:{
+        marginTop: "30%",
+        width:'60%',
+        height:45,      
+        backgroundColor: '#E54646',
+        padding: 10,
+        borderRadius:40
+    },
+
+    resetPasswordButtonText:{
+        color:'#ffffff',
+        fontSize:20,
+        paddingLeft:'36%',
+        paddingRight:'25%',
+    }
+
 })
 
 export default styles

@@ -44,7 +44,7 @@ return(
                 </View>
 
                 <View style={styles.emailEnterBox}>
-                    <Text style={styles.emailHeading}>Email :</Text>
+                    <Text style={styles.Heading}>Email :</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={onChangeEmail}
