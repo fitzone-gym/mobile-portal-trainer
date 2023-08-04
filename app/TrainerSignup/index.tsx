@@ -69,15 +69,6 @@ return (
                         buttonStyle={styles.buttonStyle}
                         titleStyle={styles.titleStyle}
                     />
-
-                    {/* <TouchableOpacity
-                        style={styles.btn}
-                        // onPress={() => {
-                        //     router.push('')
-                        // }}
-                        >
-                        <Text style={styles.btnTxt}>Register</Text>
-                    </TouchableOpacity> */}
                     
                     <View style={styles.underTxt}>
                         <Text>Already have an account?</Text>
