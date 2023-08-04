@@ -1,4 +1,4 @@
-import styles from '../../styles/home.style';
+import styles from '../../styles/dashboard.style';
 import Footer_nav from '../../components/footer_statusbar'
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground,TouchableOpacity } from 'react-native';
 
