@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
     upperTxt:{
         fontSize:30,
         textAlign:'center',
-        fontWeight:600
+        fontWeight:600,
+        color:'white',
     },
     bottom:{
         alignItems: 'center',
@@ -56,7 +57,8 @@ const styles = StyleSheet.create({
     subContent: {
         fontSize: 17,
         fontWeight: 'bold',
-        textAlign:'left'
+        textAlign:'left',
+        color:'white'
     },
     txtInput:{
         fontSize: 14,

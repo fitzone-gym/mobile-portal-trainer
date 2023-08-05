@@ -51,6 +51,7 @@ return(
                         value={email}
                         placeholder="Enter Your Email"
                         placeholderTextColor={'#838383'}
+                    
                     />
                 </View>
 

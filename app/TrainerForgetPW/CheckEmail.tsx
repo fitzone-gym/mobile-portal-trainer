@@ -12,6 +12,7 @@ export default function forgetPasswordOTP(){
 const [otpCode,setOtpCode] = useState('')
 
 const router = useRouter();
+
 return(
 <SafeAreaView>
     <Stack.Screen
@@ -43,7 +44,7 @@ return(
 
             <View style={styles.otpBox}>
                 {/* <OtpInput numberOfDigits={4} onTextChange={(text)=>console.log(text)} focusColor="#E54646" focusStickBlinkingDuration={500}/> */}
-                <OtpInput
+                <OtpInput 
                     numberOfDigits={4}
                     onTextChange={(text) => setOtpCode(text)}
                     focusColor="#E54646"

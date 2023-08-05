@@ -88,7 +88,6 @@ const styles = StyleSheet.create({
         padding: 10,
         width: '83%',
         marginTop: 10,
-        color:'#ffffff',
     },
 
     ContinueButton1:{
@@ -124,10 +123,6 @@ const styles = StyleSheet.create({
         fontSize:20,
         paddingLeft:'36%',
         paddingRight:'25%',
-    },
-
-    otp:{
-        color:'#ffffff',
     },
 
     resetButton:{
