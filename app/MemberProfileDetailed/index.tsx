@@ -12,7 +12,7 @@ import {
 import styles from "../../styles/memberProfileDetail.style";
 import Unorderedlist from "react-native-unordered-list";
 import { Stack, useRouter } from "expo-router";
-import Footer from "../FooterStatusbar/index.tsx"
+import Footer from "../../components/FooterStatusbar"
 
 export default function memberProfileDetailed() {
   const router = useRouter();
@@ -21,7 +21,7 @@ export default function memberProfileDetailed() {
       <Stack.Screen
         options={{
           title: "",
-          headerLeft: null,
+          // headerLeft: null,
         }}
       />
 
@@ -174,5 +174,3 @@ export default function memberProfileDetailed() {
     </SafeAreaView>
   );
 };
-
-export default memberProfileDetailed;

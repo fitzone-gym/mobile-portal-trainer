@@ -56,11 +56,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop:10,
         height:120  ,
+        justifyContent: 'space-between',
         alignItem: 'center',
     },
     totalCount:{
     
-        width:"30%",
+        width:"33%",
         backgroundColor:"black",
         aspectRatio:1,
         borderRadius:20,
@@ -68,18 +69,67 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:"center",
     },
+    totRow:{
+        justifyContent:"space-between",
+    },
+    memberRequestsCount:{
+        flex:1,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:"space-between",
+        width:"75%",
+        height:"40%",
+        marginLeft:7,
+        borderRadius:10,
+        backgroundColor:"#E54646",
+        marginBottom:7
+
+    },
     appoinmentCount:{
         flex:1,
         flexDirection:'row',
         alignItems:'center',
         justifyContent:"space-between",
-        width:"70%",
+        width:"75%",
         height:"40%",
-        marginLeft:5,
+        marginLeft:7,
         borderRadius:10,
         backgroundColor:"#686A6C"
-    }
+    },
+    specialAnnounce:{
+        marginTop:20,
+    },
+    data:{
+        backgroundColor:'#000000',
+        opacity:0.7,
+        padding:18,
+        borderRadius:30,
+        borderLeftColor:'#E54646',
+        borderWidth:2,
+    },
+    upNext:{
+        alignItems:'center',
+        marginBottom:20,
+    },
+    upNextInner:{
+        flex:1,
+        flexDirection:'row',
+        justifyContent: 'center',
+        alignItems:'center',
+        backgroundColor:'#34282C',
+        opacity:0.7,
+        padding:7,
+        borderRadius:30,
+        borderColor:'#E54646',
+        width:'100%'
+        
+    },
+    proPic:{
+        marginHorizontal:10
+    },
+    Name:{
 
+    }
 })
 
 export default styles

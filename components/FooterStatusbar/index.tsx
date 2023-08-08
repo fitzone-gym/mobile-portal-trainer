@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from "../../styles/footer.style";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
