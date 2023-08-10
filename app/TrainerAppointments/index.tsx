@@ -14,7 +14,7 @@ import { Stack, useRouter } from "expo-router";
 
 
 /*import footer */
-import Footer from "../FooterStatusbar/index.tsx";
+import Footer from "../../components/FooterStatusbar";
 import styles from "../../styles/trainer-appointments.style";
 
 import Icon from "react-native-vector-icons/MaterialIcons";

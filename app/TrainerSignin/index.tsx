@@ -2,7 +2,7 @@ import styles from '../../styles/signin.style';
 import { View, Text,TextInput, Image, SafeAreaView,ImageBackground,TouchableOpacity} from 'react-native';
 import { Stack , useRouter} from 'expo-router';
 
-export default function Home() {
+export default function signin() {
 
     const router = useRouter()
     return (

@@ -44,16 +44,16 @@ import {
 } from "react-native-paper";
 
 
-function PaperComponent(props: PaperProps) {
-  return (
-    <Draggable
-      handle="#draggable-dialog-title"
-      cancel={'[class*="MuiDialogContent-root"]'}
-    >
-      <Paper {...props} />
-    </Draggable>
-  );
-}
+// function PaperComponent(props: PaperProps) {
+//   return (
+//     <Draggable
+//       handle="#draggable-dialog-title"
+//       cancel={'[class*="MuiDialogContent-root"]'}
+//     >
+//       <Paper {...props} />
+//     </Draggable>
+//   );
+// }
 
 export default function WorkoutShedule() {
   /*for routing*/
@@ -70,21 +70,21 @@ export default function WorkoutShedule() {
   //   setVisible(false);
   // };
 
-  /*new */
-  const [visible, setVisible] = React.useState(false);
+  // /*new */
+  // const [visible, setVisible] = React.useState(false);
 
-  const showDialog = () => setVisible(true);
+  // const showDialog = () => setVisible(true);
 
-  const handleClose = () => setVisible(false);
+  // const handleClose = () => setVisible(false);
 
-  /*for edit form */
-  const[exerciseName, setExerciseName] = useState("");
-  const [sets, setSets] = useState("");
-  const[reps, setReps] = useState("");
+  // /*for edit form */
+  // const[exerciseName, setExerciseName] = useState("");
+  // const [sets, setSets] = useState("");
+  // const[reps, setReps] = useState("");
 
-  function handleSubmit(event){
-    event.preventDefault();
-  }
+  // function handleSubmit(event){
+  //   event.preventDefault();
+  // }
   return (
     <SafeAreaView>
       <Stack.Screen
@@ -165,7 +165,7 @@ export default function WorkoutShedule() {
                             <Icon
                               name="clipboard-edit"
                               style={styles.individualOptionIconEdit}
-                              onPress={showDialog}
+                              // onPress={showDialog}
                             />
                             <Icon
                               name="delete-forever"

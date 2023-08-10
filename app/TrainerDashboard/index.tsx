@@ -19,7 +19,7 @@ import {
 
 import { Stack, useRouter } from 'expo-router';
 
-export default function Home() {
+export default function dashboard() {
     const router = useRouter()
     return (
         <SafeAreaView>
