@@ -1,7 +1,7 @@
 import styles from "../../styles/forgetPassword.style";
 
 import react from "react";
-import { useRouter } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import {Route} from "expo-router/build/Route";
 
 import { SafeAreaView, View, Text, TouchableOpacity, ImageBackground, TextInput } from "react-native";
@@ -14,6 +14,11 @@ const [forgetPassword, onChangeForgetPassword] = react.useState('');
 
 return(
     <SafeAreaView>
+        <Stack.Screen
+                options={{
+                    title: '',
+                }}
+            />
         <View style={styles.MainContainer}>
             <ImageBackground source={require('../../assets/images/forget-password.png')}
             style={{

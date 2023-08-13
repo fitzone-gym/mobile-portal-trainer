@@ -18,36 +18,61 @@ const styles = StyleSheet.create({
     text:{
         fontSize:25, 
         marginLeft:30, 
-        marginTop:100 
+        marginTop:100 ,
+        color:'#ffffff'
     },
     containerBottom:{
         height:'77%',
         backgroundColor:'red'
     },
-    card: {
-        backgroundColor: '#fff',
-        borderRadius: 8,
-        padding: 10,
-        marginBottom: 10,
-        elevation: 2,
+    mainCard:{
+        flex:1,
+        flexDirection:'row',
+        flexWrap: 'wrap',
     },
-    image: {
-        width: 100,
-        height: 100,
-        borderRadius: 50,
+
+    trainercards:{
+        backgroundColor:'#222222',
+        height:158,
+        width: 170,
+        margin: 10,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
+    },
+
+    memberimage:{
+        width:80,
+        height:80,
+        borderColor: 'red',
+        borderWidth: 1,
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50,
+        borderBottomLeftRadius: 50,
+        borderBottomRightRadius: 50,
         alignSelf: 'center',
+        marginTop:15,
+
     },
-    name: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginTop: 5,
-        alignSelf: 'center',
-    },
-    age: {
+
+    membercardname:{
+        color: '#FFFFFF',
         fontSize: 14,
-        marginTop: 5,
-        alignSelf: 'center',
+        lineHeight: 30,
+        fontWeight: 'bold',
+        textAlign: 'center',
     },
+    
+    membercardtext:{
+        color: '#FFFFFF',
+        fontSize: 10,
+        lineHeight: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+
+    },
+    
     });
     
 export default styles

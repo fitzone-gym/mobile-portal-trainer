@@ -1,7 +1,8 @@
-import React from 'react';
+import React , {useState,useEffect} from 'react';
+import acios from 'axios';
 import styles from '../../styles/dashboard.style';
-import Footer_nav from '../../components/FooterStatusbar';
-
+// import Footer_nav from '../../components/FooterStatusbar';
+import { Stack, useRouter } from 'expo-router';
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground,TouchableOpacity } from 'react-native';
 import {
     useTheme,
@@ -16,11 +17,32 @@ import {
     MD3Colors,
     Button
 } from "react-native-paper";
+import axios from 'axios';
+import memberProfileDetailed from '../MemberProfileDetailed';
 
-import { Stack, useRouter } from 'expo-router';
+interface Announcement{
+    annoucement_id: number;
+    title: string;
+    description: string;
+    create_date:Date;
+}
 
-export default function dashboard() {
+export default function Dashboard() {
+
+    const [announcementDetails, setAnnouncementDetails] = useState<Announcement[]>([]);
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:5400/dashboard/announcement")
+            .then((response)=>{
+                setAnnouncementDetails(response.data.data);
+            })
+            .catch((error) => console.error(error));
+    },[]);
+
+
     const router = useRouter()
+
     return (
         <SafeAreaView>
             <Stack.Screen
@@ -62,23 +84,17 @@ export default function dashboard() {
                                         <View><Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:26,marginRight:6}}>6</Text></View>
                                     </View>
                                 </View>
-                            </View>  
-
+                            </View>                             
                             <View style={styles.specialAnnounce}> 
-                                <Text style={{color:'#E54646', fontWeight: 'bold', fontSize:18}}>Special Notices</Text>
-                                <View style={styles.data}>
-                                    <Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:18, marginBottom:10}}>23rd and 24th augest closed</Text>
-                                    <Text>
-                                        2023 August 23 and 24 full day gym closed. Full day repairmen and new gym machine fixing going on.
-                                    </Text>
-                                </View>
-
-                                <View style={styles.data}>
-                                    <Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:18, marginBottom:10}}>New Zumba class</Text>
-                                    <Text>
-                                        Starting 29 th July on ward. Zumba class for all age members. From begin to end. Conducting by highly qualified zumba masters. 
-                                    </Text>
-                                </View>
+                                <Text style={{color:'#E54646', fontWeight: 'bold', fontSize:18}}>SPECIAL NOTICES</Text>
+                                    {announcementDetails.length > 0? (
+                                    announcementDetails.map((announcement)=>(
+                                        <View style={styles.data}>
+                                            <Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:18, marginBottom:10}}>{announcement.title}</Text>
+                                            <Text style={{color:'#ffffff'}}>{announcement.description}</Text>
+                                        </View>
+                                    ))
+                                    ):(<Text>No data</Text>)}
                             </View>
 
                             <View style={styles.upNext}> 
@@ -97,14 +113,14 @@ export default function dashboard() {
                                     </View>
                                 </View>
                             </View>
-                            <Button  mode="contained" onPress={() => {
+                            <Button  mode="contained" style={{backgroundColor:'#E54646'}} onPress={() => {
                             router.push('/TrainerMembers')
                                 }}>
-                                ourTrainers
+                                Members
                             </Button>
                         </View>
                     </ScrollView>
-                    <Footer_nav/> 
+                    {/* <Footer_nav/>  */}
                 </ImageBackground>
             </View>
         </SafeAreaView>

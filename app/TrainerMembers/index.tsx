@@ -1,11 +1,32 @@
+import  { useState, useEffect } from 'react';
+import axios from 'axios';
 import styles from '../../styles/trainerMembers.style';
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, FlatList } from 'react-native';
-
 import { Stack, useRouter } from 'expo-router';
 import React from 'react';
+// import BottomNavBar from '../../components/BottomNavBar'
 
+interface Members  {
+    id:number;
+    first_name:string;
+    last_name:string;
+    // profile_picture?:string;
+}
 
 export default function trainerMembers() {
+
+    const [memberDetails, setMemberDetails] = useState<Members[]>([]);
+
+
+    useEffect(()=>{
+        axios
+            .get("http://localhost:5400/members")
+            .then((response)=>{
+                setMemberDetails(response.data.data);                
+            })
+            .catch((error)=>console.error("Error fetching member details", error));
+    },[]);
+    console.info(memberDetails);
     const router = useRouter()
 
     return (
@@ -27,9 +48,33 @@ export default function trainerMembers() {
                     </ImageBackground>  
                 </View>
                 <ScrollView>
-
+                    <View style={styles.mainCard}>
+                        {memberDetails.map((member)=>(
+                        <TouchableOpacity
+                            style={styles.trainercards}
+                            onPress={()=>{
+                                router.push('/MemberProfileDetailed')
+                            }} 
+                            key={member.id}>                        
+                                <Image
+                                    style={styles.memberimage}
+                                    // source={{ uri:"../../assets/images/${member.profile_picture"}}
+                                    source={require('../../assets/images/Lakmal.png')}
+                                />
+                                <Text style={styles.membercardname}>
+                                    {member.first_name}&nbsp; {member.last_name}
+                                </Text>
+                                <Text style={styles.membercardtext}>
+                                    9 Members
+                                </Text>
+                
+                        </TouchableOpacity>
+                        )
+                        )}
+                    </View>
                 </ScrollView>
-            </View>                  
+                {/* <BottomNavBar/>  */}
+            </View>                 
         </SafeAreaView>
     )
 }

@@ -6,7 +6,7 @@ import {CheckBox, Button} from 'react-native-elements'
 import styles from '../../styles/signup.style'
 
 
-export default function () {     
+export default function Home() {     
 
 const [isChecked, setIsChecked] = useState(false);
 const handleCheckboxChange = () => {
