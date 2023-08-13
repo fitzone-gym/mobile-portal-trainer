@@ -56,14 +56,14 @@ export default function Home() {
               <Text>sidebar</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity
+            {/* <TouchableOpacity
               style={styles.btn}
               onPress={() => {
                 router.push("/SideBarTest");
               }}
             >
               <Text>Test</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <TouchableOpacity
               style={styles.btn}
