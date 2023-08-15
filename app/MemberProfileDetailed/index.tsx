@@ -117,7 +117,7 @@ export default function memberProfileDetailed() {
                   <TouchableOpacity
                     style={styles.fillRedBtn}
                     onPress={()=>{
-                      router.push('/WorkoutShedule')
+                      router.push('/WorkoutSchedule')
                   }} 
                   >
                     <Text style={{ color: "white", fontWeight: "bold" }}>
@@ -139,14 +139,20 @@ export default function memberProfileDetailed() {
             <View>
               <Text style={styles.workoutProgressTopic}>Workout progress</Text>
               <View style={styles.workoutProgressArea}>
-                <Text style={styles.detailsValue}> progress</Text>
+                  <Image
+                    source={require("../../assets/images/workoutProgress.png")}
+                    style={styles.workoutImage}
+                  />
               </View>
             </View>
 
             <View>
               <Text style={styles.workoutProgressTopic}>Dieting progress</Text>
               <View style={styles.workoutProgressArea}>
-                <Text style={styles.detailsValue}> progress</Text>
+                <Image
+                    source={require("../../assets/images/dietingProgress.png")}
+                    style={styles.dietPlaneImage}
+                  />   
               </View>
             </View>
 

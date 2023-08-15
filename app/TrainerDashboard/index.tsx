@@ -26,21 +26,21 @@ export default function Dashboard() {
     useEffect(() => {
         axios
             .get("http://localhost:5400/dashboard/announcement")
-            .then((response)=>{
+            .then((response: { data: { data: any; }; })=>{
                 setAnnouncementDetails(response.data.data);  
             })
-            .catch((error) => console.error(error));
+            .catch((error: any) => console.error(error));
             
     },[]);
 
     useEffect(() => {
         axios
             .get("http://localhost:5400/dashboard/totalMember")
-            .then((response)=>{
+            .then((response: { data: { data: any; }; })=>{
                 const data  = response.data.data;
                 setTotalMemberCount(data[0].workingMembers);
             })
-            .catch((error) => console.error(error))
+            .catch((error: any) => console.error(error))
     },[]);
 
     console.info(totalMemberCount)
@@ -83,16 +83,16 @@ export default function Dashboard() {
                                         <View><Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:26,marginRight:6}}>6</Text></View>
                                     </View>
                                     <View style={styles.appoinmentCount}>
-                                        <View> <IconButton icon="calendar" size={16} iconColor='#ffffff'/></View>
-                                        <View><Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:16}}>Today appoinments</Text></View>
-                                        <View><Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:26,marginRight:6}}>6</Text></View>
+                                        <IconButton icon="calendar" size={16} iconColor='#ffffff'/>
+                                        <Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:16}}>Today appoinments</Text>
+                                        <Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:26,marginRight:6}}>6</Text>
                                     </View>
                                 </View>
                             </View>                             
                             <View style={styles.specialAnnounce}> 
                                 <Text style={{color:'#E54646', fontWeight: 'bold', fontSize:18}}>SPECIAL NOTICES</Text>
                                     {announcementDetails.length > 0? (
-                                    announcementDetails.map((announcement)=>(
+                                    announcementDetails.map((announcement:any)=>(
                                         <View style={styles.data}>
                                             <Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:18, marginBottom:10}}>{announcement.title}</Text>
                                             <Text style={{color:'#ffffff'}}>{announcement.description}</Text>
@@ -120,7 +120,7 @@ export default function Dashboard() {
                             <Button  mode="contained" style={{backgroundColor:'#E54646'}} onPress={() => {
                             router.push('/TrainerMembers')
                                 }}>
-                                Members
+                                <Text>Members</Text>
                             </Button>
                         </View>
                     </ScrollView>

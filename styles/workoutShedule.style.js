@@ -36,9 +36,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   sheduleOptionsButton: {
-    // alignItems: "left",
-    // justifyContent: "center",
-
     marginTop: 20,
     marginBottom: 50,
     display: "flex",
@@ -105,6 +102,12 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  allbuttons:{
+    flexDirection: "row",
+  },
+  editDelete:{
+    padding: "10px",
   },
   editDeleteIcon: {
     display: "flex",

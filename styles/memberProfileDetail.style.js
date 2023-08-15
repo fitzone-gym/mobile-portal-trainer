@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   back: {
-    // backgroundColor: "black",
     paddingBottom: 50,
   },
   content: {
@@ -46,6 +45,12 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 2,
     borderColor: "#E54646",
+  },
+  workoutImage:{
+    width:"70%"
+  },
+  dietPlaneImage:{
+    width:"70%"
   },
   memberDetails: {
     flexDirection: "row",

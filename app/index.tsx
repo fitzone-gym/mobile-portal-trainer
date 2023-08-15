@@ -2,6 +2,7 @@ import styles from '../styles/index.styles';
 
 import { View, Text, TouchableOpacity, SafeAreaView,Image, ImageBackground } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
+import React from 'react';
 
 export default function Home() {
     const router = useRouter()

@@ -198,9 +198,9 @@ const TrainerProfile = () => (
         </TouchableOpacity>
       </View>
 
-      <View style={styles.footerSection}>
+      {/* <View style={styles.footerSection}>
         <Footer />
-      </View>
+      </View> */}
     </ScrollView>
   </SafeAreaView>
 );
