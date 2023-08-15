@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     borderRadius: 25,
   },
-  individualDetailSet:{
+  individualDetailSet: {
     lineHeight: 30,
   },
   detailsList: {
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   memberDetails: {
     flexDirection: "row",
     gap: 10,
-    marginBottom:20
+    marginBottom: 20,
   },
   detailsList: {
     lineHeight: 50,
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     marginBottom: 20,
-    fontSize:16
+    fontSize: 16,
   },
   detail: {
     fontSize: 13,
@@ -121,8 +121,7 @@ const styles = StyleSheet.create({
   packagePrice: {
     color: "#E54646",
     marginLeft: 30,
-    fontSize:16
-    
+    fontSize: 16,
   },
 
   hireBtn: {
@@ -142,6 +141,7 @@ const styles = StyleSheet.create({
     alighItem: "center",
     textAlign: "center",
     justifyContent: "center",
+    marginBottom: 20,
   },
   hireBtnText: {
     textAlign: "center",

@@ -12,7 +12,8 @@ import {
 import { Stack } from "expo-router";
 import Unorderedlist from "react-native-unordered-list";
 import styles from "../../styles/trainerProfile.style";
-import Footer from "../FooterStatusbar/index.tsx";
+import BottomNav from "../../components/BottomNav/index.tsx";
+import AppBar from "../../components/AppBar/index.tsx";
 
 const details = [
   { key: "Name", value: "Anne Karona" },
@@ -30,7 +31,7 @@ const TrainerProfile = () => (
         headerLeft: null,
       }}
     />
-
+    <AppBar/>
     <ScrollView style={styles.back}>
       <ImageBackground
         source={require("../../assets/images/hero-image1.jpg")}
@@ -199,7 +200,7 @@ const TrainerProfile = () => (
       </View>
 
       <View style={styles.footerSection}>
-        <Footer />
+        <BottomNav />
       </View>
     </ScrollView>
   </SafeAreaView>

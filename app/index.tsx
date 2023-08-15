@@ -56,14 +56,14 @@ export default function Home() {
               <Text>sidebar</Text>
             </TouchableOpacity>
 
-            {/* <TouchableOpacity
+            <TouchableOpacity
               style={styles.btn}
               onPress={() => {
-                router.push("/SideBarTest");
+                router.push("/MyDrawer");
               }}
             >
-              <Text>Test</Text>
-            </TouchableOpacity> */}
+              <Text>drwer test</Text>
+            </TouchableOpacity>
 
             <TouchableOpacity
               style={styles.btn}
@@ -71,7 +71,7 @@ export default function Home() {
                 router.push("/TrainerAppointmentDates");
               }}
             >
-              <Text>Trainer appointment date</Text>
+              <Text> app date </Text>
             </TouchableOpacity>
           </View>
         </ScrollView>

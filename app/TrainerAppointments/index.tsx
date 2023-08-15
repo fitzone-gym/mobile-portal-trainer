@@ -14,7 +14,8 @@ import { Stack, useRouter } from "expo-router";
 
 
 /*import footer */
-import Footer from "../FooterStatusbar/index.tsx";
+import BottomNav from "../../components/BottomNav/index.tsx";
+import AppBar from "../../components/AppBar/index.tsx";
 import styles from "../../styles/trainer-appointments.style";
 
 import Icon from "react-native-vector-icons/MaterialIcons";
@@ -32,7 +33,7 @@ export default function appointments() {
           //   headerLeft: null,
         }}
       />
-
+      <AppBar/>
       <ScrollView>
         <View style={styles.container}>
           <ImageBackground
@@ -87,16 +88,14 @@ export default function appointments() {
                       <Text style={styles.name}>Mr. Kevin Salgado</Text>
                     </View> */}
                   </View>
-                  <View>
-                    {/* <Text style={styles.status}>Booked</Text> */}
-                  </View>
+                  <View>{/* <Text style={styles.status}>Booked</Text> */}</View>
                 </View>
               </View>
             </View>
           </View>
 
           <View style={styles.footerSection}>
-            <Footer />
+            <BottomNav />
           </View>
         </View>
       </ScrollView>

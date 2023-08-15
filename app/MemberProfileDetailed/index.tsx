@@ -11,8 +11,10 @@ import {
 } from "react-native";
 import styles from "../../styles/memberProfileDetail.style";
 import Unorderedlist from "react-native-unordered-list";
+import BottomNav from "../../components/BottomNav/index.tsx";
+import AppBar from "../../components/AppBar/index.tsx";
 import { Stack, useRouter } from "expo-router";
-import Footer from "../FooterStatusbar/index.tsx"
+
 
 export default function memberProfileDetailed() {
   const router = useRouter();
@@ -24,7 +26,7 @@ export default function memberProfileDetailed() {
           headerLeft: null,
         }}
       />
-
+      <AppBar />
       <ScrollView style={styles.back}>
         <ImageBackground
           source={require("../../assets/images/hero-image1.jpg")}
@@ -47,48 +49,48 @@ export default function memberProfileDetailed() {
 
                 <View>
                   {/* <Unorderedlist style={styles.detailsList}> */}
-                    <View style={styles.profileDetail}>
-                      <View>
-                        <Text>
-                          <Text style={styles.detailsKey}>Name</Text>
-                        </Text>
-                        <Text>
-                          <Text style={styles.detailsKey}>Age</Text>
-                        </Text>
-                        <Text>
-                          <Text style={styles.detailsKey}>Gender</Text>
-                        </Text>
-                        <Text>
-                          <Text style={styles.detailsKey}>Mobile Number</Text>
-                        </Text>
-                        <Text>
-                          <Text style={styles.detailsKey}>Email</Text>
-                        </Text>
-                      </View>
-
-                      <View>
-                        <Text>
-                          <Text style={styles.detailsValue}>Anne Karona</Text>
-                        </Text>
-                        <Text>
-                          <Text style={styles.detailsValue}>25</Text>
-                        </Text>
-                        <Text>
-                          <Text style={styles.detailsValue}>Male</Text>
-                        </Text>
-                        <Text>
-                          <Text style={styles.detailsValue}>071-4554455</Text>
-                        </Text>
-                        <Text>
-                          <Text style={styles.detailsValue}>Ann@gmail.com</Text>
-                        </Text>
-                      </View>
+                  <View style={styles.profileDetail}>
+                    <View>
+                      <Text>
+                        <Text style={styles.detailsKey}>Name</Text>
+                      </Text>
+                      <Text>
+                        <Text style={styles.detailsKey}>Age</Text>
+                      </Text>
+                      <Text>
+                        <Text style={styles.detailsKey}>Gender</Text>
+                      </Text>
+                      <Text>
+                        <Text style={styles.detailsKey}>Mobile Number</Text>
+                      </Text>
+                      <Text>
+                        <Text style={styles.detailsKey}>Email</Text>
+                      </Text>
                     </View>
+
+                    <View>
+                      <Text>
+                        <Text style={styles.detailsValue}>Anne Karona</Text>
+                      </Text>
+                      <Text>
+                        <Text style={styles.detailsValue}>25</Text>
+                      </Text>
+                      <Text>
+                        <Text style={styles.detailsValue}>Male</Text>
+                      </Text>
+                      <Text>
+                        <Text style={styles.detailsValue}>071-4554455</Text>
+                      </Text>
+                      <Text>
+                        <Text style={styles.detailsValue}>Ann@gmail.com</Text>
+                      </Text>
+                    </View>
+                  </View>
                   {/* </Unorderedlist> */}
                 </View>
               </View>
 
-              <View >
+              <View>
                 <View style={styles.profileDetailsButton}>
                   <TouchableOpacity
                     variant="contained"
@@ -163,11 +165,10 @@ export default function memberProfileDetailed() {
                   <Text style={styles.detailsValue}> progress</Text>
                 </View>
               </View>
-
-              <View style={styles.footerSection}>
-                <Footer />
-              </View>
             </View>
+          </View>
+          <View style={styles.footerSection}>
+            <BottomNav />
           </View>
         </ImageBackground>
       </ScrollView>

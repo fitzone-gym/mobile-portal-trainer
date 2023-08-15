@@ -14,7 +14,9 @@ import { Stack, useRouter } from "expo-router";
 
 
 /*import footer */
-import Footer from "../FooterStatusbar/index.tsx";
+import BottomNav from "../../components/BottomNav/index.tsx";
+import AppBar from "../../components/AppBar/index.tsx";
+
 import styles from "../../styles/workoutShedule.style";
 
 import Icon from "react-native-vector-icons/MaterialIcons";
@@ -93,7 +95,7 @@ export default function WorkoutShedule() {
           //   headerLeft: null,
         }}
       />
-
+      <AppBar />
       <ScrollView>
         <View style={styles.container}>
           <ImageBackground
@@ -189,7 +191,7 @@ export default function WorkoutShedule() {
                 ))}
               </View>
               <View style={styles.footerSection}>
-                <Footer />
+                <BottomNav />
               </View>
             </View>
 
@@ -216,7 +218,6 @@ export default function WorkoutShedule() {
                   <Dialog
                     visible={visible}
                     onDismiss={handleClose}
-
                     style={{
                       backgroundColor: "black",
                       opacity: 1,

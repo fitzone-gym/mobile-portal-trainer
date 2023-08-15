@@ -14,11 +14,14 @@ import { Stack, useRouter } from "expo-router";
 
 
 /*import footer */
-import Footer from "../FooterStatusbar/index.tsx";
+import BottomNav from "../../components/BottomNav/index.tsx";
+import AppBar from "../../components/AppBar/index.tsx";
 import styles from "../../styles/trainer-appointment-dates.style";
 
 import Icon from "react-native-vector-icons/MaterialIcons";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+
+
 
 
 export default function appointments() {
@@ -31,8 +34,9 @@ export default function appointments() {
           title: "",
           //   headerLeft: null,
         }}
+        
       />
-
+      <AppBar/>
       <ScrollView>
         <View style={styles.container}>
           <ImageBackground
@@ -42,7 +46,7 @@ export default function appointments() {
           >
             <View style={styles.content}>
               <View>
-                <Text style={styles.appointmentPageHeading}>Payment</Text>
+                <Text style={styles.appointmentPageHeading}>Appointments</Text>
               </View>
               <View style={styles.appointmetDetailButtonsSection}>
                 <View style={styles.appointmentDetails}>
@@ -66,12 +70,10 @@ export default function appointments() {
             </View>
           </ImageBackground>
 
-          <View style={styles.calenderView}>
-                
-          </View>
+          <View style={styles.calenderView}></View>
 
           <View style={styles.footerSection}>
-            <Footer />
+           <BottomNav />
           </View>
         </View>
       </ScrollView>
