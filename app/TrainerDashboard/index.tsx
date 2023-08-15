@@ -5,16 +5,7 @@ import styles from '../../styles/dashboard.style';
 import { Stack, useRouter } from 'expo-router';
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground,TouchableOpacity } from 'react-native';
 import {
-    useTheme,
-    Avatar,
-    Title,
-    Caption,
-    Paragraph,
-    Drawer,
-    TouchableRipple,
-    Switch,
-    List,
-    MD3Colors,
+    IconButton,
     Button
 } from "react-native-paper";
 import axios from 'axios';
@@ -30,16 +21,29 @@ interface Announcement{
 export default function Dashboard() {
 
     const [announcementDetails, setAnnouncementDetails] = useState<Announcement[]>([]);
+    const [totalMemberCount, setTotalMemberCount] = useState();
 
     useEffect(() => {
         axios
             .get("http://localhost:5400/dashboard/announcement")
             .then((response)=>{
-                setAnnouncementDetails(response.data.data);
+                setAnnouncementDetails(response.data.data);  
             })
             .catch((error) => console.error(error));
+            
     },[]);
 
+    useEffect(() => {
+        axios
+            .get("http://localhost:5400/dashboard/totalMember")
+            .then((response)=>{
+                const data  = response.data.data;
+                setTotalMemberCount(data[0].workingMembers);
+            })
+            .catch((error) => console.error(error))
+    },[]);
+
+    console.info(totalMemberCount)
 
     const router = useRouter()
 
@@ -70,16 +74,16 @@ export default function Dashboard() {
                             <View style={styles.details}>
                                 <View style={styles.totalCount}>
                                     <Text style={{color:'#ffffff' , fontWeight: 'bold', fontSize:13, padding:10,}}>Tottal Members</Text>
-                                    <Text style={{color:'#ffffff' , fontWeight: 'bold', fontSize:39}}>15</Text>
+                                    <Text style={{color:'#ffffff' , fontWeight: 'bold', fontSize:39}}>{totalMemberCount}</Text>
                                 </View>
                                 <View style={styles.totRow}>
                                     <View style={styles.memberRequestsCount}>
-                                        <View><Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:16,marginLeft:6}}>emoj</Text></View>
+                                        <View><IconButton  icon="account-group"  size={16} iconColor='#ffffff' /></View>
                                         <View><Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:16}}>New member requests</Text></View>
                                         <View><Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:26,marginRight:6}}>6</Text></View>
                                     </View>
                                     <View style={styles.appoinmentCount}>
-                                        <View><Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:16,marginLeft:6}}>emoj</Text></View>
+                                        <View> <IconButton icon="calendar" size={16} iconColor='#ffffff'/></View>
                                         <View><Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:16}}>Today appoinments</Text></View>
                                         <View><Text style={{color:'#ffffff', fontWeight: 'bold', fontSize:26,marginRight:6}}>6</Text></View>
                                     </View>

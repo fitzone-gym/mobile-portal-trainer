@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import {
   ImageBackground,
   StyleSheet,
@@ -12,10 +13,33 @@ import {
 import styles from "../../styles/memberProfileDetail.style";
 import Unorderedlist from "react-native-unordered-list";
 import { Stack, useRouter } from "expo-router";
+// import {useParams} from 'react-router-dom';
 import Footer from "../../components/FooterStatusbar"
 
+// interface Member  {
+//   id:number;
+//   first_name:string;
+//   last_name:string;
+//   // profile_picture?:string;
+// }
+
 export default function memberProfileDetailed() {
+
   const router = useRouter();
+  // const {id} = useParams();
+  // const [member,setMember] = useState<Member | null>(null);
+
+  // useEffect(() => {
+  //   // const memberId = route.params.id;
+  //     axios
+  //           .get(`http://localhost:5400/members/$id`)
+  //           .then((response) => {
+  //               setMember(response.data); // Set the member data to the state
+  //           })
+  //           .catch((error) => console.error("Error fetching member details", error));
+
+  // },[])
+
   return (
     <SafeAreaView style={styles.container}>
       <Stack.Screen
@@ -68,7 +92,7 @@ export default function memberProfileDetailed() {
 
                       <View>
                         <Text>
-                          <Text style={styles.detailsValue}>Anne Karona</Text>
+                          <Text style={styles.detailsValue}>Punsara Deshan</Text>
                         </Text>
                         <Text>
                           <Text style={styles.detailsValue}>25</Text>
@@ -91,11 +115,10 @@ export default function memberProfileDetailed() {
               <View >
                 <View style={styles.profileDetailsButton}>
                   <TouchableOpacity
-                    variant="contained"
                     style={styles.fillRedBtn}
-                    onPress={() => {
-                      router.push("/WorkoutShedule");
-                    }}
+                    onPress={()=>{
+                      router.push('/WorkoutShedule')
+                  }} 
                   >
                     <Text style={{ color: "white", fontWeight: "bold" }}>
                       Workout Shedule
@@ -103,7 +126,6 @@ export default function memberProfileDetailed() {
                   </TouchableOpacity>
 
                   <TouchableOpacity
-                    variant="outlined"
                     style={styles.fillWhiteBtn}
                   >
                     <Text style={{ color: "#E54646", fontWeight: "bold" }}>
@@ -162,10 +184,6 @@ export default function memberProfileDetailed() {
                 <View style={styles.workoutProgressArea}>
                   <Text style={styles.detailsValue}> progress</Text>
                 </View>
-              </View>
-
-              <View style={styles.footerSection}>
-                <Footer />
               </View>
             </View>
           </View>

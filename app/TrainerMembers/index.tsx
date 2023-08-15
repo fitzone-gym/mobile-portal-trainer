@@ -53,7 +53,7 @@ export default function trainerMembers() {
                         <TouchableOpacity
                             style={styles.trainercards}
                             onPress={()=>{
-                                router.push('/MemberProfileDetailed')
+                                router.push('/MemberProfileDetailed?id=${member.id}')
                             }} 
                             key={member.id}>                        
                                 <Image

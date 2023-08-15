@@ -105,6 +105,16 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginLeft: 10,
   },
+  fillButton: {
+    padding: 10,
+    borderRadius: 5,
+    marginRight: 10,
+},
+  outlineButton: {
+    padding: 10,
+    borderRadius: 5,
+    borderWidth: 1,
+},
   workoutProgressTopic: {
     color: "white",
     fontSize: 17,
