@@ -58,13 +58,13 @@ export default function Dashboard() {
                 <ImageBackground source={require('../../../assets/images/home.png')} resizeMode='cover' style={styles.backgroundImage}>
                     <ScrollView style={styles.scrollView}>
                         <View style={styles.cnt}>
-                            <View>
-                                <Text>top nav icon</Text>
-                            </View>
+                            
                             <Text style={styles.heading}>Home</Text>
                             <View style={styles.row}>
                                 <View style={styles.profilePic}>
-                                    <Image source={require('../../../assets/images/trainer-1.jpg')} resizeMode='cover' style={styles.profileImg}></Image>
+                                    <Image 
+                                    source={{ uri:`https://stylioo.blob.core.windows.net/images/Kithsandu.jpg`}}
+                                    resizeMode='cover' style={styles.profileImg}></Image>
                                 </View>
                                 <View style={styles.welcomeNote}>
                                     <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 16 }}>Welcome!</Text>
