@@ -20,7 +20,7 @@ export default function trainerMembers() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5400/members")
+            .get("http://localhost:5400/memberDetails")
             .then((response) => {
                 setMemberDetails(response.data.data);
             })

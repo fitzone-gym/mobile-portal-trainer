@@ -42,7 +42,7 @@ export default function memberProfileDetailed() {
   useEffect(() => {
     // const memberId = route.params.id;
       axios
-            .get(`http://localhost:5400/members/${localParams.id}`)
+            .get(`http://localhost:5400/memberDetails/${localParams.id}`)
             .then((response) => {
                 setMember(response.data.data); // Set the member data to the state
             })
