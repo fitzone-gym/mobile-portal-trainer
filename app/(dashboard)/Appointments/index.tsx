@@ -80,11 +80,11 @@ export default function appointments() {
                                     <View style={styles.timeAndMember}>
                                         <Text style={styles.time}>10.00 A.M - 12.00 A.M</Text>
                                         {/* <View style={styles.member}>
-                      <Image
-                        source={require("../../assets/images/trainer-1.jpg")}
-                        style={styles.userImage}
-                      />
-                      <Text style={styles.name}>Mr. Kevin Salgado</Text>
+                    <Image
+                    source={require("../../assets/images/trainer-1.jpg")}
+                    style={styles.userImage}
+                    />
+                    <Text style={styles.name}>Mr. Kevin Salgado</Text>
                     </View> */}
                                     </View>
                                     <View>
@@ -95,9 +95,9 @@ export default function appointments() {
                         </View>
                     </View>
 
-                    <View style={styles.footerSection}>
+                    {/* <View style={styles.footerSection}>
                         <Footer />
-                    </View>
+                    </View> */}
                 </View>
             </ScrollView>
         </SafeAreaView>

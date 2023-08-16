@@ -10,7 +10,7 @@ interface Members {
     id: number;
     first_name: string;
     last_name: string;
-    // profile_picture?:string;
+    profile_picture?:string;
 }
 
 export default function trainerMembers() {
@@ -53,13 +53,18 @@ export default function trainerMembers() {
                             <TouchableOpacity
                                 style={styles.trainercards}
                                 onPress={() => {
-                                    router.push('/MemberProfileDetailed?id=${member.id}')
+                                    router.push({
+                                        pathname: '/MemberProfileDetailed',
+                                        params: {
+                                            id: member.id,
+                                        }
+                                    })
                                 }}
                                 key={member.id}>
                                 <Image
                                     style={styles.memberimage}
-                                    // source={{ uri:"../../assets/images/${member.profile_picture"}}
-                                    source={require('../../../assets/images/Lakmal.png')}
+                                    source={{ uri:`https://stylioo.blob.core.windows.net/images/${member.profile_picture}`}}
+                                    // source={require('../../../assets/images/Lakmal.png')}
                                 />
                                 <Text style={styles.membercardname}>
                                     {member.first_name}&nbsp; {member.last_name}

@@ -68,7 +68,7 @@ export default function Dashboard() {
                                 </View>
                                 <View style={styles.welcomeNote}>
                                     <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 16 }}>Welcome!</Text>
-                                    <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 20 }}>Kamal Suraweera</Text>
+                                    <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 20 }}>Kithsandu Rathnayake</Text>
                                 </View>
                             </View>
                             <View style={styles.details}>
@@ -117,11 +117,11 @@ export default function Dashboard() {
                                     </View>
                                 </View>
                             </View>
-                            <Button mode="contained" style={{ backgroundColor: '#E54646' }} onPress={() => {
-                                router.push('/TrainerMembers')
+                            {/* <Button mode="contained" style={{ backgroundColor: '#E54646' }} onPress={() => {
+                                router.push('/(dashboard)/Members')
                             }}>
                                 <Text>Members</Text>
-                            </Button>
+                            </Button> */}
                         </View>
                     </ScrollView>
                     {/* <Footer_nav/>  */}

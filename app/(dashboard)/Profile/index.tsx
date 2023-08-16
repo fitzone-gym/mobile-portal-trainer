@@ -1,208 +1,154 @@
-import React from "react";
-import {
-  ImageBackground,
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
-import { Stack } from "expo-router";
-import Unorderedlist from "react-native-unordered-list";
-import styles from "../../../styles/trainerProfile.style";
-import Footer from "../../../components/FooterStatusbar";
+import styles from '../../../styles/trainerProfile.style';
 
-const details = [
-  { key: "Name", value: "Anne Karona" },
-  { key: "Age", value: "25" },
-  { key: "Gender", value: "Male" },
-  { key: "Mobile Number", value: "071-4554455" },
-  { key: "Email", value: "Ann@gmail.com" },
-];
+import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity } from 'react-native';
 
-const TrainerProfile = () => (
-  <SafeAreaView style={styles.container}>
-    <Stack.Screen
-      options={{
-        title: "",
-        headerLeft: null,
-      }}
-    />
+import { Stack, useRouter, useLocalSearchParams } from 'expo-router';
+import React, { useEffect, useState } from 'react';
+import { Button, Card, PaperProvider} from 'react-native-paper';
 
-    <ScrollView style={styles.back}>
-      <ImageBackground
-        source={require("../../../assets/images/hero-image1.jpg")}
-        resizeMode="cover"
-        style={styles.image}
-      >
-        <View style={styles.content}>
-          <View>
-            <Text style={styles.pageHeading}>Hire trainer</Text>
-          </View>
-          <View style={styles.profile}>
-            <View>
-              <Image
-                source={require("../../../assets/images/trainer-1.jpg")}
-                style={styles.trainerImage}
-              />
-            </View>
-            <View style={styles.trainerDetails}>
-              {/* <Unorderedlist style={styles.detailsList}> */}
-              <Text style={styles.individualDetailSet}>
-                <Text style={styles.detailsKey}>
-                  Name&nbsp;&nbsp;&nbsp;&nbsp;
-                </Text>
-                <Text style={styles.detailsValue}>Anne Karona</Text>
-              </Text>
-              <Text style={styles.individualDetailSet}>
-                <Text style={styles.detailsKey}>
-                  Age&nbsp;&nbsp;&nbsp;&nbsp;
-                </Text>
-                <Text style={styles.detailsValue}>25</Text>
-              </Text>
-              <Text style={styles.individualDetailSet}>
-                <Text style={styles.detailsKey}>
-                  Gender&nbsp;&nbsp;&nbsp;&nbsp;
-                </Text>
-                <Text style={styles.detailsValue}>Male</Text>
-              </Text>
-              <Text style={styles.individualDetailSet}>
-                <Text style={styles.detailsKey}>
-                  Mobile Number&nbsp;&nbsp;&nbsp;&nbsp;
-                </Text>
-                <Text style={styles.detailsValue}>071-4554455</Text>
-              </Text>
-              <Text style={styles.individualDetailSet}>
-                <Text style={styles.detailsKey}>
-                  Email&nbsp;&nbsp;&nbsp;&nbsp;
-                </Text>
-                <Text style={styles.detailsValue}>Ann@gmail.com</Text>
-              </Text>
-              {/* </Unorderedlist> */}
-              {/* {details.map((detail, index) => (
-                <View key={index} style={styles.detailsItem}>
-                  <Text style={styles.detailsKey}>{detail.key}</Text>
-                  <Text style={styles.detailsValue}>{detail.value}</Text>
-                </View>
-              ))} */}
-            </View>
-          </View>
-        </View>
+import axios from "axios";
 
-        <View style={styles.trainerPackage}>
-          {/* single shedule */}
-          <View style={styles.packages}>
-            <View>
-              <Text style={styles.packageHeading}>
-                1 Month package
-                <Text style={styles.packagePrice}>&nbsp;&nbsp;18 000 LKR</Text>
-              </Text>
-            </View>
-            <View style={styles.detailsList}>
-              <Text>
-                <Text style={styles.detail}>
-                  1 Yoga pass<Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  1 Full body massage<Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  1 Foot massage<Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  Kitchen<Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  Washing room<Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-              </Text>
-            </View>
-          </View>
+type TrainerType = {
+    id:string
+    first_name:string
+    last_name:string
+    profile_picture:string
+    working_experience:number
+    qualification:string
+    age:number
+    dob:string
+    phone_no:number
+    email:string
+    gender:string
+}
 
-          {/* single shedule */}
-          <View style={styles.packages}>
-            <View>
-              <Text style={styles.packageHeading}>
-                6 Month plan
-                <Text style={styles.packagePrice}>&nbsp;&nbsp;64 000 LKR</Text>
-              </Text>
-            </View>
-            <View style={styles.detailsList}>
-              <Text>
-                <Text style={styles.detail}>
-                  2 Yoga pass<Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  2 Full body massage<Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  3 foot massage<Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  3 steam spa<Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  Kitchen<Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  Washing room<Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-              </Text>
-            </View>
-          </View>
 
-          {/* single shedule */}
-          <View style={styles.packages}>
-            <View>
-              <Text style={styles.packageHeading}>
-                Annual paln
-                <Text style={styles.packagePrice}>&nbsp;&nbsp;95 000 LKR</Text>
-              </Text>
-            </View>
-            <View style={styles.detailsList}>
-              <Text>
-                <Text style={styles.detail}>
-                  4 Yoga pass <Text style={{ color: "blue" }}> | </Text>
-                </Text>
-                <Text style={styles.detail}>
-                  4 Full body massage <Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  5 foot massage <Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  5 steam spa <Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  Pool Pass <Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>
-                  Kitchen <Text style={{ color: "blue" }}> | </Text>{" "}
-                </Text>
-                <Text style={styles.detail}>Washing room </Text>
-              </Text>
-            </View>
-          </View>
-        </View>
-      </ImageBackground>
+export default function trainerProfile(){
 
-      <View>
-        <TouchableOpacity
-          variant="contained"
-          color="error"
-          style={styles.hireBtn}
-        >
-          <Text style={styles.hireBtnText}>Hire Now</Text>
-        </TouchableOpacity>
-      </View>
+    const router = useRouter()
+    const localSearchParams = useLocalSearchParams()
+    
+    const[trainerDetails, setTrainerDetails] = useState<TrainerType>();
+    
+    useEffect(() => {
+        axios
+            .get(`http://localhost:5400/ourTrainers/${10003}`)
+            .then((response) =>{
+                setTrainerDetails(response.data.data);
+                console.log(response.data.data)
+            })
+            .catch((error) => console.error(error))
+    }, []);
 
-      {/* <View style={styles.footerSection}>
-        <Footer />
-      </View> */}
-    </ScrollView>
-  </SafeAreaView>
-);
+    return(
+        <PaperProvider>
+        <SafeAreaView>
+            <Stack.Screen
+            options={{title:'Trainer Profile',}}/>
 
-export default TrainerProfile;
+            <ScrollView style={styles.fullbody}>
+
+                
+
+                <ImageBackground
+                    source={
+                        require('../../../assets/images/TrainerProfileBackground.png')
+                    }
+                    resizeMode='cover'
+                    style={styles.backgroundimage}>
+                        <View style={styles.fullcontent}>
+                                <Text style={styles.text}>Trainer Profile</Text>
+                                <View style={styles.imageanddetails}>
+                                    <Image
+                                        style={styles.trainerimage}
+                                        // source={{ uri:`../../assets/images/Trainers/${trainerDetails?.profile_picture}`}}
+                                        source={{ uri:`https://stylioo.blob.core.windows.net/images/${trainerDetails?.profile_picture}`}}
+                                        resizeMode='cover'
+                                    />
+                                    <View style={styles.basicdetails}>
+                                        <View>
+                                            <Text style={styles.labelofbasicinfo}>Name</Text>
+                                            <Text style={styles.labelofbasicinfo}>Age</Text>
+                                            <Text style={styles.labelofbasicinfo}>Gender</Text>
+                                            <Text style={styles.labelofbasicinfo}>Mobile No</Text>
+                                            <Text style={styles.labelofbasicinfo}>Email</Text>
+                                        </View>
+                                        <View>
+                                            <Text style={styles.basicinfo}>{trainerDetails?.first_name}&nbsp;{trainerDetails?.last_name}</Text>
+                                            <Text style={styles.basicinfo}>{trainerDetails?.age}</Text>
+                                            <Text style={styles.basicinfo}>{trainerDetails?.gender === 'M' ? 'Male' : 'Female'}</Text>
+                                            <Text style={styles.basicinfo}>0{trainerDetails?.phone_no}</Text>
+                                            <Text style={styles.basicinfo}>{trainerDetails?.email}</Text>
+                                        </View>
+                                    </View>
+                                </View>
+
+                                <View style={styles.workingExandmembers}>
+                                    <View style={styles.Workexperience}>
+                                        <Text style={styles.workingextext}>Working Experience</Text>
+                                        <Text style={styles.workingexyers}>{trainerDetails?.working_experience}</Text>
+                                        <Text style={styles.workingextext}>Years</Text>
+                                    </View>
+                                    <View style={styles.members}>
+                                        
+                                    </View>
+                                </View>
+
+                                <View style={styles.lowercontent}>
+                                    <View >
+                                            <Text style={styles.topictext}>Qualification</Text>
+                                            <View style={styles.newtextbox}>
+                                                <Text style={styles.textboxtext}>{trainerDetails?.qualification}</Text>
+                                                <Text style={styles.textboxtext}>Physical and gymnasium diploma in open university of sri lanka</Text>
+                                                <Text style={styles.textboxtext}>International physiotherapy diploma in KAU health university</Text>
+                                                <Text style={styles.textboxtext}>Valid and Qualified personal trainer from health ministry</Text>
+                                                
+                                            </View>
+                                    </View>
+
+                                    <View >
+                                            <Text style={styles.topictext}>Member Rating</Text>
+                                            <View style={styles.newtextbox}>                                            
+                                            </View>
+                                    </View>
+
+                                    <View >
+                                            <Text style={styles.topictext}>Member Reviews</Text>
+
+                                            <Card  style={styles.newtextbox}>
+                                                <Card.Content>
+                                                <Text style={styles.textboxtexttitle}>Kumara Dharmasiri</Text>
+                                                <Text style={styles.textboxtext}>Wow, I can't thank my gym trainer enough for the incredible progress I've made! Their expertise,
+                                                                        motivation, and personalized workout plans have truly transformed my fitness journey.
+                                                                        I feel stronger, healthier, and more confident than ever before.  Highly recommend this amazing
+                                                                        gym trainer to anyone looking to achieve their fitness goals and beyond!</Text>
+                                                </Card.Content>
+                                            </Card>
+
+                                            <Card  style={styles.newtextbox}>
+                                                <Card.Content>
+                                                <Text style={styles.textboxtexttitle}>Kamal Siriwardhena</Text>
+                                                <Text style={styles.textboxtext}>My gym trainer is an absolute rockstar! They bring such positive energy and passion to every session,
+                                                                        making workouts fun and enjoyable. I've seen remarkable improvements in my strength and
+                                                                        endurance, all thanks to their guidance and encouragement. They always go the extra mile to 
+                                                                        ensure I'm using proper form and technique, preventing injuries and maximizing results. 
+                                                                        I'm so grateful to have such an inspiring and dedicated trainer by my side on this fitness journey!"</Text>
+                                                </Card.Content>
+                                            </Card>
+
+                                            <Card  style={styles.newtextbox}>
+                                                <Card.Content>
+                                                <Text style={styles.textboxtexttitle}>Sahan Deshan</Text>
+                                                <Text style={styles.textboxtext}>Training with my gym trainer has been a game-changer! Their vast knowledge of fitness and nutrition has completely transformed my lifestyle. Not only have I seen remarkable improvements in my physical strength and endurance, but I've also developed a better understanding of how to fuel my body for optimal performance. They constantly challenge and push me beyond my limits, helping me achieve goals I never thought possible. If you're serious about achieving real results and making lasting changes, I highly recommend working with this exceptional gym trainer!</Text>
+                                                </Card.Content>
+                                            </Card>
+                                    </View>                                    
+                                </View>                          
+                        </View>                    
+                    </ImageBackground>
+            </ScrollView>
+
+        </SafeAreaView>
+        </PaperProvider>
+    )
+}

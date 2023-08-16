@@ -1,155 +1,218 @@
-
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  back: {
-    backgroundColor: "black",
-    paddingBottom: 50,
-  },
-  content: {
-    paddingLeft: 20,
-    paddingBottom: 20,
-    paddingTop: 20,
-    paddingRight: 20,
-  },
-  image: {
-    flex: 1,
-    justifyContent: "center",
-    height: "50%" /* You must set a specified height */,
-    backgroundPosition: "center" /* Center the image */,
-    backgroundRepeat: "no-repeat" /* Do not repeat the image */,
-    backgroundSize: "cover",
-    width: "100%",
-    borderLeftBottom: 25,
-    borderRightBottom: 25,
-  },
-  pageHeading: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "white",
-    marginBottom: 32,
-  },
-  profile: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  trainerImage: {
-    width: 120,
-    height: 130,
-    borderRadius: 20,
-    alignItems: "center",
-    marginBottom: 16,
-    borderWidth: 2,
-    borderColor: "#E54646",
-    justifyContent: "center",
-  },
-  trainerDetails: {
-    backgroundColor: "#000000c0",
-    paddingTop: 25,
-    paddingBottom: 25,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 25,
-  },
-  individualDetailSet:{
-    lineHeight: 30,
-  },
-  detailsList: {
-    lineHeight: 30,
-  },
-  detailsKey: {
-    color: "#E54646",
-    fontWeight: "bold",
-  },
-  memberDetails: {
-    flexDirection: "row",
-    gap: 10,
-    marginBottom:20
-  },
-  detailsList: {
-    lineHeight: 50,
-  },
-  // detailsItem: {
-  //   flexDirection: "row",
-  //   justifyContent: "space-between",
-  //   marginBottom: 10,
-  //   textAlign: "left",
-  // },
-  detailsKey: {
-    color: "#E54646",
-    fontWeight: "600",
-  },
-  detailsValue: {
-    fontSize: 14,
-    color: "white",
-    fontWeight: "600",
-  },
-  trainerPackage: {
-    marginBottom: 18,
-  },
-  packages: {
-    backgroundColor: "#222222",
-    marginBottom: 16,
-    paddingTop: 15,
-    paddingBottom: 15,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 10,
-    marginLeft: 20,
-    marginRight: 20,
-  },
-  packageHeading: {
-    color: "white",
-    fontWeight: "bold",
-    marginBottom: 20,
-    fontSize:16
-  },
-  detail: {
-    fontSize: 13,
-    borderWidth: 1, // Use borderWidth instead of border
-    borderColor: "white", // Specify the border color
-    borderRadius: 15,
-    padding: 5,
-    margin: 4,
-    lineHeight: 30, // lineHeight is valid in React Native
-    color: "white",
-  },
 
-  packagePrice: {
-    color: "#E54646",
-    marginLeft: 30,
-    fontSize:16
+    fullbody:{
+
+    },
     
-  },
+    backgroundimage: {
+        width: '100%',
+        minHeight: 850,
+    },
 
-  hireBtn: {
-    backgroundColor: "#000000c0",
-    borderWidth: 1,
-    borderColor: "blue",
-    color: "white",
-    fontWeight: "bold",
-    textTransform: "none",
-    paddingTop: 10,
-    paddingRight: 20,
-    paddingLeft: 20,
-    paddingBottom: 10,
-    borderRadius: 5,
-    marginLeft: 20,
-    marginRight: 20,
-    alighItem: "center",
-    textAlign: "center",
-    justifyContent: "center",
-  },
-  hireBtnText: {
-    textAlign: "center",
-    color: "white",
-    fontWeight: "bold",
-  },
-});
+    fullcontent:{
+        marginLeft:20,
+        marginRight:20,
+        marginBottom:20,
 
-export default styles;
+    },
 
+    topicons:{
+        marginTop:50,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        // backgroundColor: 'red',
+        // height:100,
+    },
 
+    sidebaricon:{
+
+    },
+
+    bellicon:{
+        
+    },
+
+    bottomcontainer:{
+        
+    },
+
+    text:{
+        color: 'white',
+        fontSize: 32,
+        lineHeight: 84,
+        fontWeight: 'bold',
+        textAlign: 'left',
+      },
+
+      imageanddetails:{
+        flexDirection:'column',
+        alignItems: 'center',
+      },
+
+      trainerimage:{
+        width: 110,
+        height: 134,
+        borderTopLeftRadius: 36,
+        borderTopRightRadius: 36,
+        borderBottomLeftRadius: 36,
+        borderBottomRightRadius: 36,
+      },
+
+      basicdetails:{
+        opacity:0.8,
+        height:134,
+        width:330,
+        backgroundColor:'#222222',
+        borderTopLeftRadius: 36,
+        borderTopRightRadius: 36,
+        borderBottomLeftRadius: 36,
+        borderBottomRightRadius: 36,
+        padding:20,
+        flexDirection:'row',
+        marginTop:10,
+      },
+
+      labelofbasicinfo:{
+        color:'#E54646',
+        fontWeight: 'bold',
+      },
+
+      basicinfo:{
+        color:'#FFFFFF',
+        fontWeight: 'bold',
+        marginLeft:10,
+        fontSize:14,
+      },
+
+      workingExandmembers:{
+        flexDirection:'row',
+        alignItems: 'center',
+
+      },
+
+      Workexperience:{
+        opacity:0.8,
+        height:154,
+        width:200,
+        backgroundColor:'#222222',
+        borderTopLeftRadius: 36,
+        borderTopRightRadius: 36,
+        borderBottomLeftRadius: 36,
+        borderBottomRightRadius: 36,
+        padding:20,
+        alignItems:'center',
+        marginTop:10,
+      },
+
+      workingextext:{
+        color:'#FFFFFF',
+        fontWeight: 'bold',
+        fontSize:14,
+      },
+      workingexyers:{
+        color:'#E54646',
+        fontWeight: 'bold',
+        fontSize:60,
+      },
+
+      members:{
+
+      },
+
+      lowercontent:{
+        flexDirection:'column',
+        // alignItems: 'center',
+      },
+
+      topictext:{
+        color:'#E54646',
+        fontWeight: 'bold',
+        fontSize:20,
+        paddingTop:10,
+      },
+
+      textbox:{
+        opacity:0.8,
+        minHeight:134,
+        width:330,
+        backgroundColor:'#222222',
+        borderTopLeftRadius: 36,
+        borderTopRightRadius: 36,
+        borderBottomLeftRadius: 36,
+        borderBottomRightRadius: 36,
+        padding:20,
+        marginTop:10,
+      },
+
+      newtextbox:{
+        opacity:0.8,
+        minHeight:134,
+        // width:300,
+        backgroundColor:'#222222',
+        padding:10,
+        marginTop:10,
+        borderTopLeftRadius: 36,
+        borderTopRightRadius: 36,
+        borderBottomLeftRadius: 36,
+        borderBottomRightRadius: 36,
+      },
+
+      detailsList: {
+        lineHeight: 50,
+      },
+      
+      detail: {
+        fontSize: 13,
+        borderWidth: 1, // Use borderWidth instead of border
+        borderColor: "white", // Specify the border color
+        borderRadius: 15,
+        padding: 5,
+        margin: 4,
+        lineHeight: 30, // lineHeight is valid in React Native
+        color: "white",
+      },
+
+      startedbutton:{
+        margin:20,
+        backgroundColor: '#E54646',
+      },
+
+      textboxtext:{
+        color:'#FFFFFF',
+        fontWeight: 500,
+        marginLeft:10,
+        fontSize:14,
+      },
+
+      textboxtexttitle:{
+        color:'#838383',
+        fontWeight:'bold',
+        marginBottom:10,
+        fontSize:14,
+      },
+
+      // getstartedbutton:{
+      //     margin:20,
+      //     width: 330,
+      //     height: 50,
+      //     backgroundColor: '#E54646',
+      //     borderRadius: 10,
+      //     flex: 1,
+      //     alignItems: 'center',
+      //     justifyContent: 'center',
+      // },
+
+      // getstartedbuttonText:{
+      //   fontWeight: 'bold',
+      //   fontSize:15,
+      //   color: 'white',
+
+      // },
+
+      
+
+})
+
+export default styles

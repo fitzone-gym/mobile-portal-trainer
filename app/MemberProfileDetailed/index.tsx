@@ -12,33 +12,47 @@ import {
 } from "react-native";
 import styles from "../../styles/memberProfileDetail.style";
 import Unorderedlist from "react-native-unordered-list";
-import { Stack, useRouter } from "expo-router";
+import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 // import {useParams} from 'react-router-dom';
 import Footer from "../../components/FooterStatusbar"
 
-// interface Member  {
-//   id:number;
-//   first_name:string;
-//   last_name:string;
-//   // profile_picture?:string;
-// }
+interface Member  {
+  id:number;
+  first_name:string;
+  last_name:string;
+  age:number;
+  gender:string;
+  phone_no:string;
+  email:string;
+  profile_picture?:string;
+}
 
 export default function memberProfileDetailed() {
 
   const router = useRouter();
+
+  const localParams = useLocalSearchParams()
+
+  console.log(localParams.id);
+  
+
   // const {id} = useParams();
-  // const [member,setMember] = useState<Member | null>(null);
+  const [member,setMember] = useState<Member | null>(null);
 
-  // useEffect(() => {
-  //   // const memberId = route.params.id;
-  //     axios
-  //           .get(`http://localhost:5400/members/$id`)
-  //           .then((response) => {
-  //               setMember(response.data); // Set the member data to the state
-  //           })
-  //           .catch((error) => console.error("Error fetching member details", error));
+  useEffect(() => {
+    // const memberId = route.params.id;
+      axios
+            .get(`http://localhost:5400/members/${localParams.id}`)
+            .then((response) => {
+                setMember(response.data.data); // Set the member data to the state
+            })
+            .catch((error) => console.error("Error fetching member details", error));
 
-  // },[])
+  },[])
+
+
+  console.log(member);
+  
 
   return (
     <SafeAreaView style={styles.container}>
@@ -64,7 +78,10 @@ export default function memberProfileDetailed() {
               <View style={styles.memberDetails}>
                 <View>
                   <Image
-                    source={require("../../assets/images/trainer-1.jpg")}
+                    // source={require("../../assets/images/trainer-1.jpg")}
+                    source={{
+                      uri: `https://stylioo.blob.core.windows.net/images/${member?.profile_picture}`
+                    }}
                     style={styles.memberImage}
                   />
                 </View>
@@ -92,19 +109,19 @@ export default function memberProfileDetailed() {
 
                       <View>
                         <Text>
-                          <Text style={styles.detailsValue}>Punsara Deshan</Text>
+                          <Text style={styles.detailsValue}>{member?.first_name} {member?.last_name}</Text>
                         </Text>
                         <Text>
-                          <Text style={styles.detailsValue}>25</Text>
+                          <Text style={styles.detailsValue}>{member?.age}</Text>
                         </Text>
                         <Text>
-                          <Text style={styles.detailsValue}>Male</Text>
+                          <Text style={styles.detailsValue}>{member?.gender === "M" ? "Male" : "Famale"}</Text>
                         </Text>
                         <Text>
-                          <Text style={styles.detailsValue}>071-4554455</Text>
+                          <Text style={styles.detailsValue}>{member?.phone_no}</Text>
                         </Text>
                         <Text>
-                          <Text style={styles.detailsValue}>Ann@gmail.com</Text>
+                          <Text style={styles.detailsValue}>{member?.email}</Text>
                         </Text>
                       </View>
                     </View>

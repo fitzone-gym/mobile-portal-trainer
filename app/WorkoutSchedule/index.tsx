@@ -71,7 +71,6 @@ console.info(scheduleDetails)
               <View style={styles.sheduleOptionsButton}>
                 <View style={styles.addNoteBtn}>
                   <TouchableOpacity
-                    // variant="contained"
                     style={styles.fillRedBtn}
                     // onPress={() => {
                     //   router.push("/workout-shedule");

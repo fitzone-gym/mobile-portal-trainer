@@ -5,6 +5,7 @@ import { Stack, useRouter } from "expo-router";
 import {Route} from "expo-router/build/Route";
 
 import { SafeAreaView, View, Text, TouchableOpacity, ImageBackground, TextInput } from "react-native";
+import React from "react";
 
 export default function changePassword(){
 const router = useRouter();
@@ -60,7 +61,7 @@ return(
                                 placeholderTextColor={'#838383'}
                     />
                 </View>
-                <TouchableOpacity style={styles.resetButton} onPress={()=>{router.push('/TrainerSignin')}}>
+                <TouchableOpacity style={styles.resetButton} onPress={()=>{router.push('signin')}}>
                     <Text style={styles.resetPasswordButtonText}>Reset</Text>
                 </TouchableOpacity>
             </View>
