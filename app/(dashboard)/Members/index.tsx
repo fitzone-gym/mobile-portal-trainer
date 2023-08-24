@@ -4,6 +4,7 @@ import styles from '../../../styles/trainerMembers.style';
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, FlatList } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import React from 'react';
+import baseUrl from '../../../baseUrl';
 // import BottomNavBar from '../../components/BottomNavBar'
 
 interface Members {
@@ -20,7 +21,7 @@ export default function trainerMembers() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5400/memberDetails")
+            .get(`${baseUrl}/memberDetails`)
             .then((response) => {
                 setMemberDetails(response.data.data);
             })
@@ -69,9 +70,9 @@ export default function trainerMembers() {
                                 <Text style={styles.membercardname}>
                                     {member.first_name}&nbsp; {member.last_name}
                                 </Text>
-                                <Text style={styles.membercardtext}>
+                                {/* <Text style={styles.membercardtext}>
                                     9 Members
-                                </Text>
+                                </Text> */}
 
                             </TouchableOpacity>
                         )

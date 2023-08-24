@@ -4,6 +4,9 @@ import styles from '../../../styles/dashboard.style';
 // import Footer_nav from '../../components/FooterStatusbar';
 import { Stack, useRouter } from 'expo-router';
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity } from 'react-native';
+
+import baseUrl from '../../../baseUrl'
+
 import {
     IconButton,
     Button
@@ -25,9 +28,11 @@ export default function Dashboard() {
 
     useEffect(() => {
         axios
-            .get("http://192.168.75.140:5400/dashboard/announcement")
+            .get(`${baseUrl}/dashboard/announcement`)
             .then((response: { data: { data: any; }; }) => {
                 setAnnouncementDetails(response.data.data);
+                console.log(response.data.data);
+                
             })
             .catch((error: any) => console.error(error));
 
@@ -35,7 +40,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         axios
-            .get("http://192.168.75.140:5400/dashboard/totalMember")
+            .get(`${baseUrl}/dashboard/totalMember`)
             .then((response: { data: { data: any; }; }) => {
                 const data = response.data.data;
                 setTotalMemberCount(data[0].workingMembers);
@@ -105,7 +110,7 @@ export default function Dashboard() {
                                 <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 18, marginBottom: 10 }}>Up Next Appointment</Text>
                                 <View style={styles.upNextInner}>
                                     <View>
-                                        <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 15, marginBottom: 10 }}>8.00 AM - 10.00 AM    </Text>
+                                        <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 15, marginBottom: 10 }}>1.00 PM - 3.00 PM    </Text>
                                     </View>
                                     <View style={styles.proPic}>
                                         <View style={styles.profilePic}>

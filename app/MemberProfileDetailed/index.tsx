@@ -15,6 +15,7 @@ import Unorderedlist from "react-native-unordered-list";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 // import {useParams} from 'react-router-dom';
 import Footer from "../../components/FooterStatusbar"
+import baseUrl from '../../baseUrl';
 
 interface Member  {
   id:number;
@@ -42,7 +43,7 @@ export default function memberProfileDetailed() {
   useEffect(() => {
     // const memberId = route.params.id;
       axios
-            .get(`http://localhost:5400/memberDetails/${localParams.id}`)
+            .get(`${baseUrl}/memberDetails/${localParams.id}`)
             .then((response) => {
                 setMember(response.data.data); // Set the member data to the state
             })
@@ -156,20 +157,20 @@ export default function memberProfileDetailed() {
             <View>
               <Text style={styles.workoutProgressTopic}>Workout progress</Text>
               <View style={styles.workoutProgressArea}>
-                  <Image
+                  {/* <Image
                     source={require("../../assets/images/workoutProgress.png")}
                     style={styles.workoutImage}
-                  />
+                  /> */}
               </View>
             </View>
 
             <View>
               <Text style={styles.workoutProgressTopic}>Dieting progress</Text>
               <View style={styles.workoutProgressArea}>
-                <Image
+                {/* <Image
                     source={require("../../assets/images/dietingProgress.png")}
                     style={styles.dietPlaneImage}
-                  />   
+                  />    */}
               </View>
             </View>
 

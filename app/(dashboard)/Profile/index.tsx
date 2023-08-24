@@ -5,6 +5,7 @@ import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, Touchable
 import { Stack, useRouter, useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { Button, Card, PaperProvider} from 'react-native-paper';
+import baseUrl from '../../../baseUrl';
 
 import axios from "axios";
 
@@ -32,7 +33,7 @@ export default function trainerProfile(){
     
     useEffect(() => {
         axios
-            .get(`http://localhost:5400/ourTrainers/${10003}`)
+            .get(`${baseUrl}/ourTrainers/${10003}`)
             .then((response) =>{
                 setTrainerDetails(response.data.data);
                 console.log(response.data.data)

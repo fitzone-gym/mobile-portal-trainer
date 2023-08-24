@@ -43,7 +43,7 @@ export default function appointments() {
                         <View style={styles.content}>
                             <View>
                                 <Text style={styles.appointmentPageHeading}>
-                                    workout shedule
+                                    Appoinments
                                 </Text>
                             </View>
                         </View>
