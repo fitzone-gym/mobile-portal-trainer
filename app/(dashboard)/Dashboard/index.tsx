@@ -129,7 +129,6 @@ export default function Dashboard() {
                             </Button> */}
                         </View>
                     </ScrollView>
-                    {/* <Footer_nav/>  */}
                 </ImageBackground>
             </View>
         </SafeAreaView>
