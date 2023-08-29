@@ -122,11 +122,12 @@ export default function Dashboard() {
                                     </View>
                                 </View>
                             </View>
-                            {/* <Button mode="contained" style={{ backgroundColor: '#E54646' }} onPress={() => {
-                                router.push('/(dashboard)/Members')
+                            <Button mode="contained" style={{ backgroundColor: '#E54646' }} onPress={() => {
+                                // router.push('/(dashboard)/Members')
+                                router.push('../DietPlan')
                             }}>
-                                <Text>Members</Text>
-                            </Button> */}
+                                <Text>Diet Plane</Text>
+                            </Button>
                         </View>
                     </ScrollView>
                 </ImageBackground>

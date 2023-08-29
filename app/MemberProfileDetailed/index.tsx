@@ -145,6 +145,9 @@ export default function memberProfileDetailed() {
 
                   <TouchableOpacity
                     style={styles.fillWhiteBtn}
+                    onPress={()=>{
+                      router.push('/DietPlan')
+                  }} 
                   >
                     <Text style={{ color: "#E54646", fontWeight: "bold" }}>
                       Diet Plan

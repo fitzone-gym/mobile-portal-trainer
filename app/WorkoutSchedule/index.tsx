@@ -12,7 +12,7 @@ import {
 } from "react-native";
 
 import { Stack, useRouter } from "expo-router";
-
+import baseUrl from '../../baseUrl';
 import styles from "../../styles/workoutShedule.style";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
@@ -38,7 +38,7 @@ export default function WorkoutShedule() {
 const[scheduleDetails, setScheduleDetails] = useState<Schedule[]>([]);
 useEffect(() => {
   axios
-      .get("http://localhost:5400/members/schedule")
+      .get(`${baseUrl}/schedule`)
       .then((response: { data: { data: any; }; })=>{
         setScheduleDetails(response.data.data);  
       })
@@ -86,9 +86,9 @@ console.info(scheduleDetails)
                   <TouchableOpacity
                     // variant="outlined"
                     style={styles.fillWhiteBtn}
-                    // onPress={() => {
-                    //   router.push("/addNote");
-                    // }}
+                    onPress={() => {
+                      router.push("/addNote");
+                    }}
                   >
                     <Text style={styles.addNoteBtn}>
                       <Text style={styles.btnText1}>Add note</Text>
@@ -130,13 +130,13 @@ console.info(scheduleDetails)
                               />
                             </View>
                           </View>
-                            {/* check buttons
+                            check buttons
                             <View style={styles.addNoteBtn}>
                               <Icon
                                 name="clipboard-check"
                                 style={styles.individualOptionIconDate}
                               />
-                            </View> */}
+                            </View>
                         </View>
                       </View>
                   </View>
