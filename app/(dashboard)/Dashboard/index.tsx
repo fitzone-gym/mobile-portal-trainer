@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import acios from 'axios';
 import styles from '../../../styles/dashboard.style';
-// import Footer_nav from '../../components/FooterStatusbar';
 import { Stack, useRouter } from 'expo-router';
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity } from 'react-native';
 
@@ -64,7 +63,7 @@ export default function Dashboard() {
                     <ScrollView style={styles.scrollView}>
                         <View style={styles.cnt}>
                             
-                            <Text style={styles.heading}>Home</Text>
+                            {/* <Text style={styles.heading}>Home</Text> */}
                             <View style={styles.row}>
                                 <View style={styles.profilePic}>
                                     <Image 
@@ -122,12 +121,6 @@ export default function Dashboard() {
                                     </View>
                                 </View>
                             </View>
-                            <Button mode="contained" style={{ backgroundColor: '#E54646' }} onPress={() => {
-                                // router.push('/(dashboard)/Members')
-                                router.push('../DietPlan')
-                            }}>
-                                <Text>Diet Plane</Text>
-                            </Button>
                         </View>
                     </ScrollView>
                 </ImageBackground>

@@ -21,7 +21,7 @@ export default function trainerMembers() {
 
     useEffect(() => {
         axios
-            .get(`${baseUrl}/memberDetails`)
+            .get(`${baseUrl}/memberDetailsForTrainers`)
             .then((response) => {
                 setMemberDetails(response.data.data);
             })
@@ -62,24 +62,19 @@ export default function trainerMembers() {
                                     })
                                 }}
                                 key={member.id}>
+                                    
                                 <Image
                                     style={styles.memberimage}
                                     source={{ uri:`https://stylioo.blob.core.windows.net/images/${member.profile_picture}`}}
-                                    // source={require('../../../assets/images/Lakmal.png')}
                                 />
                                 <Text style={styles.membercardname}>
                                     {member.first_name}&nbsp; {member.last_name}
                                 </Text>
-                                {/* <Text style={styles.membercardtext}>
-                                    9 Members
-                                </Text> */}
-
                             </TouchableOpacity>
                         )
                         )}
                     </View>
                 </ScrollView>
-                {/* <BottomNavBar/>  */}
             </View>
         </SafeAreaView>
     )

@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import { Stack, useRouter } from "expo-router";
+import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import baseUrl from '../../baseUrl';
 import styles from "../../styles/workoutShedule.style";
 import Icon from "react-native-vector-icons/MaterialIcons";
@@ -34,11 +34,14 @@ interface Schedule{
 }
 
 export default function WorkoutShedule() {
+  
+  const localParams = useLocalSearchParams()
+  console.log(localParams.id);
 
 const[scheduleDetails, setScheduleDetails] = useState<Schedule[]>([]);
 useEffect(() => {
   axios
-      .get(`${baseUrl}/schedule`)
+      .get(`${baseUrl}/memberDetailsForTrainers/schedule/${localParams.id}`)
       .then((response: { data: { data: any; }; })=>{
         setScheduleDetails(response.data.data);  
       })
@@ -130,7 +133,7 @@ console.info(scheduleDetails)
                               />
                             </View>
                           </View>
-                            check buttons
+                            {/* check buttons */}
                             <View style={styles.addNoteBtn}>
                               <Icon
                                 name="clipboard-check"

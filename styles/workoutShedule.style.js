@@ -13,8 +13,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     paddingTop: 20,
     paddingRight: 20,
-    // minHeight: "100%",
-    // backgroundColor: "black",
+    minHeight: 'auto',
   },
   image: {
     flex: 1,
@@ -34,6 +33,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     marginBottom: 20,
+    marginTop:70
   },
   sheduleOptionsButton: {
     marginTop: 20,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   editDelete:{
-    padding: "10px",
+    padding: 10,
   },
   editDeleteIcon: {
     display: "flex",

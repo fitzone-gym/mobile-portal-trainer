@@ -135,7 +135,13 @@ export default function memberProfileDetailed() {
                   <TouchableOpacity
                     style={styles.fillRedBtn}
                     onPress={()=>{
-                      router.push('/WorkoutSchedule')
+                      // router.push('/WorkoutSchedule')
+                      router.push({
+                        pathname:'/WorkoutSchedule',
+                        params:{
+                          id:localParams.id
+                        }
+                      })
                   }} 
                   >
                     <Text style={{ color: "white", fontWeight: "bold" }}>
