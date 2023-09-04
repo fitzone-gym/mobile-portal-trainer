@@ -74,20 +74,22 @@ console.info(scheduleDetails)
               <View style={styles.sheduleOptionsButton}>
                 <View style={styles.addNoteBtn}>
                   <TouchableOpacity
-                    style={styles.fillRedBtn}
-                    // onPress={() => {
-                    //   router.push("/workout-shedule");
-                    // }}
+                    style={styles.fillRedBtn}                 
+                    onPress={() => {
+                      router.push({
+                        pathname:'../WorkoutSchedule/scheduleForm',
+                        params:{
+                          id:localParams.id
+                        }
+                      })
+                    }}
                   >
                     <Text style={styles.addNoteBtn}>                    
-                      {/* <Button icon="book-plus-outline"> */}
                         <Text style={styles.btnText}>Add exercise</Text>
-                      {/* </Button>                       */}
                     </Text>
                   </TouchableOpacity>
 
                   <TouchableOpacity
-                    // variant="outlined"
                     style={styles.fillWhiteBtn}
                     onPress={() => {
                       router.push("/addNote");

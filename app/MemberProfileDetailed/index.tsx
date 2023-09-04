@@ -11,10 +11,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import styles from "../../styles/memberProfileDetail.style";
-import Unorderedlist from "react-native-unordered-list";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
-// import {useParams} from 'react-router-dom';
-import Footer from "../../components/FooterStatusbar"
 import baseUrl from '../../baseUrl';
 
 interface Member  {
@@ -43,11 +40,11 @@ export default function memberProfileDetailed() {
   useEffect(() => {
     // const memberId = route.params.id;
       axios
-            .get(`${baseUrl}/memberDetails/${localParams.id}`)
+            .get(`${baseUrl}/memberDetailsForTrainers/${localParams.id}`)
             .then((response) => {
                 setMember(response.data.data); // Set the member data to the state
             })
-            .catch((error) => console.error("Error fetching member details", error));
+            .catch((error) => console.error("Error fetching Member Details", error));
 
   },[])
 
@@ -79,11 +76,11 @@ export default function memberProfileDetailed() {
               <View style={styles.memberDetails}>
                 <View>
                   <Image
-                    // source={require("../../assets/images/trainer-1.jpg")}
+                    style={styles.memberImage}
                     source={{
                       uri: `https://stylioo.blob.core.windows.net/images/${member?.profile_picture}`
                     }}
-                    style={styles.memberImage}
+                    
                   />
                 </View>
 

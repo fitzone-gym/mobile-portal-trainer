@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from '../../../styles/trainerMembers.style';
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, FlatList } from 'react-native';
-import { Stack, useRouter } from 'expo-router';
+import { Stack, useRouter,useLocalSearchParams } from 'expo-router';
 import React from 'react';
 import baseUrl from '../../../baseUrl';
 // import BottomNavBar from '../../components/BottomNavBar'

@@ -83,7 +83,7 @@ export default function Dashboard() {
                                 <View style={styles.totRow}>
                                     <View style={styles.memberRequestsCount}>
                                         <View><IconButton icon="account-group" size={16} iconColor='#ffffff' /></View>
-                                        <View><Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 16 }}>New member requests</Text></View>
+                                        <View><Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 16 }}>Member requests</Text></View>
                                         <View><Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 26, marginRight: 6 }}>6</Text></View>
                                     </View>
                                     <View style={styles.appoinmentCount}>
