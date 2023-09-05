@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   btnText: {
     color: "white",
     fontWeight: "bold",
-    fontSize: 14,
+    fontSize: 16,
   },
   btnIcon: {
     color: "white",
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   btnText1: {
     color: "#E54646",
     fontWeight: "bold",
-    fontSize: 14,
+    fontSize: 16,
   },
   btnIcon1: {
     color: "#E54646",
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   sheduleActivity: {
     fontWeight: "bold",
     color: "#dcdfe2",
-    fontSize: 23,
+    fontSize: 20,
   },
   sheduleActivityType: {
     // fontWeight: "bold",
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   },
   individualOptionIconEdit: {
     color: "#dcdfe2",
-    fontSize: 22,
+    fontSize: 20,
     cursor: "pointer",
   },
   individualOptionIconDelete: {
@@ -166,12 +166,89 @@ const styles = StyleSheet.create({
     gap: 10,
     marginBottom: 20,
   },
-  acceptCanselBtn: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 20,
-    // justifyContent: "space-between",
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#000000', // Semi-transparent background
+  },
+  modalContent: {
+    width: '80%', 
+    height: '30%',
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    padding: 20,
+    fontWeight: 'bold',
+  },
+  confirmationText: {
+    fontSize: 18,
+    textAlign: 'center',
+    marginBottom: 10,
+    marginTop:30
+    },
+  closeButton: {
+    alignSelf: 'flex-end',
+    padding: 5,
+    fontSize: 20,
+    backgroundColor: '#000000',
+    color: '#ffffff',
+    borderRadius: 40,
+  },
+  closeButtonText: {
+    color: 'blue', // Customize the text color
+    fontSize: 16, // Customize the font size
+  },
+  deleteButton: {
+    backgroundColor: '#E54646', // Customize the button background color
+    borderRadius: 4,
+    padding: 12,
+    marginTop: 20,
+  },
+  deleteButtonText: {
+    color: '#ffffff', // Customize the button text color
+    fontSize: 20, // Customize the button text font size
+    textAlign: 'center',
+  },
+
+  // model for the edit form
+  modalContent2: {
+    width: '80%', 
+    height: '60%',
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    padding: 20,
+    fontWeight: 'bold',
+  },
+  editForm: {
+    marginTop: 16,
+  },
+  editFormLabel: {
+    fontSize: 16,
+    marginBottom: 4,
+  },
+  editFormInput: {
+    borderWidth: 1,
+    borderColor: 'lightgray',
+    borderRadius: 4,
+    padding: 1,
+    fontSize: 15,
+    marginBottom: 16,
+  },
+  saveButton: {
+    marginTop:10,
+    backgroundColor: '#E54646',
+    borderRadius: 4,
+    padding: 12,
+    alignItems: 'center',
+  },
+  saveButtonText: {
+    color: 'white',
+    fontSize: 18,
   },
 });
 
 export default styles;
+
+
+
+  

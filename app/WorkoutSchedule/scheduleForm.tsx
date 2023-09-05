@@ -2,9 +2,12 @@ import { Stack, useLocalSearchParams } from 'expo-router';
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet, SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import RNPickerSelect from 'react-native-picker-select'; // Import the Picker component from the library
+import styles from '../../styles/scheduleform.style';
+import { TextInput } from 'react-native-paper';
 
 const AddExerciseScreen = () => {
+
+const [text, setText] = React.useState("");
 
 return (
     <SafeAreaView>
@@ -14,25 +17,19 @@ return (
     }}
     />
         <ScrollView>
-            <View style={{backgroundColor: 'red'}}>
-                <Text>hello</Text>
+            <View style={styles.container}>
+                <View style={styles.content}>
+                    <TextInput
+                        label="Email"
+                        value={text}
+                        onChangeText={text => setText(text)}
+                    />
+                </View>
             </View>
         </ScrollView>        
     </SafeAreaView>
 
 );
 };
-
-const styles = StyleSheet.create({
-container: {
-flex: 1,
-padding: 20,
-},
-header: {
-fontSize: 20,
-fontWeight: 'bold',
-marginBottom: 20,
-},
-});
 
 export default AddExerciseScreen;

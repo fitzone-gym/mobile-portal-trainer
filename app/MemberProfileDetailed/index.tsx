@@ -42,6 +42,8 @@ export default function memberProfileDetailed() {
       axios
             .get(`${baseUrl}/memberDetailsForTrainers/${localParams.id}`)
             .then((response) => {
+              console.log(response.data.data);
+              
                 setMember(response.data.data); // Set the member data to the state
             })
             .catch((error) => console.error("Error fetching Member Details", error));

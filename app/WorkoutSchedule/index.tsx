@@ -9,6 +9,8 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  GestureResponderEvent,
+  Modal,
 } from "react-native";
 
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
@@ -23,6 +25,9 @@ import {
   Portal,
   PaperProvider,
   TextInput,
+  IconButton,
+  MD3Colors,
+  Checkbox
 } from "react-native-paper";
 import axios from "axios";
 
@@ -35,10 +40,27 @@ interface Schedule{
 
 export default function WorkoutShedule() {
   
-  const localParams = useLocalSearchParams()
-  console.log(localParams.id);
+const localParams = useLocalSearchParams()
+console.log(localParams.id);
 
 const[scheduleDetails, setScheduleDetails] = useState<Schedule[]>([]);
+const [isEditDialogVisible, setIsEditDialogVisible] = useState(false);
+const [isDeleteDialogVisible, setIsDeleteDialogVisible] = useState(false);
+const [checked, setChecked] = React.useState(false);
+
+
+
+ // Function to show/hide the Edit dialog
+ const toggleEditDialog = () => {
+  setIsEditDialogVisible(!isEditDialogVisible);
+};
+
+// Function to show/hide the Delete dialog
+const toggleDeleteDialog = () => {
+  setIsDeleteDialogVisible(!isDeleteDialogVisible);
+};
+
+
 useEffect(() => {
   axios
       .get(`${baseUrl}/memberDetailsForTrainers/schedule/${localParams.id}`)
@@ -49,9 +71,18 @@ useEffect(() => {
       
 },[]);
 
-console.info(scheduleDetails)
+  console.info(scheduleDetails)
 
   const router = useRouter();
+
+  // edit form
+  function setEditedSets(arg0: number): void {
+    throw new Error("Function not implemented.");
+  }
+  function setEditedReps(arg0: number): void {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <SafeAreaView>
       <Stack.Screen
@@ -107,10 +138,10 @@ console.info(scheduleDetails)
             <View style={styles.content}>
                 {scheduleDetails.length > 0? (
                 scheduleDetails.map((scheduleDetail:any)=>(
-                  <View style={styles.individualWork}>
+                  <View style={styles.individualWork }>
                       <View style={styles.addNoteBtn}>
                         <View>
-                          <Text style={styles.sheduleActivity}>{scheduleDetail.exercise_name}</Text>
+                          <Text style={styles.sheduleActivity}>{scheduleDetail.name}</Text>
                           <Text>
                             <Text style={styles.sheduleActivityType}>
                               Sets {scheduleDetail.sets}&nbsp;&nbsp;
@@ -125,30 +156,108 @@ console.info(scheduleDetails)
                             {/* /*change direction */}
                             <View style={styles.editDeleteIcon}>
                               <Icon
-                                name="circle-edit-outline"
+                                name="create"
                                 style={styles.individualOptionIconEdit}
-                                // onPress={showDialog}
+                                onPress={toggleEditDialog}
                               />
                               <Icon
-                                name="delete-forever"
+                                name="delete-outline"
                                 style={styles.individualOptionIconDelete}
+                                onPress={toggleDeleteDialog}
                               />
                             </View>
                           </View>
-                            {/* check buttons */}
-                            <View style={styles.addNoteBtn}>
-                              <Icon
-                                name="clipboard-check"
-                                style={styles.individualOptionIconDate}
-                              />
-                            </View>
+                          {/* check buttons */}
+                          <View style={styles.addNoteBtn}>
+                            <Checkbox
+                              status={checked ? 'checked' : 'unchecked'}
+                              color="#E54646"
+                              onPress={() => {
+                                setChecked(!checked);
+                              }}
+                            />
+                          </View>
                         </View>
                       </View>
                   </View>
                 ))
-                ):(<Text>No data</Text>)}                
+                ):(<Text>No data</Text>)}             
             </View>
-{/* --------------------------- */}
+{/* ------------------------------------------ */}
+          {/* Edit Dialog */}
+          <Modal
+            visible={isEditDialogVisible}
+            animationType="slide"
+          >
+            <View style={styles.modalContainer}>
+              <View style={styles.modalContent2}>
+                <Icon
+                    name="close"
+                    style={styles.closeButton}
+                    onPress={toggleEditDialog}
+                  />  
+                    {/* Edit Schedule Form */}
+            <View style={styles.editForm}>
+              <Text style={styles.editFormLabel}>Exercise Name:</Text>
+              <TextInput
+                style={styles.editFormInput}
+                placeholder="Enter exercise name"
+                // value={editedExerciseName}
+                // onChangeText={setEditedExerciseName}
+              />
+
+              <Text style={styles.editFormLabel}>Number of Sets:</Text>
+              <TextInput
+                style={styles.editFormInput}
+                placeholder="Enter number of sets"
+                // value={editedSets.toString()}
+                // onChangeText={(text) => setEditedSets(parseInt(text))}
+                // keyboardType="numeric"
+              />
+
+              <Text style={styles.editFormLabel}>Number of Reps:</Text>
+              <TextInput
+                style={styles.editFormInput}
+                placeholder="Enter number of reps"
+                // value={editedReps.toString()}
+                // onChangeText={(text) => setEditedReps(parseInt(text))}
+                // keyboardType="numeric"
+              />
+
+              <TouchableOpacity
+                style={styles.saveButton}
+                // onPress={handleEditSchedule}
+              >
+                <Text style={styles.saveButtonText}>Save Changes</Text>
+              </TouchableOpacity>
+            </View>
+              
+              </View>
+            </View>
+          </Modal>
+
+          {/* Delete Dialog */}
+          <Modal
+            // transparent={true}
+            visible={isDeleteDialogVisible}
+            animationType="slide" >
+            <View style={styles.modalContainer}>
+              <View style={styles.modalContent}>
+                <Icon
+                  name="close"
+                  style={styles.closeButton}
+                  onPress={toggleDeleteDialog}
+                />       
+                <Text style={styles.confirmationText}>Are you sure you want to delete this workout?</Text>         
+                <TouchableOpacity 
+                style={styles.deleteButton}
+                >
+                  <Text style={styles.deleteButtonText}>Delete</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Modal>  
+{/* ------------------------------------------- */}
         </ImageBackground>
         </View>        
       </ScrollView>
