@@ -27,9 +27,12 @@ import {
   TextInput,
   IconButton,
   MD3Colors,
-  Checkbox
+  Checkbox,
+  Provider,
+  Menu
 } from "react-native-paper";
 import axios from "axios";
+import DropDown from "react-native-paper-dropdown";
 
 interface Schedule{
   exercise_id:number,
@@ -48,10 +51,35 @@ const [isEditDialogVisible, setIsEditDialogVisible] = useState(false);
 const [isDeleteDialogVisible, setIsDeleteDialogVisible] = useState(false);
 const [checked, setChecked] = React.useState(false);
 
+//dropdown
+const [showDropDown, setShowDropDown] = useState<boolean>(false);
+const [exercise,setExercise] = useState<string>('');
+const onPressItemHandler = (value: string) => {
+  setExercise(value);
+  setShowDropDown(false);
+};
+const exerciseList = [
+  {
+    label: 'Exercise 1',
+    value: 'exercise_1'
+  },
+  {
+    label: 'Exercise 2',
+    value: 'exercise_2'
+  },
+  {
+    label: 'Exercise 3',
+    value: 'exercise_3'
+  },
+  {
+    label: 'Exercise 4',
+    value: 'exercise_4'
+  },
 
+]
 
  // Function to show/hide the Edit dialog
- const toggleEditDialog = () => {
+const toggleEditDialog = () => {
   setIsEditDialogVisible(!isEditDialogVisible);
 };
 
@@ -106,14 +134,7 @@ useEffect(() => {
                 <View style={styles.addNoteBtn}>
                   <TouchableOpacity
                     style={styles.fillRedBtn}                 
-                    onPress={() => {
-                      router.push({
-                        pathname:'../WorkoutSchedule/scheduleForm',
-                        params:{
-                          id:localParams.id
-                        }
-                      })
-                    }}
+                    onPress={toggleEditDialog}
                   >
                     <Text style={styles.addNoteBtn}>                    
                         <Text style={styles.btnText}>Add exercise</Text>
@@ -198,13 +219,43 @@ useEffect(() => {
                   />  
                     {/* Edit Schedule Form */}
             <View style={styles.editForm}>
-              <Text style={styles.editFormLabel}>Exercise Name:</Text>
+              {/* <Text style={styles.editFormLabel}>Exercise Name:</Text>
               <TextInput
                 style={styles.editFormInput}
                 placeholder="Enter exercise name"
                 // value={editedExerciseName}
                 // onChangeText={setEditedExerciseName}
-              />
+              /> */}
+      <Menu
+        style={{ marginTop: 70 }}
+        visible={showDropDown}
+        onDismiss={() => setShowDropDown(false)}
+        anchor={
+          <Button
+            style={{ marginTop: 25 }}
+            color="#8DB600"
+            icon="account"
+            dark={true}
+            mode="contained"
+            onPress={() => setShowDropDown(true)}
+          >
+            Excersie
+          </Button>
+        }
+      >
+        <Menu.Item
+          onPress={() => onPressItemHandler("Item 1")}
+          title="Item 1"
+        />
+        <Menu.Item
+          onPress={() => onPressItemHandler("Item 2")}
+          title="Item 2"
+        />
+        <Menu.Item
+          onPress={() => onPressItemHandler("Item 3")}
+          title="Item 3"
+        />
+      </Menu>
 
               <Text style={styles.editFormLabel}>Number of Sets:</Text>
               <TextInput
