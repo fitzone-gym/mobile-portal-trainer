@@ -41,15 +41,12 @@ export default function memberProfileDetailed() {
     // const memberId = route.params.id;
       axios
             .get(`${baseUrl}/memberDetailsForTrainers/${localParams.id}`)
-            .then((response) => {
-              console.log(response.data.data);
-              
+            .then((response) => {             
                 setMember(response.data.data); // Set the member data to the state
             })
             .catch((error) => console.error("Error fetching Member Details", error));
 
   },[])
-
 
   console.log(member);
   

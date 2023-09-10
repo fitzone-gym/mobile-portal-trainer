@@ -6,9 +6,11 @@ import styles from "../../../styles/payments.style";
 import { Button } from 'react-native-paper';
 import axios from 'axios';
 import baseUrl from '../../../baseUrl';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 interface totPayment{
+    staff_id:number,
     payment_month: string;
     total_payment: number;
 }
@@ -20,11 +22,10 @@ export default function Payments() {
         .get(`${baseUrl}/payment/totalPayments`)
         .then((response:{data:{data:any;};})=>{
             setTotalPayment(response.data.data);
-            console.log(response.data.data);
+            // console.log(response.data.data);
         })
         .catch((error: any) => console.error(error))
     },[]);
-    console.log(totalPayments)
     const router = useRouter()
 
     return (
@@ -47,8 +48,9 @@ export default function Payments() {
                                 <Text style={styles.paymentPageHeading}>
                                     Payments
                                 </Text>
-                                <Button mode="contained" style={{ backgroundColor: '#E54646' , width:200,height:42 }} onPress={() => {
-                                router.push('/(dashboard)/Members')
+                                <Button mode="contained" style={{ backgroundColor: '#E54646' , width:200,height:42 }} 
+                                onPress={() => {
+                                // router.push('/(dashboard)/Members')
                             }}>
                                 <Text>GENERATE REPORT</Text>
                             </Button>
@@ -61,9 +63,21 @@ export default function Payments() {
                                     totalPayments.map((totPayment: any) => (
                                         <View style={styles.paymentRecode}>
                                         <View style={styles.rowTop}>
-                                            <Text style={{color:'#E54646', fontSize:20}}>{totPayment.payment_month}</Text>
-                                            <Text style={{color:'#ffffff',fontSize:16,fontWeight: "bold",}}>{totPayment.total_payment}</Text>
-                                            <Text style={{color:'green', fontSize:17,fontWeight: "bold",}}>CECKED</Text>
+                                            <Text style={{color:'#E54646', fontSize:18}}>{totPayment.payment_month}</Text>
+                                            <Text style={{color:'#ffffff',fontSize:16,fontWeight: "bold",}}>LKR:  {totPayment.total_payment}</Text>
+                                            <TouchableOpacity
+                                                onPress={()=>{
+                                                    router.push({
+                                                        pathname:'/Payments/paymentDetails',
+                                                        params: {
+                                                            month:totPayment.payment_month,
+                                                            staff_id:totPayment.staff_id
+                                                        }
+                                                    })
+                                                }}
+                                            >
+                                                <Text style={{color:'green', fontSize:17,fontWeight: "bold",}}>CHECK</Text>
+                                            </TouchableOpacity>
                                         </View>
                                     </View>
                                     ))
