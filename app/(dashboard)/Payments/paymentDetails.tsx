@@ -49,24 +49,33 @@ export default function Payments() {
                 <View style={styles.container}>
                         <View style={styles.content}>
                         </View>
-                        <View style={styles.contentDetails}>
-                                <View style={styles.detailContent}>
-                                {paymentDetails.length > 0 ? (
-                                        paymentDetails.map((paymentDetail: any) => (
-                                            <View key={paymentDetail.payment_id} style={{backgroundColor: "red" ,padding:25}}>
-                                                <Text>{paymentDetail.first_name}</Text>
-                                                <Text>{paymentDetail.last_name}</Text>
-                                                <Text>{paymentDetail.nic}</Text>
-                                                <Text>{paymentDetail.phone_no}</Text>
-                                                <Text>{paymentDetail.email}</Text>
-                                                <Text>{paymentDetail.payment_date}</Text>
-                                                <Text>{paymentDetail.payment_time}</Text>
+                        <View style={styles.detailContent}>
+                        {paymentDetails.length > 0 ? (
+                                paymentDetails.map((paymentDetail: any) => (
+                                    <View key={paymentDetail.payment_id} style={styles.detailsRow}>
+                                        <View style={styles.left}>
+                                            <View style={styles.fullName}>
+                                                <Text style={{ fontSize:18, fontWeight:'bold', color:"#E54646"}}>{paymentDetail.first_name}  </Text>
+                                                <Text style={{ fontSize:18, fontWeight:'bold',color:"#E54646"}}>{paymentDetail.last_name}</Text>
                                             </View>
-                                        ))
-                                    ) : (
-                                        <Text>No data</Text>
-                                )}
-                                </View>
+                                            <View style={styles.leftDown}>
+                                                <Text>NIC:  {paymentDetail.nic}</Text>
+                                                <Text>Mobile no:  {paymentDetail.phone_no}</Text>
+                                                <Text>email:  {paymentDetail.email}</Text>
+                                            </View>
+                                            <Text style={{color:'green', fontWeight:'bold', marginTop:20}}>TRANSACTION SUCCESSFULLY</Text>
+                                        </View>
+                                        <View style={styles.right}>
+                                            <Text style={{ fontSize:22, fontWeight:'bold'}}>LKR: {paymentDetail.amount}</Text>
+                                            <Text>{paymentDetail.payment_date}</Text>
+                                            <Text>{paymentDetail.payment_time}</Text>
+                                        </View>
+                                        
+                                    </View>
+                                ))
+                            ) : (
+                                <Text>No data</Text>
+                        )}
                         </View>
                 </View>
             </ScrollView>
