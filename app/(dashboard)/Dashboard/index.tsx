@@ -77,7 +77,7 @@ export default function Dashboard() {
                             </View>
                             <View style={styles.details}>
                                 <View style={styles.totalCount}>
-                                    <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 13, padding: 10, }}>Tottal Members</Text>
+                                    <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 13, padding: 10, }}>Total Members</Text>
                                     <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 39 }}>{totalMemberCount}</Text>
                                 </View>
                                 <View style={styles.totRow}>
