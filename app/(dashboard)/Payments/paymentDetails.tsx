@@ -53,9 +53,14 @@ export default function Payments() {
                                 <View style={styles.detailContent}>
                                 {paymentDetails.length > 0 ? (
                                         paymentDetails.map((paymentDetail: any) => (
-                                            <View key={paymentDetail.payment_id} style={{backgroundColor: "red"}}>
-                                                <Text>{paymentDetail.member_id}</Text>
-                                                <Text>{paymentDetail.payment_made_date}</Text>
+                                            <View key={paymentDetail.payment_id} style={{backgroundColor: "red" ,padding:25}}>
+                                                <Text>{paymentDetail.first_name}</Text>
+                                                <Text>{paymentDetail.last_name}</Text>
+                                                <Text>{paymentDetail.nic}</Text>
+                                                <Text>{paymentDetail.phone_no}</Text>
+                                                <Text>{paymentDetail.email}</Text>
+                                                <Text>{paymentDetail.payment_date}</Text>
+                                                <Text>{paymentDetail.payment_time}</Text>
                                             </View>
                                         ))
                                     ) : (
