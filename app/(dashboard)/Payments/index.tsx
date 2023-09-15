@@ -4,8 +4,8 @@ import { Stack, useRouter } from 'expo-router';
 import { View, Text, SafeAreaView, ScrollView, ImageBackground } from 'react-native';
 import styles from "../../../styles/payments.style";
 import { Button } from 'react-native-paper';
-import axios from 'axios';
-import baseUrl from '../../../baseUrl';
+import axios from '../../../axios'
+// import baseUrl from '../../../baseUrl';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
@@ -19,7 +19,7 @@ export default function Payments() {
 
     useEffect(() =>{
         axios
-        .get(`${baseUrl}/payment/totalPayments`)
+        .get(`/payment/totalPayments`)
         .then((response:{data:{data:any;};})=>{
             setTotalPayment(response.data.data);
             // console.log(response.data.data);

@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { View, Text, SafeAreaView, ScrollView, ImageBackground } from 'react-native';
 import styles from "../../../styles/paymentDetails.style";
-import axios from 'axios';
-import baseUrl from '../../../baseUrl';
+import axios from '../../../axios'
 
 
 interface details{
@@ -26,16 +25,14 @@ export default function Payments() {
             console.log(localParams.month); 
             console.log(localParams.staff_id); 
             axios
-            .get(`${baseUrl}/payment/paymentDetails/${localParams.month}/${localParams.staff_id}`)
+            .get(`/payment/paymentDetails/${localParams.month}/${localParams.staff_id}`)
             .then((response:{data:{data:any;};})=>{
                 setPaymentDetails(response.data.data);
                 console.log(paymentDetails);
             })
             .catch((error: any) => console.error(error))
         }
-    },[]);
-
-   
+    },[]); 
 
     return (
         <SafeAreaView>
@@ -63,7 +60,7 @@ export default function Payments() {
                                                 <Text>Mobile no:  {paymentDetail.phone_no}</Text>
                                                 <Text>email:  {paymentDetail.email}</Text>
                                             </View>
-                                            <Text style={{color:'green', fontWeight:'bold', marginTop:20}}>TRANSACTION SUCCESSFULLY</Text>
+                                            <Text style={{color:'green', fontWeight:'bold', marginTop:20}}>TRANSACTION COMPLETED</Text>
                                         </View>
                                         <View style={styles.right}>
                                             <Text style={{ fontSize:22, fontWeight:'bold'}}>LKR: {paymentDetail.amount}</Text>

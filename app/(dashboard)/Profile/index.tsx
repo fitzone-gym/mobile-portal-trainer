@@ -5,9 +5,8 @@ import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, Touchable
 import { Stack, useRouter, useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { Button, Card, PaperProvider} from 'react-native-paper';
-import baseUrl from '../../../baseUrl';
-
-import axios from "axios";
+import { useAppSelector } from '../../redux/store';
+import axios from '../../../axios'
 
 type TrainerType = {
     id:string
@@ -26,6 +25,8 @@ type TrainerType = {
 
 export default function trainerProfile(){
 
+    const currentUser = useAppSelector(state => state.user)
+
     const router = useRouter()
     const localSearchParams = useLocalSearchParams()
     
@@ -33,7 +34,7 @@ export default function trainerProfile(){
     
     useEffect(() => {
         axios
-            .get(`${baseUrl}/ourTrainers/${10003}`)
+            .get(`/ourTrainers/${10003}`)
             .then((response) =>{
                 setTrainerDetails(response.data.data);
                 console.log(response.data.data)
@@ -63,7 +64,7 @@ export default function trainerProfile(){
                                     <Image
                                         style={styles.trainerimage}
                                         // source={{ uri:`../../assets/images/Trainers/${trainerDetails?.profile_picture}`}}
-                                        source={{ uri:`https://stylioo.blob.core.windows.net/images/${trainerDetails?.profile_picture}`}}
+                                        source={{ uri:`https://stylioo.blob.core.windows.net/images/${currentUser.image}`}}
                                         resizeMode='cover'
                                     />
                                     <View style={styles.basicdetails}>
@@ -75,7 +76,7 @@ export default function trainerProfile(){
                                             <Text style={styles.labelofbasicinfo}>Email</Text>
                                         </View>
                                         <View>
-                                            <Text style={styles.basicinfo}>{trainerDetails?.first_name}&nbsp;{trainerDetails?.last_name}</Text>
+                                            <Text style={styles.basicinfo}>{currentUser.first_name}&nbsp;{currentUser.last_name}</Text>
                                             <Text style={styles.basicinfo}>{trainerDetails?.age}</Text>
                                             <Text style={styles.basicinfo}>{trainerDetails?.gender === 'M' ? 'Male' : 'Female'}</Text>
                                             <Text style={styles.basicinfo}>0{trainerDetails?.phone_no}</Text>

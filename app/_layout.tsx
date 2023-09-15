@@ -5,6 +5,7 @@ import { SplashScreen, Stack } from 'expo-router';
 import React from 'react';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
+import ReduxProvider from './redux/Provider';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -39,11 +40,13 @@ function RootLayoutNav() {
   return (
     <>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="index" options={{ headerShown: false }} />
-          <Stack.Screen name="signin" options={{ headerShown: false }} />
-          <Stack.Screen name="(dashboard)" options={{ headerShown: false }} />
-        </Stack>
+        <ReduxProvider>
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="index" options={{ headerShown: false }} />
+            <Stack.Screen name="signin" options={{ headerShown: false }} />
+            <Stack.Screen name="(dashboard)" options={{ headerShown: false }} />
+          </Stack>
+        </ReduxProvider>
       </ThemeProvider>
     </>
   );

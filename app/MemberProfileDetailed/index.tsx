@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
+// import axios from 'axios';
+import axios from '../../axios'
 import {
   ImageBackground,
   StyleSheet,
@@ -12,7 +13,7 @@ import {
 } from "react-native";
 import styles from "../../styles/memberProfileDetail.style";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
-import baseUrl from '../../baseUrl';
+// import baseUrl from '../../baseUrl';
 
 interface Member  {
   id:number;
@@ -40,7 +41,7 @@ export default function memberProfileDetailed() {
   useEffect(() => {
     // const memberId = route.params.id;
       axios
-            .get(`${baseUrl}/memberDetailsForTrainers/${localParams.id}`)
+            .get(`/memberDetailsForTrainers/${localParams.id}`)
             .then((response) => {             
                 setMember(response.data.data); // Set the member data to the state
             })

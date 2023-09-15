@@ -1,11 +1,63 @@
 import styles from '../styles/signin.style';
 import { View, Text, TextInput, Image, SafeAreaView, ImageBackground, TouchableOpacity } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
-import React from 'react';
+import React, { useState } from 'react';
+import axios from '../axios'
+import {useAppDispatch} from './redux/store'
+import {setUser} from './redux/features/userSlice'
 
 export default function Signin() {
 
     const router = useRouter()
+    const dispatch = useAppDispatch()
+    const [email, setEmail] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+    const [error, setError] = useState<string>("")
+
+    const handleLogin = () =>{
+        //simulating a simple login logic
+
+        if(email === '' || password === ''){
+            setError("Invalid Username or Password");
+            alert("Invalid Username or Password")
+        }
+        else{
+            setError("");
+            
+                axios.post('/auth/login/trainer', {
+                    email: email,
+                    password: password
+                }).then((response)=>{
+                
+                    if(response.data.success){
+                        const currentUser = response.data.data;
+                        console.log(currentUser);  
+
+                        dispatch(setUser({
+                            id: currentUser.id,
+                            first_name: currentUser.first_name,
+                            last_name: currentUser.last_name,
+                            image: currentUser.profile_picture,
+                            user_role : currentUser.user_role
+                            
+                        }))
+                        
+                        router.push('(dashboard)/Dashboard')                                                      
+                            }
+                    else{
+                        setError(response.data.error)
+                        console.log(response.data.error)
+                        alert(response.data.error)
+                    }
+                })
+            
+            .catch((err)=>{
+                console.log(err);  
+                
+            })
+        }
+    };
+
     return (
         <SafeAreaView>
             <Stack.Screen
@@ -31,9 +83,9 @@ export default function Signin() {
                         </Text>
                         <View style={styles.signinTxt}>
                             <Text style={styles.subContent}>User Name</Text>
-                            <TextInput style={styles.txtInput} />
+                            <TextInput style={styles.txtInput} onChangeText={(text) => setEmail(text)}/>
                             <Text style={styles.subContent}>Password</Text>
-                            <TextInput style={styles.txtInput} autoCorrect={false} secureTextEntry={true} />
+                            <TextInput style={styles.txtInput} onChangeText={(text) => setPassword(text)} autoCorrect={false} secureTextEntry={true}  />
                             <TouchableOpacity
                                 onPress={() => {
                                     router.push('../TrainerForgetPW')
@@ -44,9 +96,8 @@ export default function Signin() {
                         </View>
                         <TouchableOpacity
                             style={styles.btn}
-                            onPress={() => {
-                                router.push('/(dashboard)/Dashboard')
-                            }}
+                            onPress={handleLogin}                        
+                            
                         >
                             <Text style={styles.btnTxt}>Sign in</Text>
                         </TouchableOpacity>
