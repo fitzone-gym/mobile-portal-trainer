@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import acios from 'axios';
 import styles from '../../../styles/dashboard.style';
 import { Stack, useRouter } from 'expo-router';
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity } from 'react-native';
 import { useAppSelector } from '../../redux/store';
-
-// import baseUrl from '../../../baseUrl'
 import axios from '../../../axios'
 
 import {

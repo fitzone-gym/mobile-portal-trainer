@@ -13,12 +13,13 @@ const styles = StyleSheet.create({
     },
 
     logo:{
-        width:115,
+        width:100,
         height:100,
     },
 
     top: {
-        marginTop: 10
+        marginTop: 50,
+        // backgroundColor:'red'
     },
 
     bottom:{

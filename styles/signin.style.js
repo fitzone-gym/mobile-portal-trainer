@@ -17,19 +17,19 @@ const styles = StyleSheet.create({
         // backgroundColor:'red',
     },    
     top: {
-        marginTop: 20,
-        marginBottom:10
-    },
+        marginTop: 30,
+        // backgroundColor:'red'
+    },  
     logo:{
         width:100,
         height:100,
-    },    
+    },
     upperdiv:{
-        // backgroundColor:'black',
+        marginTop:30,
         width:'70%'
     },
     upperTxt:{
-        fontSize:30,
+        fontSize:28,
         textAlign:'center',
         fontWeight:600,
         color:'white',

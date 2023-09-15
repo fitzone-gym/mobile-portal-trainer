@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-// import axios from 'axios';
 import axios from '../../../axios'
 import styles from '../../../styles/trainerMembers.style';
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, FlatList } from 'react-native';
 import { Stack, useRouter,useLocalSearchParams } from 'expo-router';
 import React from 'react';
-// import baseUrl from '../../../baseUrl';
-// import BottomNavBar from '../../components/BottomNavBar'
+
 
 interface Members {
     id: number;
@@ -28,7 +26,8 @@ export default function trainerMembers() {
             })
             .catch((error) => console.error("Error fetching member details", error));
     }, []);
-    console.info(memberDetails);
+
+    // console.info(memberDetails);
     const router = useRouter()
 
     return (

@@ -69,7 +69,7 @@ export default function Signin() {
                 <ImageBackground source={require('../assets/images/signin.png')} resizeMode='cover' style={styles.backgroundImage}>
                     <View style={styles.upper}>
                         <View style={styles.top}>
-                            <Image source={require('../assets/images/logo.png')} />
+                            <Image source={require('../assets/images/logo.png')} style={styles.logo} />
                         </View>
                         <View style={styles.upperdiv}>
                             <Text style={styles.upperTxt}>

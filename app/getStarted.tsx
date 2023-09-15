@@ -34,14 +34,14 @@ export default function GetStarted() {
                         </TouchableOpacity>
 
                         <View style={styles.underTxt}>
-                            <Text style={styles.txt}>Don't you have an account?</Text>
-                            <TouchableOpacity
+                            {/* <Text style={styles.txt}>Don't you have an account?</Text> */}
+                            {/* <TouchableOpacity
                                 onPress={() => {
                                     router.push('/TrainerSignup');
                                 }}
-                            >
-                                <Text style={{ color: '#E54646' }}>Sign up</Text>
-                            </TouchableOpacity>
+                            > */}
+                                {/* <Text style={{ color: '#E54646' }}>Sign up</Text> */}
+                            {/* </TouchableOpacity> */}
                         </View>
 
                     </View>

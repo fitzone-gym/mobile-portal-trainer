@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import axios from 'axios';
 import axios from '../../axios'
 import {
   ImageBackground,
@@ -13,7 +12,6 @@ import {
 } from "react-native";
 import styles from "../../styles/memberProfileDetail.style";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
-// import baseUrl from '../../baseUrl';
 
 interface Member  {
   id:number;
@@ -212,7 +210,7 @@ export default function memberProfileDetailed() {
                   Supplimentery protine
                 </Text>
                 <View style={styles.workoutProgressArea}>
-                  <Text style={styles.detailsValue}> progress</Text>
+                  <Text style={styles.detailsValue}> suppliement</Text>
                 </View>
               </View>
             </View>
