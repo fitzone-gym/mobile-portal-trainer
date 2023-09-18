@@ -22,8 +22,8 @@ export default function Payments() {
 
     useEffect(() =>{
         if (localParams.month){
-            console.log(localParams.month); 
-            console.log(localParams.staff_id); 
+            // console.log(localParams.month); 
+            // console.log(localParams.staff_id); 
             axios
             .get(`/payment/paymentDetails/${localParams.month}/${localParams.staff_id}`)
             .then((response:{data:{data:any;};})=>{
@@ -66,6 +66,7 @@ export default function Payments() {
                                             <Text style={{ fontSize:22, fontWeight:'bold'}}>LKR: {paymentDetail.amount}</Text>
                                             <Text>{paymentDetail.payment_date}</Text>
                                             <Text>{paymentDetail.payment_time}</Text>
+                                            <Text style={{color:'#E54646', fontSize:16,fontWeight:'bold', marginTop:30, marginLeft:20}}>{paymentDetail.payment_details} Package</Text>
                                         </View>
                                         
                                     </View>

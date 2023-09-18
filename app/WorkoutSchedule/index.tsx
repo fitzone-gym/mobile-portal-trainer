@@ -2,14 +2,11 @@ import * as React from "react";
 import {useState,useEffect} from 'react';
 import {
   ImageBackground,
-  StyleSheet,
   Text,
   View,
   SafeAreaView,
-  Image,
   ScrollView,
   TouchableOpacity,
-  GestureResponderEvent,
   Modal,
   FlatList,
 } from "react-native";
@@ -21,16 +18,8 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import axios from '../../axios'
 
 import {
-  Button, 
-  Dialog,
-  Portal,
-  PaperProvider,
   TextInput,
-  IconButton,
-  MD3Colors,
   Checkbox,
-  Provider,
-  Menu
 } from "react-native-paper";
 // import axios from "axios";
 import DropDown from "react-native-paper-dropdown";
@@ -45,7 +34,7 @@ interface Schedule{
 export default function WorkoutShedule() {
   
 const localParams = useLocalSearchParams()
-console.log(localParams.id);
+console.log(localParams.user_id);
 
 const[scheduleDetails, setScheduleDetails] = useState<Schedule[]>([]);
 const [isEditDialogVisible, setIsEditDialogVisible] = useState(false);
@@ -63,7 +52,7 @@ const toggleEditDialog = () => {
 };
 
 // Function to show/hide the Delete dialog
-const toggleDeleteDialog = (deleteId) => {
+const toggleDeleteDialog = () => {
   // setSelectedExercise(exercise);
   setIsDeleteDialogVisible(!isDeleteDialogVisible);
   setDeleteId(deleteId);
@@ -95,7 +84,7 @@ const searchText = (text: string) => {
 
 useEffect(() => {
   axios
-      .get(`/memberDetailsForTrainers/schedule/${localParams.id}`) // retrieve the schedule details for relavent user
+      .get(`/memberDetailsForTrainers/schedule/${localParams.user_id}`) // retrieve the schedule details for relavent user
       .then((response: { data: { data: any }; })=>{
         setScheduleDetails(response.data.data);  
       })
@@ -195,7 +184,7 @@ useEffect(() => {
                               <Icon
                                 name="delete-outline"
                                 style={styles.individualOptionIconDelete}
-                                onPress={() => toggleDeleteDialog(scheduleDetail.exercise_id)}
+                                // onPress={() => toggleDeleteDialog(scheduleDetail.exercise_id)}
                               />
                             </View>
                           </View>

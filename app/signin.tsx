@@ -34,11 +34,11 @@ export default function Signin() {
                         console.log(currentUser);  
 
                         dispatch(setUser({
-                            id: currentUser.id,
+                            user_id: currentUser.user_id,
                             first_name: currentUser.first_name,
                             last_name: currentUser.last_name,
                             image: currentUser.profile_picture,
-                            user_role : currentUser.user_role
+                            role_id : currentUser.user_role
                             
                         }))
                         

@@ -9,7 +9,6 @@ import {
     IconButton,
     Button
 } from "react-native-paper";
-import memberProfileDetailed from '../../MemberProfileDetailed';
 
 interface Announcement {
     annoucement_id: number;
@@ -22,6 +21,7 @@ export default function Dashboard() {
 
     const currentUser = useAppSelector(state => state.user)
 
+    
     const [announcementDetails, setAnnouncementDetails] = useState<Announcement[]>([]);
     const [totalMemberCount, setTotalMemberCount] = useState();
 
@@ -30,7 +30,7 @@ export default function Dashboard() {
             .get(`/dashboard/announcement`)
             .then((response: { data: { data: any; }; }) => {
                 setAnnouncementDetails(response.data.data);
-                console.log(response.data.data);
+                // console.log(response.data.data);
                 
             })
             .catch((error: any) => console.error(error));
@@ -47,7 +47,7 @@ export default function Dashboard() {
             .catch((error: any) => console.error(error))
     }, []);
 
-    console.info(totalMemberCount)
+    // console.info(totalMemberCount)
 
     const router = useRouter()
 
@@ -97,7 +97,7 @@ export default function Dashboard() {
                                 <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 18 }}>SPECIAL NOTICES</Text>
                                 {announcementDetails.length > 0 ? (
                                     announcementDetails.map((announcement: any) => (
-                                        <View style={styles.data} key={announcement.annoucement_id}>
+                                        <View style={styles.data} key={announcement.announcement_id}>
                                             <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 18, marginBottom: 10 }}>{announcement.title}</Text>
                                             <Text style={{ color: '#ffffff' }}>{announcement.description}</Text>
                                         </View>

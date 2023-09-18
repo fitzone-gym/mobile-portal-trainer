@@ -2,10 +2,6 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
 
-    fullbody:{
-
-    },
-    
     backgroundimage: {
         width: '100%',
         minHeight: 850,
@@ -24,18 +20,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         // backgroundColor: 'red',
         // height:100,
-    },
-
-    sidebaricon:{
-
-    },
-
-    bellicon:{
-        
-    },
-
-    bottomcontainer:{
-        
     },
 
     text:{
@@ -97,15 +81,11 @@ const styles = StyleSheet.create({
         height:154,
         width:200,
         backgroundColor:'#222222',
-        borderTopLeftRadius: 36,
-        borderTopRightRadius: 36,
-        borderBottomLeftRadius: 36,
-        borderBottomRightRadius: 36,
+        borderRadius:30,
         padding:20,
         alignItems:'center',
         marginTop:10,
       },
-
       workingextext:{
         color:'#FFFFFF',
         fontWeight: 'bold',
@@ -116,14 +96,29 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize:60,
       },
-
-      members:{
-
+      ratings:{
+        opacity:0.8,
+        height:104,
+        width:130,
+        backgroundColor:'#222222',
+        padding:12,
+        alignItems:'center',
+        marginTop:10,
+        marginLeft:20,
+        borderRadius:30,
       },
-
+      ratingtext:{
+        color:'#ffffff',
+        fontWeight: 'bold',
+        fontSize:14,
+      },
+      textboxtext2:{
+        color:"ffffff",
+        fontWeight: 'bold',
+        fontSize:20,
+      },
       lowercontent:{
         flexDirection:'column',
-        // alignItems: 'center',
       },
 
       topictext:{
@@ -148,15 +143,12 @@ const styles = StyleSheet.create({
 
       newtextbox:{
         opacity:0.8,
-        minHeight:134,
-        // width:300,
+        minHeight:30,
         backgroundColor:'#222222',
         padding:10,
         marginTop:10,
-        borderTopLeftRadius: 36,
-        borderTopRightRadius: 36,
-        borderBottomLeftRadius: 36,
-        borderBottomRightRadius: 36,
+        color:'#FFFFFF',
+        borderRadius:30
       },
 
       detailsList: {
@@ -181,7 +173,7 @@ const styles = StyleSheet.create({
 
       textboxtext:{
         color:'#FFFFFF',
-        fontWeight: 500,
+        fontWeight: 'bold',
         marginLeft:10,
         fontSize:14,
       },
@@ -192,27 +184,6 @@ const styles = StyleSheet.create({
         marginBottom:10,
         fontSize:14,
       },
-
-      // getstartedbutton:{
-      //     margin:20,
-      //     width: 330,
-      //     height: 50,
-      //     backgroundColor: '#E54646',
-      //     borderRadius: 10,
-      //     flex: 1,
-      //     alignItems: 'center',
-      //     justifyContent: 'center',
-      // },
-
-      // getstartedbuttonText:{
-      //   fontWeight: 'bold',
-      //   fontSize:15,
-      //   color: 'white',
-
-      // },
-
-      
-
 })
 
 export default styles

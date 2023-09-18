@@ -118,12 +118,12 @@ const styles = StyleSheet.create({
   individualOptionIconEdit: {
     color: "#dcdfe2",
     fontSize: 20,
-    cursor: "pointer",
+    
   },
   individualOptionIconDelete: {
     color: "#dcdfe2",
     fontSize: 25,
-    cursor: "pointer",
+    
   },
   individualOptionIconDate: {
     backgroundColor: "#E54646",
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 10,
-    cursor: "pointer",
+    
   },
   individualWork: {
     backgroundColor: "rgba(34, 34, 34, 0.88)",

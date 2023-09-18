@@ -4,10 +4,11 @@ import styles from '../../../styles/trainerMembers.style';
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, TouchableOpacity, FlatList } from 'react-native';
 import { Stack, useRouter,useLocalSearchParams } from 'expo-router';
 import React from 'react';
+import { useAppSelector } from '../../redux/store';
 
 
 interface Members {
-    id: number;
+    user_id: number;
     first_name: string;
     last_name: string;
     profile_picture?:string;
@@ -15,18 +16,18 @@ interface Members {
 
 export default function trainerMembers() {
 
+    const currentUser = useAppSelector(state => state.user)
     const [memberDetails, setMemberDetails] = useState<Members[]>([]);
 
 
     useEffect(() => {
         axios
-            .get(`/memberDetailsForTrainers`)
+            .get(`/memberDetailsForTrainers/${currentUser.user_id}`) // this user_id is trainer_id
             .then((response) => {
                 setMemberDetails(response.data.data);
             })
             .catch((error) => console.error("Error fetching member details", error));
     }, []);
-
     // console.info(memberDetails);
     const router = useRouter()
 
@@ -52,16 +53,16 @@ export default function trainerMembers() {
                     <View style={styles.mainCard}>
                         {memberDetails.map((member) => (
                             <TouchableOpacity
-                                style={styles.trainercards}
+                                style={styles.trainercards}  
                                 onPress={() => {
                                     router.push({
                                         pathname: '/MemberProfileDetailed',
                                         params: {
-                                            id: member.id,
+                                            user_id: member.user_id,
                                         }
                                     })
                                 }}
-                                key={member.id}>
+                                key={member.user_id}>
                                     
                                 <Image
                                     style={styles.memberimage}
@@ -70,6 +71,7 @@ export default function trainerMembers() {
                                 <Text style={styles.membercardname}>
                                     {member.first_name}&nbsp; {member.last_name}
                                 </Text>
+                                
                             </TouchableOpacity>
                         )
                         )}

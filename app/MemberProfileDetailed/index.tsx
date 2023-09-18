@@ -14,7 +14,7 @@ import styles from "../../styles/memberProfileDetail.style";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 
 interface Member  {
-  id:number;
+  user_id:number;
   first_name:string;
   last_name:string;
   age:number;
@@ -27,11 +27,8 @@ interface Member  {
 export default function memberProfileDetailed() {
 
   const router = useRouter();
-
   const localParams = useLocalSearchParams()
-
-  console.log(localParams.id);
-  
+  // console.log(localParams.user_id);  
 
   // const {id} = useParams();
   const [member,setMember] = useState<Member | null>(null);
@@ -39,7 +36,7 @@ export default function memberProfileDetailed() {
   useEffect(() => {
     // const memberId = route.params.id;
       axios
-            .get(`/memberDetailsForTrainers/${localParams.id}`)
+            .get(`/memberDetailsForTrainers/memberDetails/${localParams.user_id}`) // this user_id is member_id
             .then((response) => {             
                 setMember(response.data.data); // Set the member data to the state
             })
@@ -47,7 +44,7 @@ export default function memberProfileDetailed() {
 
   },[])
 
-  console.log(member);
+  // console.log(member);
   
 
   return (
@@ -134,7 +131,7 @@ export default function memberProfileDetailed() {
                       router.push({
                         pathname:'/WorkoutSchedule',
                         params:{
-                          id:localParams.id
+                          user_id:localParams.user_id
                         }
                       })
                   }} 

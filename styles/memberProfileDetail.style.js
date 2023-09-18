@@ -26,8 +26,9 @@ const styles = StyleSheet.create({
   ProfilePageHeading: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#E54646",
+    color: "#ffffff",
     marginBottom: 16,
+    marginTop: 26,
   },
   memberDetailsSection: {
     backgroundColor: "#000000c0",
