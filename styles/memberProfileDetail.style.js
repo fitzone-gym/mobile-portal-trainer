@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   memberImage: {
-    marginTop:10,
+    marginTop: 10,
     width: 75,
     height: 75,
     borderRadius: 50,
@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
   detailsValue: {
     fontSize: 14,
     color: "white",
-    textAlign: "center",
     fontWeight: 600,
   },
   profileDetailsButton: {
@@ -129,16 +128,16 @@ const styles = StyleSheet.create({
     marginBottom:20
   },
   workoutProgressArea: {
-    marginTop: 20,
+    marginVertical: 20,
     backgroundColor: "#000000c0",
-    paddingTop: 25,
-    paddingBottom: 25,
-    paddingRight: 15,
     borderRadius: 25,
+    borderColor:"#E54646",
+    borderWidth:1,
+    padding:30,
     alignItems: "center",
     justifyContent: "center",
-    height: 200 /*extra */,
-    marginBottom: 30,
+    height: 100 ,
+    
   },
   individualHealthDetails: {
     display: "flex",
@@ -147,41 +146,36 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   healthDetail: {
-    // flexDirection: "row",
-    // spacing: 2,
-    // alignItems: "center",
-    // justifyContent: "center",
-    // textAlign: "center",
-    // marginTop: 20,
-    // width: 50,
-    // height: 50,
-    // backgroundColor: "blue",
-    // marginHorizontal: 2,
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
   individualHealthDetail: {
+    width: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
     backgroundColor: "#000000c0",
-    paddingTop: 15,
-    paddingBottom: 15,
-    paddingRight: 10,
+    paddingHorizontal:20,
+    paddingVertical:10,
+    marginVertical:5,
     borderRadius: 10,
     alignItems: "center",
-    justifyContent: "center",
     textAlign: "center",
-    // borderColor: "red",
-    borderWidth: 2,
-
-    spacing: 4,
   },
   healthTopic: {
-    color: "white",
+    color: "#ffffff",
     fontWeight: "500",
     marginBottom: 10,
-    fontSize: 12,
+    fontSize: 16,
   },
   healthLevel: {
-    color: "white",
+    color: "#E54646",
+    width: 120,
     fontWeight: "bold",
-    fontSize: 30,
+    fontSize: 21,
+    
   },
 });
 export default styles;

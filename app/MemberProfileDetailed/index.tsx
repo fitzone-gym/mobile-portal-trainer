@@ -24,13 +24,22 @@ interface Member  {
   profile_picture?:string;
 }
 
+interface HelthInjuries{
+  weight:number;
+  height:number;
+  suger_level:number;
+  cholesterol_level:number;
+  blood_presure:number;
+  diabetes_level:number;
+  injuries:string;
+  supplements:string;
+  last_update_date:Date;
+}
 export default function memberProfileDetailed() {
 
   const router = useRouter();
   const localParams = useLocalSearchParams()
-  // console.log(localParams.user_id);  
 
-  // const {id} = useParams();
   const [member,setMember] = useState<Member | null>(null);
 
   useEffect(() => {
@@ -43,9 +52,19 @@ export default function memberProfileDetailed() {
             .catch((error) => console.error("Error fetching Member Details", error));
 
   },[])
+  console.log(member);
 
-  // console.log(member);
-  
+  const [helthInjuries, setHelthInjuries] = useState<HelthInjuries | null>(null);
+
+  useEffect(() =>{
+      axios.get(`/memberDetailsForTrainers/helthInjuries/${localParams.user_id}`)
+      .then((response) =>{
+        setHelthInjuries(response.data.data[0]);
+      })
+      .catch((error) => console.error("Error fetching helth and Injuries details", error));
+  },[])
+  console.log(helthInjuries);
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -127,7 +146,6 @@ export default function memberProfileDetailed() {
                   <TouchableOpacity
                     style={styles.fillRedBtn}
                     onPress={()=>{
-                      // router.push('/WorkoutSchedule')
                       router.push({
                         pathname:'/WorkoutSchedule',
                         params:{
@@ -155,59 +173,72 @@ export default function memberProfileDetailed() {
               </View>
             </View>
 
-            <View>
+            {/* <View>
               <Text style={styles.workoutProgressTopic}>Workout progress</Text>
               <View style={styles.workoutProgressArea}>
-                  {/* <Image
-                    source={require("../../assets/images/workoutProgress.png")}
-                    style={styles.workoutImage}
-                  /> */}
+                
               </View>
             </View>
 
             <View>
               <Text style={styles.workoutProgressTopic}>Dieting progress</Text>
               <View style={styles.workoutProgressArea}>
-                {/* <Image
-                    source={require("../../assets/images/dietingProgress.png")}
-                    style={styles.dietPlaneImage}
-                  />    */}
+              
               </View>
-            </View>
+            </View> */}
 
             <View>
-              <Text style={styles.workoutProgressTopic}>Health & Injuries</Text>
+              <Text style={styles.workoutProgressTopic}>HEALTH LEVEL</Text>
               <View style={styles.healthDetail}>
-                <View style={styles.individualHealthDetails}>
+                  {/* <View style={styles.individualHealthDetail}>
+                    <Text style={styles.healthTopic}> Sugar Level</Text>
+                    <Text style={styles.healthLevel}> {helthInjuries?.suger_level} mg/dL</Text>
+                  </View> */}
                   <View style={styles.individualHealthDetail}>
-                    <Text style={styles.healthTopic}> Sugar level</Text>
-                    <Text style={styles.healthLevel}> 220</Text>
+                    <Text style={styles.healthTopic}> Weight</Text>
+                    <Text style={styles.healthLevel}>{helthInjuries?.weight} kg</Text>
                   </View>
 
                   <View style={styles.individualHealthDetail}>
-                    <Text style={styles.healthTopic}> Cholestrol level</Text>
-                    <Text style={styles.healthLevel}> 220</Text>
+                    <Text style={styles.healthTopic}> Height</Text>
+                    <Text style={styles.healthLevel}>{helthInjuries?.height} cm</Text>
                   </View>
 
                   <View style={styles.individualHealthDetail}>
-                    <Text style={styles.healthTopic}> Blood preasure</Text>
-                    <Text style={styles.healthLevel}> 220</Text>
+                    <Text style={styles.healthTopic}> Cholestrol Level</Text>
+                    <Text style={styles.healthLevel}>{helthInjuries?.cholesterol_level} mg/dL</Text>
                   </View>
-                </View>
+
+                  <View style={styles.individualHealthDetail}>
+                    <Text style={styles.healthTopic}> Blood Presure</Text>
+                    <Text style={styles.healthLevel}>{helthInjuries?.blood_presure} mm Hg</Text>
+                  </View>
+
+                  <View style={styles.individualHealthDetail}>
+                    <Text style={styles.healthTopic}> Diabetes Level</Text>
+                    <Text style={styles.healthLevel}>{helthInjuries?.diabetes_level} mg/dL</Text>
+                  </View>
               </View>
 
               <View>
+              <Text style={styles.workoutProgressTopic}>
+                  INJURIES
+                </Text>
                 <View style={styles.workoutProgressArea}>
-                  <Text style={styles.detailsValue}> Injuries</Text>
+                  {helthInjuries?.injuries === "no" ?(
+                    <Text  style={styles.detailsValue}>NO INJURIES</Text>                    
+                  ):(
+                    <Text style={styles.detailsValue}> {helthInjuries?.injuries.toUpperCase()}</Text>
+                  )}                  
                 </View>
               </View>
 
               <View>
                 <Text style={styles.workoutProgressTopic}>
-                  Supplimentery protine
+                  SUPPLIMENTERY PROTIENE
                 </Text>
                 <View style={styles.workoutProgressArea}>
-                  <Text style={styles.detailsValue}> suppliement</Text>
+                  <Text style={styles.detailsValue}>{helthInjuries?.supplements.toUpperCase()}</Text>
                 </View>
               </View>
             </View>
