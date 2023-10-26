@@ -83,7 +83,7 @@ export default function memberProfileDetailed() {
         >
           <View style={styles.content}>
             <View>
-              <Text style={styles.ProfilePageHeading}>Profile</Text>
+              <Text style={styles.ProfilePageHeading}>About {member?.first_name}</Text>
             </View>
 
             <View style={styles.memberDetailsSection}>
