@@ -16,14 +16,14 @@ export default function Signin() {
 
     const handleLogin = () =>{
         //simulating a simple login logic
-
+        
         if(email === '' || password === ''){
             setError("Invalid Username or Password");
             alert("Invalid Username or Password")
         }
         else{
             setError("");
-            
+                
                 axios.post('/auth/login/trainer', {
                     email: email,
                     password: password

@@ -45,6 +45,8 @@ const [deleteId, setDeleteId] = useState<number | null>(null);
 const [sets, setSets] = useState<number>(0);
 const [reps, setReps] = useState<number>(0)
 
+const textInputRef = React.useRef(null);
+
 
  // Function to show/hide the Edit dialog
 const toggleEditDialog = () => {
@@ -62,15 +64,26 @@ const toggleDeleteDialog = () => {
 //dropdown
 const [showDropDown, setShowDropDown] = useState<boolean>(false);
 // const [dropDownList, setDropDownList] = React.useState<string[]>([]);
-const [exercise, setExercise] = useState<string>('');
+const [exercise, setExercise] = useState<any>({});
+const [exerciseDetailsList, setExerciseDetailsList] = useState<any>([])
 
-const onPressItemHandler = (value: string) => {
+const onPressItemHandler = (value: any) => {
   setExercise(value);
   setShowDropDown(false);
 };
 
 const openDropDown = () => {
-  setShowDropDown(true);
+  // if (textInputRef.current) {
+  //   textInputRef.current.blur();
+  // }
+  axios
+  .get('/memberDetailsForTrainers/exercise') // retrieve the schedule details for relavent user
+  .then((response: { data: { data: any }; })=>{
+    setExerciseDetailsList(response.data.data);  
+    console.log("resultssssss: ", response.data.data);
+    
+  })
+  .catch((error: any) => console.error(error));  setShowDropDown(true);
 }
 
 const closeDropDown = () => {
@@ -81,15 +94,19 @@ const searchText = (text: string) => {
   console.log("text", text);
 }
 
-
-useEffect(() => {
+const getAllSchedules = () => {
   axios
       .get(`/memberDetailsForTrainers/schedule/${localParams.user_id}`) // retrieve the schedule details for relavent user
       .then((response: { data: { data: any }; })=>{
         setScheduleDetails(response.data.data);  
       })
       .catch((error: any) => console.error(error));
-      
+}
+
+
+
+useEffect(() => {
+  getAllSchedules()
 },[]);
   // console.info(scheduleDetails)
 
@@ -104,7 +121,43 @@ useEffect(() => {
 
 
   const addSchedule = () => {
-    console.log(exercise, sets, reps)
+    console.log(exercise.exercise_id, exercise.name, sets, reps)
+
+    /// save data
+    // const response = await axios.post("/memberDetailsForTrainers/schedule", {
+    //   user_id: localParams.user_id,
+    //   exercise_id: exercise.exercise_id,
+    //   exercise_name: exercise.name,
+    //   sets,
+    //   reps
+    // })
+
+    // if(response.data.success) {
+    //   alert("Successfully updated")
+    // }else {
+    //   alert("Failed to update")
+    // }
+
+
+    axios.post("/memberDetailsForTrainers/schedule", {
+      user_id: localParams.user_id,
+      exercise_id: exercise.exercise_id,
+      exercise_name: exercise.name,
+      sets,
+      reps
+    }).then(res => {
+      if(res.data.success) {
+        alert("Successfully updated")
+        setIsEditDialogVisible(false)
+        getAllSchedules()
+      }else {
+        alert("Failed to update")
+      }
+    }).catch(err => {
+      console.log(err);
+      alert("Failed to update")
+      
+    })
   }
 
 
@@ -227,31 +280,53 @@ useEffect(() => {
                 // onChangeText={setEditedExerciseName}
               /> */}
 
-<View style={{
+              <View style={{
                       // position: "relative"
                       zIndex: 10,
                       marginBottom: 10
 
                     }}>
                       <Text style={styles.editFormLabel}>Exercise Name:</Text>
-                      <TextInput
+                      {/* <TextInput
                         placeholder="select exercise name"
-                        onFocus={openDropDown}
+                        onKeyPress={openDropDown}
                         onChangeText={(text) => searchText(text)}
                         // onBlur={closeDropDown}
-                        value={exercise}
-                      ></TextInput>
+                        // ref={textInputRef}
+                        editable={false}
+                        value={exercise.name}
+                        
+                      ></TextInput> */}
+
+                      <TouchableOpacity
+                      onPress={openDropDown}
+                      >
+                        <Text
+                        style={{
+                          backgroundColor: "#ccc",
+                          paddingVertical: 20,
+                          paddingHorizontal: 17,
+                          borderRadius: 5
+                        }}
+                        >{exercise.name || "Select exercise name"}</Text>
+                        
+                      </TouchableOpacity>
+
                       <FlatList
+                      showsVerticalScrollIndicator={true}
                         style={{
                           display: showDropDown ? 'flex' : 'none',
-                          backgroundColor: "#fff",
+                          backgroundColor: "#ccc",
                           position: "absolute",
+                          height: 200,
                           left: 0,
                           right: 0,
-                          top: 75,
+                          top: 30,
                           zIndex: 1,
-                          elevation: 1,
-                          shadowColor: "#000",
+                          elevation: 3,
+                          shadowColor: "#fff",
+                          paddingLeft: 5,
+                      
                           shadowOffset: {
                             width: 0,
                             height: 2,
@@ -262,23 +337,21 @@ useEffect(() => {
                           borderBottomRightRadius: 3,
                         }}
                         data={
-                          scheduleDetails.map((scheduleDetail: any) => (
-                            scheduleDetail.name
-                          ))
+                          exerciseDetailsList
                         }
-                        renderItem={({ item }) => (
-                          <TouchableOpacity
+                        renderItem={({ item }: any) => (
+                        <TouchableOpacity
                             style={{
-                              backgroundColor: "#fff",
                               paddingBottom: 5,
-                              paddingTop: 3,
+                              paddingTop: 8,
                               paddingLeft: 5,
+                              marginBottom:2,
                             }}
-                            onPress={() => onPressItemHandler(item)}
+                            onPress={() => onPressItemHandler({name: item.name, exercise_id: item.exercise_id})}
                           >
-                            <Text>{item}</Text>
+                            <Text>{item.name}</Text>
                           </TouchableOpacity>
-                        )}
+                          )}
                         keyExtractor={(item, index) => index.toString()}
                       />
                       {/* </View> */}

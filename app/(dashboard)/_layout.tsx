@@ -58,6 +58,16 @@ export default function Layout() {
                     )
                 }}
             />
+            <Drawer.Screen
+                name="Leaves"
+                options={{
+                    drawerLabel: 'Leaves',
+                    title: 'Leaves',
+                    drawerIcon: ({ size, color }) => (
+                        <FontAwesome5 name="suitcase" style={{ width: 25 }} size={size} color={color} />
+                    )
+                }}
+            />
 
             <Drawer.Screen
                 name="Feedbacks"
