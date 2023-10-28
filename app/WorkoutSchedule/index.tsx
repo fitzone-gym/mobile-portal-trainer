@@ -145,9 +145,27 @@ useEffect(() => {
       alert("Failed to Add")
       
     })
-  }
+  }  
 
+  // Define the type for the checked items
+  type CheckedItems = {
+    [key: string]: boolean;
+  };
 
+  const [checkedItems, setCheckedItems] = useState<CheckedItems>({});
+
+  const handleCheckboxChange = (exercise_id: number) => {
+    // console.log(checkedItems);
+    setCheckedItems((prev) => ({
+      ...prev,
+      [exercise_id]: !prev[exercise_id],
+    }));
+    getAllSchedules();
+  };
+
+  useEffect(() =>{
+    console.log(checkedItems);
+  },[checkedItems]);
 
   const router = useRouter();
 
@@ -224,13 +242,11 @@ useEffect(() => {
                             </View>
                           </View>
                           {/* check buttons */}
-                          <View style={styles.addNoteBtn}>
+                          <View style={styles.checkBox}>
                             <Checkbox
-                              status={checked ? 'checked' : 'unchecked'}
-                              color="#E54646"
-                              onPress={() => {
-                                setChecked(!checked);
-                              }}
+                            status={checkedItems[scheduleDetail.exercise_id]? 'checked' : 'unchecked'}
+                            color="#E54646"
+                            onPress={() => handleCheckboxChange(scheduleDetail.exercise_id)}
                             />
                           </View>
                         </View>
@@ -308,7 +324,7 @@ useEffect(() => {
                                 }}
                                 onPress={() => onPressItemHandler({name: item.name, exercise_id: item.exercise_id})}
                               >
-                                <Text>{item.name}</Text>
+                                <Text style={styles.inputColor}>{item.name}</Text>
                             </TouchableOpacity>
                               )}
                             keyExtractor={(item, index) => index.toString()}

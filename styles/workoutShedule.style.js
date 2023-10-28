@@ -103,6 +103,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  checkBox:{
+
+  },
   allbuttons:{
     flexDirection: "row",
   },
@@ -266,6 +269,9 @@ const styles = StyleSheet.create({
     padding: 1,
     fontSize: 15,
     marginBottom: 16,
+  },
+  inputColor:{
+    backgroundColor:"#36013F"
   },
   saveButton: {
     marginTop:10,
