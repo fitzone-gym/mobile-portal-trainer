@@ -210,7 +210,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
-  // model for the edit form
+
+  // model for the Add form
   modalContent2: {
     width: '80%', 
     height: '60%',
@@ -219,13 +220,45 @@ const styles = StyleSheet.create({
     padding: 20,
     fontWeight: 'bold',
   },
-  editForm: {
+  addForm: {
     marginTop: 16,
   },
-  editFormLabel: {
+  addFormLabel: {
     fontSize: 16,
     marginBottom: 4,
   },
+  addDropDownLabel:{
+    backgroundColor: "#ccc",
+    paddingVertical: 20,
+    paddingHorizontal: 17,
+    borderRadius: 5
+  },
+
+  dropDownList:{
+    // display: showDropDown ? 'flex' : 'none',
+    backgroundColor: "#ccc",
+    position: "absolute",
+    height: 200,
+    left: 0,
+    right: 0,
+    top: 30,
+    zIndex: 1,
+    elevation: 3,
+    shadowColor: "#fff",
+    paddingLeft: 5,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 3.84,
+    borderBottomLeftRadius: 3,
+    borderBottomRightRadius: 3,
+  },
+  listOption:{
+    paddingBottom: 5,
+    paddingTop: 8,
+    paddingLeft: 5,
+    marginBottom:2,
+  },
+
   editFormInput: {
     borderWidth: 1,
     borderColor: 'lightgray',
