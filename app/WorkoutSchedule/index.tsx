@@ -242,7 +242,7 @@ useEffect(() => {
                             </View>
                           </View>
                           {/* check buttons */}
-                          <View style={styles.checkBox}>
+                          <View>
                             <Checkbox
                             status={checkedItems[scheduleDetail.exercise_id]? 'checked' : 'unchecked'}
                             color="#E54646"

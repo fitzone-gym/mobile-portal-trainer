@@ -41,7 +41,7 @@ import { StyleSheet } from "react-native";
     },
     appointmentDate: {
       fontSize: 17,
-      fontWeight: 500,
+      // fontWeight: 500,
       color: "white",
       marginBottom: 20,
     },

@@ -69,7 +69,7 @@ export default function Layout() {
                 }}
             />
 
-            <Drawer.Screen
+            {/* <Drawer.Screen
                 name="Feedbacks"
                 options={{
                     drawerLabel: 'Feedbacks',
@@ -78,7 +78,7 @@ export default function Layout() {
                         <FontAwesome5 name="info-circle" style={{ width: 25 }} size={size} color={color} />
                     )
                 }}
-            />
+            /> */}
 
             <Drawer.Screen
                 name="Profile"

@@ -46,7 +46,7 @@ export default function trainerMembers() {
                         }
                         resizeMode='contain'
                         style={styles.topcontainerimage}>
-                        <Text style={styles.text}>My Members</Text>
+                        {/* <Text style={styles.text}>My Members</Text> */}
                     </ImageBackground>
                 </View>
                 <ScrollView>

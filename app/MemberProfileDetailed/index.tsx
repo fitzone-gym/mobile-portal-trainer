@@ -90,7 +90,7 @@ export default function memberProfileDetailed() {
               <View style={styles.memberDetails}>
                 <View>
                   <Image
-                    // style={styles.memberImage}
+                    style={styles.memberImage}
                     source={{
                       uri: `https://stylioo.blob.core.windows.net/images/${member?.profile_picture}`
                     }}

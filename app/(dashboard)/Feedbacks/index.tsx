@@ -9,7 +9,7 @@ export default function Feedbacks() {
     return (
         <SafeAreaView>
             <View>
-                <Text>Payment Page</Text>
+                <Text>feed back</Text>
             </View>
         </SafeAreaView>
     )

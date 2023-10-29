@@ -34,15 +34,15 @@ export default function Payments() {
                         <View style={styles.top}>
                             <View style={styles.sets}>
                                 <Text style={styles.label}>Weight:</Text>                                
-                                <Text style={styles.textInput}>85Kg</Text>                                
+                                <Text style={styles.textInput}>45Kg</Text>                                
                             </View>
                             <View style={styles.sets}>
                                 <Text style={styles.label}>Height:</Text>                                
-                                <Text style={styles.textInput}>156cm</Text>                                
+                                <Text style={styles.textInput}>158cm</Text>                                
                             </View>
                             <View style={styles.sets}>
                                 <Text style={styles.label}>Age:</Text>                                
-                                <Text style={styles.textInput}>26</Text>                                
+                                <Text style={styles.textInput}>24</Text>                                
                             </View>
                         </View>
                         <View style={styles.bottom}>

@@ -6,6 +6,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 import ReduxProvider from './redux/Provider';
+import { Provider } from 'react-native-paper';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -40,6 +41,7 @@ function RootLayoutNav() {
   return (
     <>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Provider>
         <ReduxProvider>
           <Stack screenOptions={{ headerShown: false }}>
             <Stack.Screen name="index" options={{ headerShown: false }} />
@@ -47,6 +49,7 @@ function RootLayoutNav() {
             <Stack.Screen name="(dashboard)" options={{ headerShown: false }} />
           </Stack>
         </ReduxProvider>
+        </Provider>
       </ThemeProvider>
     </>
   );

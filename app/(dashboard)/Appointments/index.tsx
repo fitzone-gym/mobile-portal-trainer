@@ -37,13 +37,6 @@ export default function appointments() {
                         resizeMode="cover"
                         style={styles.image}
                     >
-                        <View style={styles.content}>
-                            <View>
-                                <Text style={styles.appointmentPageHeading}>
-                                    Appoinments
-                                </Text>
-                            </View>
-                        </View>
                     </ImageBackground>
 
                     <View style={styles.appointmentList}>
@@ -54,7 +47,7 @@ export default function appointments() {
                             {(["1", "2", "3", "4", "5"] as const).map((anchor) => (
                                 <View style={styles.individualAppointment}>
                                     <View style={styles.individualAppointmentContent}>
-                                        <View style={styles.timeAndMember}>
+                                        <View>
                                             <Text style={styles.time}>8.00 A.M - 10.00 A.M</Text>
                                             <View style={styles.member}>
                                                 <Image
@@ -70,31 +63,8 @@ export default function appointments() {
                                     </View>
                                 </View>
                             ))}
-
-                            {/* not book space */}
-                            <View style={styles.individualAppointmentNotBook}>
-                                <View style={styles.individualAppointmentContent}>
-                                    <View style={styles.timeAndMember}>
-                                        <Text style={styles.time}>10.00 A.M - 12.00 A.M</Text>
-                                        {/* <View style={styles.member}>
-                    <Image
-                    source={require("../../assets/images/trainer-1.jpg")}
-                    style={styles.userImage}
-                    />
-                    <Text style={styles.name}>Mr. Kevin Salgado</Text>
-                    </View> */}
-                                    </View>
-                                    <View>
-                                        {/* <Text style={styles.status}>Booked</Text> */}
-                                    </View>
-                                </View>
-                            </View>
                         </View>
                     </View>
-
-                    {/* <View style={styles.footerSection}>
-                        <Footer />
-                    </View> */}
                 </View>
             </ScrollView>
         </SafeAreaView>

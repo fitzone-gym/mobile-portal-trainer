@@ -50,19 +50,18 @@ export default function Payments() {
                         resizeMode="cover"
                         style={styles.image}
                     >
-                        <View style={styles.content}>
+                        {/* <View style={styles.content}>
                             <View style={styles.contentInline}>
                                 <Text style={styles.paymentPageHeading}>
                                     Payments
                                 </Text>
                                 <Button mode="contained" style={{ backgroundColor: '#E54646' , width:200,height:42 }} 
                                 onPress={() => {
-                                // generate report path
                             }}>
                                 <Text>GENERATE REPORT</Text>
                             </Button>
                             </View>
-                        </View>
+                        </View> */}
                     </ImageBackground>
 
                     <View style={styles.paymentRecodes}>

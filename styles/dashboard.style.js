@@ -69,32 +69,14 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:"center",
     },
-    totRow:{
-        justifyContent:"space-between",
-    },
-    memberRequestsCount:{
-        flex:1,
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:"space-between",
-        width:"75%",
-        height:"40%",
-        marginLeft:7,
-        borderRadius:10,
-        backgroundColor:"#E54646",
-        marginBottom:7
-
-    },
+    
     appoinmentCount:{
-        flex:1,
-        flexDirection:'row',
+        width:"53%",
+        backgroundColor:"black",
+        borderRadius:20,
+        opacity:0.7,
         alignItems:'center',
-        justifyContent:"space-between",
-        width:"75%",
-        height:"40%",
-        marginLeft:7,
-        borderRadius:10,
-        backgroundColor:"#686A6C"
+        justifyContent:"center",
     },
     specialAnnounce:{
         marginTop:20,

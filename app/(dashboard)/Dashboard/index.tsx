@@ -23,7 +23,7 @@ export default function Dashboard() {
 
     
     const [announcementDetails, setAnnouncementDetails] = useState<Announcement[]>([]);
-    const [totalMemberCount, setTotalMemberCount] = useState();
+    const [totalMemberCount, setTotalMemberCount] = useState<number>();
 
     useEffect(() => {
         axios
@@ -38,17 +38,15 @@ export default function Dashboard() {
     }, []);
 
     useEffect(() => {
+        console.log(currentUser.user_id);
         axios
-            .get(`/dashboard/totalMember`)
+            .get(`/dashboard/totalMember/${currentUser.user_id}`)
             .then((response: { data: { data: any; }; }) => {
                 const data = response.data.data;
                 setTotalMemberCount(data[0].workingMembers);
             })
             .catch((error: any) => console.error(error))
     }, []);
-
-    // console.info(totalMemberCount)
-
     const router = useRouter()
 
     return (
@@ -78,20 +76,14 @@ export default function Dashboard() {
                             <View style={styles.details}>
                                 <View style={styles.totalCount}>
                                     <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 13, padding: 10, }}>Total Members</Text>
-                                    <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 39 }}>{totalMemberCount}</Text>
-                                </View>
-                                <View style={styles.totRow}>
-                                    <View style={styles.memberRequestsCount}>
-                                        <View><IconButton icon="account-group" size={16} iconColor='#ffffff' /></View>
-                                        <View><Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 16 }}>Member requests</Text></View>
-                                        <View><Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 26, marginRight: 6 }}>6</Text></View>
-                                    </View>
+                                    <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 39 }}>
+                                        {totalMemberCount !== undefined && totalMemberCount < 10 ? `0${totalMemberCount}` : totalMemberCount}
+                                    </Text>
+                                </View>                                
                                     <View style={styles.appoinmentCount}>
-                                        <IconButton icon="calendar" size={16} iconColor='#ffffff' />
-                                        <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 16 }}>Today appoinments</Text>
-                                        <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 26, marginRight: 6 }}>6</Text>
+                                        <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 13, padding: 10 }}>Today appoinments</Text>
+                                        <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 39, marginRight: 6 }}>6</Text>
                                     </View>
-                                </View>
                             </View>
                             <View style={styles.specialAnnounce}>
                                 <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 18 }}>SPECIAL NOTICES</Text>
