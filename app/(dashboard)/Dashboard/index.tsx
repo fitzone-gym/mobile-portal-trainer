@@ -17,13 +17,21 @@ interface Announcement {
     create_date: Date;
 }
 
+interface UpNext{
+    first_name: string;
+    selectedDate: Date;
+    selectedTime:string;
+}
+
 export default function Dashboard() {
 
+    const router = useRouter()
     const currentUser = useAppSelector(state => state.user)
 
     
     const [announcementDetails, setAnnouncementDetails] = useState<Announcement[]>([]);
     const [totalMemberCount, setTotalMemberCount] = useState<number>();
+    const [upNextAppointment ,  setUpNextAppointment] = useState<UpNext[]>([]);
 
     useEffect(() => {
         axios
@@ -46,7 +54,16 @@ export default function Dashboard() {
             })
             .catch((error: any) => console.error(error))
     }, []);
-    const router = useRouter()
+
+    useEffect(()=>{
+        axios   
+            .get(`/dashboard/upNextAppointment/${currentUser.user_id}`)
+            .then((response: { data: { data: any; }; }) => {
+                // console.log(response.data.data);
+                setUpNextAppointment(response.data.data);
+            })
+            .catch((error: any) => console.error(error))
+    },[]);
 
     return (
         <SafeAreaView>
@@ -94,14 +111,15 @@ export default function Dashboard() {
                                             <Text style={{ color: '#ffffff' }}>{announcement.description}</Text>
                                         </View>
                                     ))
-                                ) : (<Text>No data</Text>)}
+                                ) : (<Text> </Text>)}
                             </View>
 
                             <View style={styles.upNext}>
                                 <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 18, marginBottom: 10 }}>Up Next Appointment</Text>
                                 <View style={styles.upNextInner}>
                                     <View>
-                                        <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 15, marginBottom: 10 }}>1.00 PM - 3.00 PM    </Text>
+                                        <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 15, marginBottom: 10 }}>{upNextAppointment.length > 0 ? new Date(upNextAppointment[0].selectedDate).toLocaleDateString('en-US') : 'No data'} </Text>
+                                        <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 15, marginBottom: 10 }}>{ upNextAppointment[0].selectedTime}   </Text>
                                     </View>
                                     <View style={styles.proPic}>
                                         <View style={styles.profilePic}>
@@ -109,7 +127,7 @@ export default function Dashboard() {
                                         </View>
                                     </View>
                                     <View style={styles.Name}>
-                                        <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 15, marginBottom: 10 }}>Mr.Samuel</Text>
+                                        <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 15, marginBottom: 10 }}>{upNextAppointment.length > 0 ? upNextAppointment[0].first_name : 'No data'} </Text>
                                     </View>
                                 </View>
                             </View>
