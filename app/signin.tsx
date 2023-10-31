@@ -31,7 +31,7 @@ export default function Signin() {
                 
                     if(response.data.success){
                         const currentUser = response.data.data;
-                        console.log(currentUser);  
+                        // console.log(currentUser);  
 
                         dispatch(setUser({
                             user_id: currentUser.user_id,
@@ -46,7 +46,7 @@ export default function Signin() {
                             }
                     else{
                         setError(response.data.error)
-                        console.log(response.data.error)
+                        // console.log(response.data.error)
                         alert(response.data.error)
                     }
                 })

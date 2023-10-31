@@ -41,7 +41,7 @@ export default function appointments() {
             .get(`/trainerAppointments/viewAppointments/${trainer_id}`)
             .then((response: {data : {data: any;}; })=>{
                 const data = response.data.data;
-                console.log(response.data.data);
+                // console.log(response.data.data);
                 setTrainerAppointments(response.data.data);
             })
             .catch((error: any) => console.log(error));
