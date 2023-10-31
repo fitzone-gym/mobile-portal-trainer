@@ -119,7 +119,7 @@ export default function Dashboard() {
                                 <View style={styles.upNextInner}>
                                     <View>
                                         <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 15, marginBottom: 10 }}>{upNextAppointment.length > 0 ? new Date(upNextAppointment[0].selectedDate).toLocaleDateString('en-US') : 'No data'} </Text>
-                                        <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 15, marginBottom: 10 }}>{ upNextAppointment[0].selectedTime}   </Text>
+                                        <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 15, marginBottom: 10 }}>{upNextAppointment && upNextAppointment.length > 0 ? upNextAppointment[0].selectedTime : 'No data'} </Text>
                                     </View>
                                     <View style={styles.proPic}>
                                         <View style={styles.profilePic}>
