@@ -32,13 +32,6 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 30,
         borderBottomRightRadius: 30,
     },
-    leaveForm:{
-        flex:1,
-        justifyContent:"space-between",
-        gap:10,
-        marginHorizontal:20,
-        marginVertical:5,
-    },
     leaveForm: {
         marginHorizontal:50,
         marginTop:10,
@@ -77,6 +70,67 @@ const styles = StyleSheet.create({
         marginBottom: 20, 
         padding: 10 ,
         borderRadius:5,
+    },
+    
+    subContainer:{
+        flex:1,
+        justifyContent:"center",
+        alignItems:"center"
+    },
+    leaveHistoryttl:{
+        marginTop:30,
+        marginLeft:20,
+        fontSize:25,
+        color:"#E54646",
+        marginBottom:10
+    },
+    leaveHistory:{
+        marginBottom:40,
+    },
+    Pending:{
+        marginHorizontal:50,
+        marginTop:10,
+        width:350,
+        backgroundColor:'#ccc',
+        opacity:0.7,
+        padding:20,
+        borderRadius:20
+
+    },
+    accept:{
+        marginHorizontal:50,
+        marginTop:10,
+        width:350,
+        backgroundColor:'#ccc',
+        opacity:0.7,
+        padding:20,
+        borderRadius:20
+
+    },
+    reject:{
+        marginHorizontal:50,
+        marginTop:10,
+        width:350,
+        backgroundColor:'#ccc',
+        opacity:0.7,
+        padding:20,
+        borderRadius:20
+    },
+    ttl:{
+        color:"#fff",
+        fontWeight:"bold",
+        textAlign:"center",
+    },
+    set:{
+        flex:1,
+        flexDirection:"row",
+        marginTop:10,
+        gap:10,
+        backgroundColor:"#000000",
+        padding:10,
+        borderRadius:20,
+        fontWeight:"bold",
+
     }
 
 })

@@ -6,6 +6,8 @@ import {useAppSelector} from '../../redux/store';
 import axios from '../../../axios'
 import { Button, Dialog, List, Portal, TextInput } from 'react-native-paper';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import { current } from '@reduxjs/toolkit';
+
 interface Leave  {
     fromDate:Date | undefined;
     toDate:Date | undefined;
@@ -14,7 +16,7 @@ interface Leave  {
 
 export default function Leaves(){
     
-    const localParams = useLocalSearchParams()
+    // const localParams = useLocalSearchParams() 
 
     const currentUser = useAppSelector(state => state.user)
     const router = useRouter()
@@ -24,6 +26,8 @@ export default function Leaves(){
     const [toDate, setToDate] = useState('');
     const [reason, setReason] = useState('');
     const [type, setType] = useState('');
+
+    const [hoydayTaken ,  setHolidayTaken] = useState<number>(0);
 
     const showDatePicker = (type: React.SetStateAction<string>) => {
         setType(type);
@@ -46,27 +50,89 @@ export default function Leaves(){
     };
 
     const submitRequest = () => {
-      // Handle the leave request submission
-      // You can use the fromDate, toDate, and reason here
-        console.log(fromDate, toDate, reason);
-        axios 
-            .post("/trainerLeaves/makeLeave",{
-                user_id: localParams.user_id,
-                from_date: fromDate,
-                to_date: toDate,
-                reason: reason
-            })
-            .then(res => {
-                if(res.data.success) {
-                alert("Successfuly send request")                
-                }else {
-                    alert("Failed leave request")
+     // Fetch the current table values
+    console.log('Submit request');
+    console.log(currentUser.user_id);
+    axios.get(`/trainerLeaves/getLeavesDetails/${currentUser.user_id}`)
+    .then((response: {data: {data:any }; }) => {
+        setHolidayTaken(response.data.data.holidays_taken);
+        console.log("Holidy taken", typeof(response.data.data.holidays_taken));
+
+        console.log(fromDate, toDate, reason, currentUser.user_id, response.data.data.holidays_taken);
+        axios.post("/trainerLeaves/makeLeave", {
+            user_id: currentUser.user_id,
+            from_date: fromDate,
+            to_date: toDate,
+            reason: reason,
+            holidays_taken: response.data.data.holidays_taken,
+            no_of_leave_dates: 5,
+            no_remaining_leave_date: 5 - response.data.data.holidays_taken,
+            status: 1
+        })
+            .then((res) => {
+                if (res.data.success) {
+                alert("Successfully sent request");
+                    setFromDate('');
+                    setToDate('');
+                    setReason('');
+                } else {
+                alert("Failed leave request");
                 }
-                }).catch(err => {
-                console.log(err);
-                alert("Failed leave request")                
-                })
-    };
+            })
+            .catch((err) => {
+                console.error(err);
+            alert("Failed leave request");
+            });
+    })
+    .catch((error) => {
+        console.error("Error fetching current leaves:", error);
+        alert("Failed to fetch current leaves");
+    });
+};
+    interface Details{
+        leave_request_id:number;
+        request_date :Date;
+        leave_date :Date;
+        reason :string;
+    }
+
+    const[pendingLeave , setPendingLeave] = useState<Details[]>([]);
+    const[acceptLeave , setAcceptLeave] = useState<Details[]>([]);
+    const[rejectLeave , setRejectLeave] = useState<Details[]>([]);
+
+    useEffect(() => {
+        // console.log(currentUser.user_id);
+        axios
+            .get(`/trainerLeaves/getPendingLeave/${currentUser.user_id}`)
+            .then((response: { data: { data: any; }; }) => {
+                setPendingLeave(response.data.data);
+                // console.log("pendingg",response.data.data);                
+            })        
+            .catch((error: any) => console.error(error));
+    },[pendingLeave]);
+
+    useEffect(() => {
+        axios
+            .get(`/trainerLeaves/getAcceptLeave/${currentUser.user_id}`)
+            .then((response: { data: { data: any; }; }) => {
+                setAcceptLeave(response.data.data);
+                // console.log("accept",response.data.data);                
+            })
+            .catch((error: any) => console.error(error));
+
+    },[acceptLeave]);
+
+    useEffect(() => {
+        axios
+            .get(`/trainerLeaves/getRejectLeave/${currentUser.user_id}`)
+            .then((response: { data: { data: any; }; }) => {
+                setRejectLeave(response.data.data);
+                // console.log("reject",response.data.data);                
+            })
+            .catch((error: any) => console.error(error));
+
+    },[rejectLeave]);
+
 
     return(
     <SafeAreaView>
@@ -97,48 +163,95 @@ export default function Leaves(){
                         </View>
                     </View>
                 </View>
+                <View style={styles.subContainer}>               
+                    {/* Leave form */}
+                    <View style={styles.leaveForm}>
+                        <Text style={styles.labels}>From Date:</Text>
+                        
+                        <TouchableOpacity onPress={() => showDatePicker('from')} >
+                            <Text style={styles.dateInput}>{fromDate || 'Select From Date'} </Text>
+                        </TouchableOpacity>
 
-                {/* Leave form */}
-                <View style={styles.leaveForm}>
-                    <Text style={styles.labels}>From Date:</Text>
-                    
-                    <TouchableOpacity onPress={() => showDatePicker('from')} >
-                        <Text style={styles.dateInput}>{fromDate || 'Select From Date'} </Text>
-                    </TouchableOpacity>
+                        <Text  style={styles.labels}>To Date:</Text>
 
-                    <Text  style={styles.labels}>To Date:</Text>
+                        <TouchableOpacity onPress={() => showDatePicker('to')} >                        
+                            <Text style={styles.dateInput}>{toDate || 'Select To Date'}</Text>
+                        </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => showDatePicker('to')} >                        
-                        <Text style={styles.dateInput}>{toDate || 'Select To Date'}</Text>
-                    </TouchableOpacity>
+                        <TextInput
+                            style={styles.reason}
+                            onChangeText={text => setReason(text)}
+                            value={reason}
+                            placeholder="Reason"
+                        />
 
-                    <TextInput
-                        style={styles.reason}
-                        onChangeText={text => setReason(text)}
-                        value={reason}
-                        placeholder="Reason"
-                    />
+                        <TouchableOpacity onPress={submitRequest}  style={styles.leaveBtn}>
+                            <Text style={styles.leaveBtnTxt}>REQUEST</Text>
+                        </TouchableOpacity>
 
-                    <TouchableOpacity onPress={submitRequest}  style={styles.leaveBtn}>
-                        <Text style={styles.leaveBtnTxt}>REQUEST</Text>
-                    </TouchableOpacity>
+                        <DateTimePickerModal
+                            isVisible={isDatePickerVisible}
+                            mode="date"
+                            onConfirm={handleConfirm}
+                            onCancel={hideDatePicker}
+                            minimumDate={new Date()}
+                        />
+                    </View>
 
-                    <DateTimePickerModal
-                        isVisible={isDatePickerVisible}
-                        mode="date"
-                        onConfirm={handleConfirm}
-                        onCancel={hideDatePicker}
-                    />
+                            {/* Leave history */}
+                    <Text style={styles.leaveHistoryttl}>Leave History</Text>
+
+                    <View style={styles.leaveHistory}>
+                        <View style={styles.Pending} >
+                            <Text style={styles.ttl}>Pending Leave Requests</Text>
+                            {pendingLeave.length > 0?(
+                                pendingLeave.map((leave:any) => (
+                                    <View key={leave.leave_request_id} style={styles.set}>
+                                        <Text>From: {new Date(leave.request_date).toLocaleDateString('en-US')}</Text>
+                                        <Text>To: {new Date(leave.leave_date).toLocaleDateString('en-US')}</Text>
+                                        <Text>{leave.reason}</Text>
+                                    </View>                                    
+                                ))
+                            ):(<Text> no data </Text>)
+                            }
+                        </View>
+
+                        <View style={styles.accept}>
+                            <Text style={styles.ttl}>Accepted Leave Requests</Text> 
+                            {acceptLeave.length > 0?(
+                                acceptLeave.map((leave:any) => (
+                                    <View key={leave.leave_request_id} style={styles.set}>
+                                        <Text>From: {new Date(leave.request_date).toLocaleDateString('en-US')}</Text>
+                                        <Text>To: {new Date(leave.leave_date).toLocaleDateString('en-US')}</Text>
+                                        <Text>{leave.reason}</Text>
+                                    </View>                                    
+                                ))
+                            ):(<Text> no data </Text>)
+                            }                            
+                        </View>
+
+                        <View style={styles.reject}>
+                            <Text style={styles.ttl}>Rejected Leave Requests</Text>
+                            {rejectLeave.length > 0?(
+                                rejectLeave.map((leave:any) => (
+                                    <View key={leave.leave_request_id} style={styles.set}>
+                                        <Text>From: {new Date(leave.request_date).toLocaleDateString('en-US')}</Text>
+                                        <Text>To: {new Date(leave.leave_date).toLocaleDateString('en-US')}</Text>
+                                        <Text>{leave.reason}</Text>
+                                    </View>                                    
+                                ))
+                            ):(<Text> no data </Text>)
+                            }
+                        </View>
+                    </View>
+
                 </View>
-
-                        {/* Leave history */}
-                    {/* <Text>Leave History</Text>
-                <View>
-
-                </View> */}
-                
             </ScrollView>
         </View>
     </SafeAreaView>
     )
+}
+
+function then(arg0: (res: any) => void) {
+    throw new Error('Function not implemented.');
 }

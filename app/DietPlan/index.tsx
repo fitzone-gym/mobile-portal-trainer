@@ -1,13 +1,33 @@
-import React from 'react';
+import React, { useState , useEffect} from 'react';
 
-import { Stack, useRouter } from 'expo-router';
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { View, Text, SafeAreaView, ScrollView, ImageBackground } from 'react-native';
 import styles from "../../styles/dietPlan.style";
 import { TextInput } from 'react-native-paper';
+import { Float } from 'react-native/Libraries/Types/CodegenTypes';
+import axios from 'axios';
 // import { Button } from 'react-native-paper';
+
+interface details {
+    age: number,
+    weight : number,
+    height : number
+}
 
 export default function Payments() {
     const router = useRouter()
+    const localParams =  useLocalSearchParams();
+
+    const[helthDetails , setHelthDetails] =  useState<details[]>([]);
+
+    const getHelthDetails = () =>{
+        axios.get(`/dietPlanDetails/healthDetails/${localParams.user_id}`)
+        .then((response:{data:{data:any};})=>{
+
+        }).catch((error: any) => console.error(error));
+    }
+
+
 
     return (
         <SafeAreaView>

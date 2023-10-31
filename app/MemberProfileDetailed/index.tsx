@@ -52,7 +52,7 @@ export default function memberProfileDetailed() {
             .catch((error) => console.error("Error fetching Member Details", error));
 
   },[])
-  console.log(member);
+  // console.log(member);
 
   const [helthInjuries, setHelthInjuries] = useState<HelthInjuries | null>(null);
 
@@ -90,11 +90,8 @@ export default function memberProfileDetailed() {
               <View style={styles.memberDetails}>
                 <View>
                   <Image
-                    style={styles.memberImage}
-                    source={{
-                      uri: `https://stylioo.blob.core.windows.net/images/${member?.profile_picture}`
-                    }}
-                    
+                    // style={styles.memberImage}
+                    source={{ uri: `https://stylioo.blob.core.windows.net/images/${member?.profile_picture}` }}                    
                   />
                 </View>
 
@@ -162,7 +159,12 @@ export default function memberProfileDetailed() {
                   <TouchableOpacity
                     style={styles.fillWhiteBtn}
                     onPress={()=>{
-                      router.push('/DietPlan')
+                      router.push({
+                        pathname:'/DietPlan',
+                        params:{
+                          user_id:localParams.user_id
+                        }
+                      })
                   }} 
                   >
                     <Text style={{ color: "#E54646", fontWeight: "bold" }}>

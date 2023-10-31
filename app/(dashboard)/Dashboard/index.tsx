@@ -30,15 +30,14 @@ export default function Dashboard() {
             .get(`/dashboard/announcement`)
             .then((response: { data: { data: any; }; }) => {
                 setAnnouncementDetails(response.data.data);
-                // console.log(response.data.data);
-                
+                console.log(response.data.data);                
             })
             .catch((error: any) => console.error(error));
 
     }, []);
 
     useEffect(() => {
-        console.log(currentUser.user_id);
+        // console.log(currentUser.user_id);
         axios
             .get(`/dashboard/totalMember/${currentUser.user_id}`)
             .then((response: { data: { data: any; }; }) => {
@@ -82,14 +81,15 @@ export default function Dashboard() {
                                 </View>                                
                                     <View style={styles.appoinmentCount}>
                                         <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 13, padding: 10 }}>Today appoinments</Text>
-                                        <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 39, marginRight: 6 }}>6</Text>
+                                        <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 39, marginRight: 6 }}>03</Text>
                                     </View>
                             </View>
                             <View style={styles.specialAnnounce}>
                                 <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 18 }}>SPECIAL NOTICES</Text>
                                 {announcementDetails.length > 0 ? (
                                     announcementDetails.map((announcement: any) => (
-                                        <View style={styles.data} key={announcement.announcement_id}>
+                                        <View style={styles.data} key={announcement.announcement_id}> 
+                                            <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 15, marginBottom: 10 }}>{new Date(announcement.create_date).toLocaleDateString('en-US')}                                      {new Date(announcement.create_date).toLocaleTimeString('en-US')}</Text>
                                             <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 18, marginBottom: 10 }}>{announcement.title}</Text>
                                             <Text style={{ color: '#ffffff' }}>{announcement.description}</Text>
                                         </View>

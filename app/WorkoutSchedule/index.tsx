@@ -199,7 +199,7 @@ useEffect(() => {
                     </Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity
+                  {/* <TouchableOpacity
                     style={styles.fillWhiteBtn}
                     onPress={() => {
                       router.push("/addNote");
@@ -208,7 +208,7 @@ useEffect(() => {
                     <Text style={styles.addNoteBtn}>
                       <Text style={styles.btnText1}>Add note</Text>
                     </Text>
-                  </TouchableOpacity>
+                  </TouchableOpacity> */}
                 </View>
               </View>
             </View>
