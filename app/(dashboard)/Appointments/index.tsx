@@ -1,5 +1,6 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "../../../axios";
 import {
     ImageBackground,
     StyleSheet,
@@ -13,14 +14,40 @@ import {
 import { Stack, useRouter } from "expo-router";
 
 import styles from "../../../styles/trainer-appointments.style";
+import {useAppSelector} from '../../redux/store';
 
-import Icon from "react-native-vector-icons/MaterialIcons";
-import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+interface Appointments{
+    id:number,
+    first_name: string;
+    last_name: string;
+    selectedDate: Date;
+    selectedTime: Date;
+}
 
 
 export default function appointments() {
     /*for routing*/
     const router = useRouter();
+
+    const currentUser = useAppSelector(state => state.user);
+
+    const [trainerAppointments, setTrainerAppointments] = useState<Appointments[]>([]);
+
+
+
+    useEffect(()=>{
+        const trainer_id = currentUser.user_id;
+        axios
+            .get(`/trainerAppointments/viewAppointments/${trainer_id}`)
+            .then((response: {data : {data: any;}; })=>{
+                const data = response.data.data;
+                console.log(response.data.data);
+                setTrainerAppointments(response.data.data);
+            })
+            .catch((error: any) => console.log(error));
+    },[]);
+
+
     return (
         <SafeAreaView>
             <Stack.Screen
@@ -38,33 +65,17 @@ export default function appointments() {
                         style={styles.image}
                     >
                     </ImageBackground>
-
-                    <View style={styles.appointmentList}>
-                        <View>
-                            <Text style={styles.appointmentDate}>Wednsday, 14 July.</Text>
-                        </View>
                         <View style={styles.appointments}>
-                            {(["1", "2", "3", "4", "5"] as const).map((anchor) => (
-                                <View style={styles.individualAppointment}>
-                                    <View style={styles.individualAppointmentContent}>
-                                        <View>
-                                            <Text style={styles.time}>8.00 A.M - 10.00 A.M</Text>
-                                            <View style={styles.member}>
-                                                <Image
-                                                    source={require("../../../assets/images/trainer-1.jpg")}
-                                                    style={styles.userImage}
-                                                />
-                                                <Text style={styles.name}>Mr. Kevin Salgado</Text>
-                                            </View>
-                                        </View>
-                                        <View>
-                                            <Text style={styles.status}>Booked</Text>
-                                        </View>
+                            {trainerAppointments.length > 0? (
+                                trainerAppointments.map((appointment:any) => (
+                                    <View style={styles.individualAppointment} key={appointment.id}>
+                                        <Text style={styles.time}>{new Date(appointment.selectedDate).toLocaleDateString('en-US')}  </Text>
+                                        <Text style={styles.time}>{new Date("1970-01-01T" + appointment.selectedTime + "Z").toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}</Text>
+                                        <Text style={styles.name}>{appointment.first_name}  {appointment.last_name}</Text>
                                     </View>
-                                </View>
-                            ))}
+                                ))
+                            ):(<Text> </Text>)}
                         </View>
-                    </View>
                 </View>
             </ScrollView>
         </SafeAreaView>

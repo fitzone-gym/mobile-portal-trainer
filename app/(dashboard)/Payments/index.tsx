@@ -26,7 +26,7 @@ export default function Payments() {
         .get(`/payment/totalPayments/${currentUser.user_id}`)
         .then((response:{data:{data:any;};})=>{
             setTotalPayment(response.data.data);
-            console.log(response.data.data);
+            console.log("total",response.data.data);
         })
         .catch((error: any) => console.error(error))
     },[]);

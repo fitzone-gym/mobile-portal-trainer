@@ -36,54 +36,36 @@ import { StyleSheet } from "react-native";
       color: "white",
       marginBottom: 20,
     },
-    appointmentList: {
-      margin: 20,
-    },
     appointmentDate: {
       fontSize: 17,
-      // fontWeight: 500,
       color: "white",
       marginBottom: 20,
     },
     appointments: {
       backgroundColor: "#222222",
       borderRadius: 20,
-      paddingBottom:20
+      paddingBottom:20,
+      margin:20,
     },
     individualAppointment: {
-      padding: 10,
-      borderBottomWidth: 1,
-      borderBottomColor: "#E54646",
-      padding: 20,
-    },
-    individualAppointmentNotBook:{
-      padding: 10,
-      borderBottomWidth: 1,
-      borderBottomColor: "#E54646",
-      padding: 20,
-      paddingBottom:50, 
-      backgroundColor:"#E54646",
-    },
-    individualAppointmentContent: {
-      display: "flex",
+      flex: 1,
       flexDirection: "row",
-      gap: 80,
+      justifyContent:"space-around",
+      padding: 10,
+      borderBottomWidth: 2,
+      borderBottomColor: "#E54646",
+      padding: 20,
     },
     time: {
       color: "white",
       marginBottom:10
     },
-    member: {
-      color: "white",
-      display:"flex",
-      flexDirection:"row",
-      gap:12
-    },
     name: {
-      paddingTop:8,
       alignItems:"center",
       justifyContent:"center",
-      color: "white",
+      color: "#580058",
+      fontSize:16,
+      fontWeight: "bold",
     },
     status: {
       color: "#959595",

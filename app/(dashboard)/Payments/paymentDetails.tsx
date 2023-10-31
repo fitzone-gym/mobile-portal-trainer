@@ -7,7 +7,7 @@ import axios from '../../../axios'
 
 
 interface details{
-    amount: number;
+    deducted_amount: number;
     member_id: number;
     payment_made_date: Date;
 }
@@ -57,13 +57,13 @@ export default function Payments() {
                                             </View>
                                             <View style={styles.leftDown}>
                                                 <Text>NIC:  {paymentDetail.nic}</Text>
-                                                <Text>Mobile no:  {paymentDetail.phone_no}</Text>
+                                                <Text>Mobile no:  0{paymentDetail.phone_no}</Text>
                                                 <Text>email:  {paymentDetail.email}</Text>
                                             </View>
                                             <Text style={{color:'green', fontWeight:'bold', marginTop:20}}>TRANSACTION COMPLETED</Text>
                                         </View>
                                         <View style={styles.right}>
-                                            <Text style={{ fontSize:22, fontWeight:'bold'}}>LKR: {paymentDetail.amount}</Text>
+                                            <Text style={{ fontSize:22, fontWeight:'bold'}}>LKR: {paymentDetail.deducted_amount}</Text>
                                             <Text>{paymentDetail.payment_date}</Text>
                                             <Text>{paymentDetail.payment_time}</Text>
                                             <Text style={{color:'#E54646', fontSize:16,fontWeight:'bold', marginTop:30, marginLeft:20}}>{paymentDetail.payment_details} Package</Text>
@@ -72,7 +72,7 @@ export default function Payments() {
                                     </View>
                                 ))
                             ) : (
-                                <Text>No data</Text>
+                                <Text> </Text>
                         )}
                         </View>
                 </View>
