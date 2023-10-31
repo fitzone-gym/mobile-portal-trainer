@@ -49,12 +49,18 @@ import { StyleSheet } from "react-native";
     },
     individualAppointment: {
       flex: 1,
-      flexDirection: "row",
+      flexDirection: "column",
       justifyContent:"space-around",
       padding: 10,
-      borderBottomWidth: 2,
+      borderBottomWidth: 0.5,
       borderBottomColor: "#E54646",
       padding: 20,
+    },
+    dateTime:{
+      flex: 1,
+      flexDirection:"row",
+      marginTop:2,
+      paddingVertical:5
     },
     time: {
       color: "white",
@@ -63,7 +69,7 @@ import { StyleSheet } from "react-native";
     name: {
       alignItems:"center",
       justifyContent:"center",
-      color: "#580058",
+      color: "#E8A317",
       fontSize:16,
       fontWeight: "bold",
     },

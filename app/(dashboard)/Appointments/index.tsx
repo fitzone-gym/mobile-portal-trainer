@@ -21,7 +21,7 @@ interface Appointments{
     first_name: string;
     last_name: string;
     selectedDate: Date;
-    selectedTime: Date;
+    selectedTime: string;
 }
 
 
@@ -69,9 +69,11 @@ export default function appointments() {
                             {trainerAppointments.length > 0? (
                                 trainerAppointments.map((appointment:any) => (
                                     <View style={styles.individualAppointment} key={appointment.id}>
-                                        <Text style={styles.time}>{new Date(appointment.selectedDate).toLocaleDateString('en-US')}  </Text>
-                                        <Text style={styles.time}>{new Date("1970-01-01T" + appointment.selectedTime + "Z").toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}</Text>
                                         <Text style={styles.name}>{appointment.first_name}  {appointment.last_name}</Text>
+                                        <View style={styles.dateTime}>
+                                            <Text style={styles.time}>{new Date(appointment.selectedDate).toLocaleDateString('en-US')}  </Text>
+                                            <Text style={styles.time}>      {appointment.selectedTime}</Text>
+                                        </View>                                           
                                     </View>
                                 ))
                             ):(<Text> </Text>)}
