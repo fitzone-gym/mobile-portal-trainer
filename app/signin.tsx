@@ -46,7 +46,7 @@ export default function Signin() {
                             }
                     else{
                         setError(response.data.error)
-                        // console.log(response.data.error)
+                        console.log(response.data.error)
                         alert(response.data.error)
                     }
                 })

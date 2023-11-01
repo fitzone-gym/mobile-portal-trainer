@@ -96,10 +96,10 @@ export default function Dashboard() {
                                         {totalMemberCount !== undefined && totalMemberCount < 10 ? `0${totalMemberCount}` : totalMemberCount}
                                     </Text>
                                 </View>                                
-                                    <View style={styles.appoinmentCount}>
+                                    {/* <View style={styles.appoinmentCount}>
                                         <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 13, padding: 10 }}>Today appoinments</Text>
                                         <Text style={{ color: '#ffffff', fontWeight: 'bold', fontSize: 39, marginRight: 6 }}>03</Text>
-                                    </View>
+                                    </View> */}
                             </View>
                             <View style={styles.specialAnnounce}>
                                 <Text style={{ color: '#E54646', fontWeight: 'bold', fontSize: 18 }}>SPECIAL NOTICES</Text>

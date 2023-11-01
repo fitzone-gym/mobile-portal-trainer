@@ -101,19 +101,19 @@ textInput2:{
 },
 details:{
     padding:20,
-    flex:1,
-    flexDirection: "column",
     gap:10,
-    height:260
+    height:290,
+    width:250,
 },
 detailTypes:{
     backgroundColor:'#3A3B3C',
-    width: "100%",
-    height: "100%",
+    width: 360,
+    height: 320,
     borderRadius: 10,
     padding:20,
     flexDirection:'column',
     gap:18,
+    paddingBottom:20
 },
 rowdetail:{
     flexDirection: "row",
@@ -130,9 +130,36 @@ textInput3:{
     width: 170,
     height:40,
 },
-menus:[
-    
-]
+menus:  {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent:"space-between",
+    marginHorizontal:20,
+    marginTop:40,
+},
+menuBtn:{
+    backgroundColor:"#E54646",
+    color: '#000000',
+    padding:10,
+    fontWeight: 'bold',
+    borderRadius:20,
+    paddingHorizontal:20,
+},
+menutxtBtn:{
+    fontWeight: 'bold',
+},
+createBtn:{
+    alignItems:"center",
+    backgroundColor:"#E54646",
+    paddingHorizontal:20,
+    paddingVertical:10,
+    borderRadius:20,
+    fontWeight: 'bold',
+},
+viewDietPlane:{
+    height:450,
+}
+
 });
 
 export default styles;

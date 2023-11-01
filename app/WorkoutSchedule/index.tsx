@@ -185,7 +185,7 @@ useEffect(() => {
           >
             <View style={styles.content}>
               <View>
-                <Text style={styles.sheulePageHeading}>workout shedule</Text>
+                <Text style={styles.sheulePageHeading}>workout schedule</Text>
               </View>
 
               <View style={styles.sheduleOptionsButton}>
