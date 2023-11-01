@@ -63,7 +63,7 @@ export default function memberProfileDetailed() {
       })
       .catch((error) => console.error("Error fetching helth and Injuries details", error));
   },[])
-  console.log(helthInjuries);
+  // console.log(helthInjuries);
 
 
   return (

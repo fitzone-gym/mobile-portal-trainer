@@ -5,11 +5,13 @@ import { View, Text, SafeAreaView, ScrollView, ImageBackground } from 'react-nat
 import styles from "../../styles/dietPlan.style";
 import { TextInput } from 'react-native-paper';
 import { Float } from 'react-native/Libraries/Types/CodegenTypes';
-import axios from 'axios';
+import axios from '../../axios';
+import { useAppSelector } from '../redux/store';
 // import { Button } from 'react-native-paper';
 
 interface details {
-    age: number,
+    first_name: string;
+    last_name: string;
     weight : number,
     height : number
 }
@@ -17,16 +19,24 @@ interface details {
 export default function Payments() {
     const router = useRouter()
     const localParams =  useLocalSearchParams();
+    // console.log(localParams.user_id); // member id from the ocal params
+    const currentUser = useAppSelector(state => state.user);
+    // console.log(currentUser.user_id); // trainer id from the session
+    
 
     const[helthDetails , setHelthDetails] =  useState<details[]>([]);
 
-    const getHelthDetails = () =>{
-        axios.get(`/dietPlanDetails/healthDetails/${localParams.user_id}`)
-        .then((response:{data:{data:any};})=>{
-
-        }).catch((error: any) => console.error(error));
-    }
-
+    useEffect(() => {
+        // console.log(currentUser.user_id);
+        axios
+            .get(`/memberDetailsForTrainers/dietPlanDetails/healthDetails/${localParams.user_id}`)
+            .then((response: { data: { data: any; }; }) => {
+                const data = response.data.data;
+                setHelthDetails(response.data.data);
+                console.log(response.data.data);
+            })
+            .catch((error: any) => console.error(error))
+    }, []);
 
 
     return (
@@ -51,30 +61,18 @@ export default function Payments() {
                                 </Text>
                             </View>
                         </View>
+                        {helthDetails.length > 0 ? (
                         <View style={styles.top}>
                             <View style={styles.sets}>
                                 <Text style={styles.label}>Weight:</Text>                                
-                                <Text style={styles.textInput}>45Kg</Text>                                
+                                <Text style={styles.textInput}> {helthDetails[0].weight} Kg</Text>                                
                             </View>
                             <View style={styles.sets}>
                                 <Text style={styles.label}>Height:</Text>                                
-                                <Text style={styles.textInput}>158cm</Text>                                
-                            </View>
-                            <View style={styles.sets}>
-                                <Text style={styles.label}>Age:</Text>                                
-                                <Text style={styles.textInput}>24</Text>                                
+                                <Text style={styles.textInput}>{helthDetails[0].height} cm</Text>                                
                             </View>
                         </View>
-                        <View style={styles.bottom}>
-                            <View style={styles.sets2}>
-                                <Text style={styles.label2}>Calories per day</Text>                                
-                                <Text style={styles.textInput2}>220</Text>                                
-                            </View>
-                            <View style={styles.sets2}>
-                                <Text style={styles.label2}>Steps per day</Text>                                
-                                <Text style={styles.textInput2}>3000</Text>                                
-                            </View>
-                        </View>
+                        ) : ( <Text> No helth details available</Text>)}
                     </ImageBackground>
 
                     <View style={styles.details}>
