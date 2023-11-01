@@ -96,6 +96,9 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingBottom: 10,
     borderRadius: 5,
+    textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
   fillWhiteBtn: {
     backgroundColor: "white",
@@ -109,6 +112,9 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     borderRadius: 5,
     marginLeft: 10,
+    textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
   fillButton: {
     padding: 10,
@@ -125,7 +131,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: "bold",
     marginTop: 20,
-    marginBottom:20
+    marginBottom: 20,
   },
   workoutProgressArea: {
     marginVertical: 20,
