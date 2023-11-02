@@ -126,9 +126,6 @@ export default function Payments() {
     }
 
 
-    // breakfast.protine_gram
-    // breakfast.protine_gram
-
     useEffect(() => {
         getDietPlan()
         console.log();
@@ -157,8 +154,7 @@ export default function Payments() {
                         <View style={styles.content}>
                             <View style={styles.contentInline}>
                                 <Text style={styles.dietPlanHeading}>
-                                    Diet plan 
-                                    {/* {dietPlan?.breakfast?.protein_gram} */}
+                                    Diet plan
                                 </Text>
                             </View>
                         </View>
@@ -202,9 +198,68 @@ export default function Payments() {
                         </TouchableOpacity>
                     </View>
                 </View>
-
                 <View style={styles.viewDietPlane}>
-                    <Text></Text>
+                    <View style = {styles.meal}>
+                        <Text style={styles.mealttl}>BREAKFAST</Text> 
+                        {dietPlan.breakfast? (
+                            <View style = {styles.content2}>
+                                <Text style={styles.subContent}>
+                                    Protiens: {dietPlan?.breakfast?.protein_gram}
+                                </Text>
+                                <Text style={styles.subContent}>
+                                    Carbohydrate: {dietPlan?.breakfast?.carbohydrate_gram}
+                                </Text>
+                                <Text style={styles.subContent}>
+                                    Mineral: {dietPlan?.breakfast?.mineral_gram}
+                                </Text>
+                                <Text style={styles.subContent}>
+                                    Fat: {dietPlan?.breakfast?.fat_gram}
+                                </Text>
+                            </View>
+                        ):(<Text>No plan</Text>)}
+                        
+                    </View>
+                    <View style = {styles.meal}>
+                        <Text style={styles.mealttl}>LUNCH</Text>
+                        {dietPlan.lunch? (
+                            <View style = {styles.content2}>
+                                <Text style={styles.subContent}>
+                                    Protiens: {dietPlan?.lunch?.protein_gram}
+                                </Text>
+                                <Text style={styles.subContent}>
+                                    Carbohydrate: {dietPlan?.lunch?.carbohydrate_gram}
+                                </Text>
+                                <Text style={styles.subContent}>
+                                    Mineral: {dietPlan?.lunch?.mineral_gram}
+                                </Text>
+                                <Text style={styles.subContent}>
+                                    Fat: {dietPlan?.lunch?.fat_gram}
+                                </Text>
+                            </View>
+                        ):(<Text>No plan</Text>)}
+                        
+
+                    </View>
+                    <View style = {styles.meal}>
+                        <Text style={styles.mealttl}>DINNER</Text>
+                        {dietPlan.dinner? (
+                            <View style = {styles.content2}>
+                                <Text style={styles.subContent}>
+                                    Protiens: {dietPlan?.dinner?.protein_gram}
+                                </Text>
+                                <Text style={styles.subContent}>
+                                    Carbohydrate: {dietPlan?.dinner?.carbohydrate_gram}
+                                </Text>
+                                <Text style={styles.subContent}>
+                                    Mineral: {dietPlan?.dinner?.mineral_gram}
+                                </Text>
+                                <Text style={styles.subContent}>
+                                    Fat: {dietPlan?.dinner?.fat_gram}
+                                </Text>
+                            </View>
+                        ):(<Text>No plan</Text>)}
+                        
+                    </View>
                 </View>
 
 

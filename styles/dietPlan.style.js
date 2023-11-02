@@ -157,7 +157,39 @@ createBtn:{
     fontWeight: 'bold',
 },
 viewDietPlane:{
-    height:450,
+    height:900,
+    margin:30,
+    marginTop:50,
+    display: 'flex',
+    alignItems: 'center',
+    gap:50,
+},meal:{
+    marginBottom:0,
+},
+mealttl:{
+    fontSize:16,
+    fontWeight:"bold",
+    color: "#ffffff"
+},
+content2:{
+    marginTop:10,
+    gap:20
+
+},
+subContent:{
+    color: "#000000",
+    display:"flex",
+    padding:10,
+    backgroundColor: "#808080",
+    width:200,
+    borderRadius:20,
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize:16,
+},
+dtlMeal:{
+    color: "#dcdfe2",
+    fontSize: 25,
 }
 
 });
